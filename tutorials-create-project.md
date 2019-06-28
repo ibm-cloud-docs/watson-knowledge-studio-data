@@ -55,7 +55,7 @@ The creation of a machine learning model requires input from subject matter expe
 ### Procedure
 {: #wks_tutless1_procedure}
 
-1. Log in to {{site.data.keyword.knowledgestudioshort}} with your administrator ID. If you have an existing {{site.data.keyword.knowledgestudioshort}} instance, you can find it on the {{site.data.keyword.cloud_notm}} [resources page ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://{DomainName}/resources){: new_window} under **Services**.
+1. Log in to {{site.data.keyword.knowledgestudioshort}} with an administrator ID.
 2. Click the **Settings** icon to open the Service Details page. The page lists all the user IDs that are registered as {{site.data.keyword.knowledgestudioshort}} users. Each user ID has one of the following roles (in decreasing order of included permissions):
 
     - Admin
