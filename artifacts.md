@@ -1,0 +1,47 @@
+---
+
+copyright:
+  years: 2019
+lastupdated: "2019-06-28"
+
+subcollection: watson-knowledge-studio-data
+
+---
+
+{:shortdesc: .shortdesc}
+{:new_window: target="_blank"}
+{:tip: .tip}
+{:pre: .pre}
+{:codeblock: .codeblock}
+{:screen: .screen}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:java: .ph data-hd-programlang='java'}
+{:python: .ph data-hd-programlang='python'}
+{:swift: .ph data-hd-programlang='swift'}
+
+# Types of artifacts
+{: #artifacts}
+
+First create or upload artifacts to use to train the models.
+{: shortdesc}
+
+The models learn about the following types of artifacts that you add to the workspace:
+
+- **Type system**
+
+    A type system defines the entities and relationships between entities that matter to you. See [Establishing a type system](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-typesystem).
+
+- **Dictionaries**
+
+    A dictionary groups together words and phrases that should be treated equivalently by a model. See [Creating dictionaries](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-dictionaries).
+
+- **Documents**
+
+    Documents serve a different purpose depending on whether you are creating a machine learning model or a rule-based model. See the following topics for more information:
+    - Machine learning model documents: [Adding documents for annotation](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-documents-for-annotation)
+    - Rule-based model documents: [Adding documents for defining rules](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_anno_add)
+
+You can upload many of these artifacts from external resources, including artifacts that you downloaded from other {{site.data.keyword.knowledgestudioshort}} workspaces. See [Uploading resources from another workspace](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-exportimport) for information about uploading artifacts from other workspaces.
+
+See [Summary of inputs, outputs, and limitations](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-create-project#wks_formats) for key facts about artifacts, such as size limits and supported file types for imported artifacts.
+
