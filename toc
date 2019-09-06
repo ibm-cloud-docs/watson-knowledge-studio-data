@@ -19,7 +19,7 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [Accessibility](/docs/overview/accessibility/accessibility_features.html)
+    [Accessibility](/docs/overview?topic=overview-accessibility-platform#features-platform)
     glossary.md
     language-support.md
     information-security.md
@@ -29,6 +29,7 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
     {: .topicgroup}
     Installing
         install.md
+        [Helm chart README.md](https://github.com/ibm-cloud-docs/data-readmes/blob/master/watson-knowledge-studio-README.md)
         manage.md
 
     team.md
@@ -57,6 +58,7 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
         documents-for-annotation.md
         preannotation.md
         annotate-documents.md
+        annotating-document-sets-directly.md
         build-groundtruth.md
         train-ml.md
         evaluate-ml.md
@@ -66,6 +68,7 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
     user-guide.md
     backup-restore.md
     backup-restore-databases.md
+    backup-restore-databases-1.0.0.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-28"
+lastupdated: "2019-08-30"
 
 subcollection: watson-knowledge-studio-data
 
@@ -77,49 +77,7 @@ For more information about adding documents, see [Adding documents to a workspac
 
 You can now divide the corpus into multiple document sets and assign the document sets to human annotators.
 
-## Lesson 2: Creating annotation sets
-{: #wks_tutless_ml2}
-
-In this lesson, you will learn how to create annotation sets in {{site.data.keyword.knowledgestudioshort}}.
-
-### About this task
-{: #wks_tutless_ml2_about}
-
-An *annotation set* is a subset of documents from an uploaded document set that you assign to a human annotator. The human annotator annotates the documents in the annotation set. To later use inter-annotator scores to compare the annotations that are added by each human annotator, you must assign at least two human annotators to different annotation sets. You must also specify that some percentage of documents overlap between the sets.
-
-> **Note:** In a realistic scenario, you would create as many annotation sets as needed, based on the number of human annotators who are working in the workspace. In this tutorial, you will create two annotation sets. If you do not have access to multiple user IDs, you can assign both annotation sets to the same user.
-
-For more information about annotation sets, see [Creating and assigning annotation sets](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-documents-for-annotation#wks_projdocsets).
-
-### Procedure
-{: #wks_tutless_ml2_procedure}
-
-1. Within your workspace, click **Assets** > **Documents**.
-2. Click **Create Annotation Sets**.
-
-    The Create Annotation Sets window opens. By default, this window shows the base set, which contains all documents, and fields where you can specify the information for a new annotation set.
-
-3. Click **Add another set and human annotator** to add fields for an additional annotation set. You can click to add as many annotation sets as you want to create. For this tutorial, you need only two annotation sets.
-
-    ![A screen capture of the Create Annotation Sets page.](images/wks_tutdocset2.jpg "A screen capture of the Create Annotation Sets page.")
-
-4. In the **Overlap** field, specify `100`. This value specifies that you want 100 percent of the documents in the base set to be included in all the new annotation sets so they can be annotated by all human annotators.
-5. For each new annotation set, specify the required information.
-
-    - In the **Annotator** field, select a human annotator user ID to assign to the new annotation set. In a realistic scenario, each annotation set is assigned to a different human annotator.
-
-        > **Note:** If you have only a single administrator ID to use for the tutorial, assign that user to all annotation sets. In a realistic scenario, you would have multiple human annotators, but for the tutorial, the administrator can act as human annotator.
-
-    - In the **Set name** field, specify a descriptive name for the annotation set. For this tutorial, you can use the names, `Set 1` and `Set 2`.
-
-6. Click **Generate**.
-
-### Results
-{: #wks_tutless_ml2_results}
-
-The new annotation sets are created.
-
-## Lesson 3: Pre-annotating with a dictionary-based annotator
+## Lesson 2: Pre-annotating with a dictionary-based annotator
 {: #wks_tutless_ml3}
 
 In this lesson, you will learn how to use a dictionary-based annotator to pre-annotate documents in {{site.data.keyword.knowledgestudioshort}}.
@@ -143,45 +101,62 @@ For more information about pre-annotation with dictionaries, see [Pre-annotating
   The [Creating a type system](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro#wks_tutless3) lesson of the *Getting started with {{site.data.keyword.knowledgestudioshort}}* tutorial shows how to create the type system that contains the `ORGANIZATION` entity type.
 
 1. On the **Machine Learning Model** > **Pre-annotation** > **Dictionaries** tab, click **Apply This Pre-annotator**.
-1. Select the annotation sets that you created in [Lesson 2](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml2), not including the document set that you created in [Lesson 1](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#tut_lessml1).
+1. Select the document set that you created in [Lesson 1](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml1).
 1. Click **Run**.
-
-    ![This screen capture shows the Run Annotator page. The Run button is highlighted.](images/wks_tutanno3.jpg "This screen capture shows the Run Annotator page. The Run button is highlighted.")
 
 ### Results
 {: #wks_tutless_ml3_results}
 
 The documents in the selected sets are pre-annotated by using the dictionary that you created. If you like, you can use the dictionary to pre-annotate document sets or annotation sets that you add later.
 
-## Lesson 4: Creating an annotation task
-{: #wks_tutless_ml4}
 
-In this lesson, you will learn how to use annotation tasks to track the work of human annotators in {{site.data.keyword.knowledgestudioshort}}.
+## Lesson 3: Creating an annotation task
+{: #wks_tutless_ml2}
+
+In this lesson, you will learn how to create annotation sets and use annotation tasks to track the work of human annotators in {{site.data.keyword.knowledgestudioshort}}.
 
 ### About this task
-{: #wks_tutless_ml4_about}
+{: #wks_tutless_ml2_about}
 
-For more information about annotation tasks, see [Creating an annotation task](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-annotate-documents#wks_hatask).
+An *annotation set* is a subset of documents from an uploaded document set that you assign to a human annotator. The human annotator annotates the documents in the annotation set. To later use inter-annotator scores to compare the annotations that are added by each human annotator, you must assign at least two human annotators to different annotation sets. You must also specify that some percentage of documents overlap between the sets.
+
+> **Note:** In a realistic scenario, you would create as many annotation sets as needed, based on the number of human annotators who are working in the workspace. In this tutorial, you will create two annotation sets. If you do not have access to multiple user IDs, you can assign both annotation sets to the same user.
+
+For more information about annotation sets and annotation tasks, see [Creating an annotation task](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-annotate-documents#wks_hatask).
 
 ### Procedure
-{: #wks_tutless_ml4_procedure}
+{: #wks_tutless_ml2_procedure}
 
-1. Within your workspace, click **Machine Learning Model** > **Annotation Tasks**.
-2. On the Tasks page, click **Add Task**.
-3. Specify the details for the task:
+1. Within your workspace, click **Machine Learning Model** > **Annotations**.
+1. Click the **Annotation Tasks** tab, then click **Add Task**.
+1. Specify the details for the task:
 
     - In the **Task name** field, enter `Test`.
     - In the **Deadline** field, select a date in the future.
 
-4. Click **Create**.
-5. Select the annotation sets that you created in [Lesson 2](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml2).
+1. Click **Create Annotation Sets**.
 
- Selecting both annotation sets specifies that both sets must be annotated by their assigned human annotators to complete this task.
+    The Create Annotation Sets window opens. By default, this window shows the base set, which contains all documents, and fields where you can specify the information for a new annotation set.
 
-7. Click **Create Task**.
-8. As human annotators begin annotating documents, you can open tasks to see their progress.
+1. Click **Add another set and human annotator** to add fields for an additional annotation set. You can click to add as many annotation sets as you want to create. For this tutorial, you need only two annotation sets.
 
-## Lesson 5: Annotating documents
+    ![A screen capture of the Create Annotation Sets page.](images/wks_tutdocset2.jpg "A screen capture of the Create Annotation Sets page.")
+
+1. In the **Overlap** field, specify `100`. This value specifies that you want 100 percent of the documents in the base set to be included in all the new annotation sets so they can be annotated by all human annotators.
+1. For each new annotation set, specify the required information.
+
+    - In the **Annotator** field, select a human annotator user ID to assign to the new annotation set. In a realistic scenario, each annotation set is assigned to a different human annotator.
+
+        > **Note:** If you have only a single administrator ID to use for the tutorial, assign that user to all annotation sets. In a realistic scenario, you would have multiple human annotators, but for the tutorial, the administrator can act as human annotator.
+
+    - In the **Set name** field, specify a descriptive name for the annotation set. For this tutorial, you can use the names, `Set 1` and `Set 2`.
+
+1. Click **Generate**.
+1. Click **Save**.
+1. As human annotators begin annotating documents, you can open tasks to see their progress.
+
+
+## Lesson 4: Annotating documents
 {: #wks_tutless_ml5}
 
 In this lesson, you will learn how to use the *ground truth editor* to annotate documents in {{site.data.keyword.knowledgestudioshort}}.
@@ -194,27 +169,27 @@ For more information about human annotation, see [Annotation with the ground tru
 ### Procedure
 {: #wks_tutless_ml5_procedure}
 
-1. Log in to {{site.data.keyword.knowledgestudioshort}} as a user who is assigned to the annotation task that you created in [Lesson 4](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml4).
+1. Log in to {{site.data.keyword.knowledgestudioshort}} as a user who is assigned to the annotation task that you created in [Lesson 3](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml2).
 
     > **Note:** If you have access only to a single administrator ID for this tutorial, you can use that ID to perform human annotation. However, remember that in a realistic scenario, human annotation is performed by different users with the Human Annotator role.
 
-1. Open the `My workspace` workspace and click **Machine Learning Model** > **Annotation Tasks**.
-1. Open the `Test` annotation task you created in [Lesson 4](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml4).
+1. Open the `My workspace` workspace and click **Machine Learning Model** > **Annotations**.
+1. Click the **Annotation Tasks** tab, then open the `Test` annotation task you created in [Lesson 3](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml2).
 1. Click **Annotate** for one of the assigned annotation sets.
 
   Depending on how you set up the annotation tasks, you could have one or more annotation tasks assigned to the user ID you logged in with.
 
 1. From the list of documents, find the *Technology - gmanews.tv* document and open it.
 
-  Notice that the term `IBM` was already annotated with the `ORGANIZATION` entity type. This annotation was added by the dictionary pre-annotator that was applied in [Lesson 3](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml3). This pre-annotation is correct, so it does not need to be modified.
+  Notice that the term `IBM` was already annotated with the `ORGANIZATION` entity type. This annotation was added by the dictionary pre-annotator that was applied in [Lesson 2](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml3). This pre-annotation is correct, so it does not need to be modified.
 
   ![This screen capture shows an open document with an existing pre-annotation for "IBM".](images/wks_tut_preannotation.png "This screen capture shows an open document with an existing pre-annotation for "IBM".")
 
 1. Annotate a mention:
 
     1. Click the Entity tab.
-    2. In the document body, select the text `Thomas Watson`.
-    3. In the list of entity types, click `PERSON`. The entity type `PERSON` is applied to the selected mention.
+    1. In the document body, select the text `Thomas Watson`.
+    1. In the list of entity types, click `PERSON`. The entity type `PERSON` is applied to the selected mention.
 
         ![This screen capture shows the "PERSON" entity type applied to the mention, "Thomas Watson".](images/wks_tut_annotatemention3.png "This screen capture shows the "PERSON" entity type applied to the mention, "Thomas Watson".")
 
@@ -241,7 +216,7 @@ For more information about human annotation, see [Annotation with the ground tru
 
 1. After you complete the annotations for the second annotation set, click **Submit All Documents**.
 
-## Lesson 6: Analyzing inter-annotator agreement
+## Lesson 5: Analyzing inter-annotator agreement
 {: #wks_tutless_ml6}
 
 In this lesson, you will learn how to compare the work of multiple human annotators in {{site.data.keyword.knowledgestudioshort}}.
@@ -260,7 +235,7 @@ For more information about inter-annotator agreement, see [Building the ground t
 ### Procedure
 {: #wks_tutless_ml6_procedure}
 
-1. Log in to {{site.data.keyword.knowledgestudioshort}} as the administrator, select **Machine Learning Model** > **Annotation Tasks**, and click the `Test` task.
+1. Log in to {{site.data.keyword.knowledgestudioshort}} as the administrator and select **Machine Learning Model** > **Annotations**. Click the **Annotation Tasks** tab, then click the `Test` task.
 
   In the **Status** column, you can see that the document sets are submitted.
 
@@ -281,7 +256,7 @@ For more information about inter-annotator agreement, see [Building the ground t
 
 When you evaluated the inter-annotator agreement scores, you saw how different pairs of human annotators annotated the same document. If the inter-annotator agreement score was acceptable, you accepted the document set.
 
-## Lesson 7: Adjudicating conflicts in annotated documents
+## Lesson 6: Adjudicating conflicts in annotated documents
 {: #wks_tutless_ml7}
 
 In this lesson, you will learn how to adjudicate conflicts in documents that overlap between document sets in {{site.data.keyword.knowledgestudioshort}}.
@@ -296,7 +271,7 @@ For more information about adjudication, see [Building the ground truth](/docs/s
 ### Procedure
 {: #wks_tutless_ml7_procedure}
 
-1. Log in to {{site.data.keyword.knowledgestudioshort}} as the administrator, select **Machine Learning Model** > **Annotation Tasks**, and click the `Test` task.
+1. Log in to {{site.data.keyword.knowledgestudioshort}} as the administrator and select **Machine Learning Model** > **Annotations**. Click the **Annotation Tasks** tab, then click the `Test` task.
 1. Verify that the two document sets are in an approved state.
 1. Click **Check Overlapping Documents for Conflicts**.
 
@@ -317,7 +292,7 @@ For more information about adjudication, see [Building the ground truth](/docs/s
 
 After you resolve the annotation conflicts and promote the documents to ground truth, you can use them to train the machine learning model.
 
-## Lesson 8: Creating a machine learning model
+## Lesson 7: Creating a machine learning model
 {: #wks_tutless_ml8}
 
 In this lesson, you will learn how to create a machine learning model in {{site.data.keyword.knowledgestudioshort}}.
