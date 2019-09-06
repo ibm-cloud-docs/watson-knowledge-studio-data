@@ -31,7 +31,7 @@ The following new features and changes to {{site.data.keyword.knowledgestudioful
 
 - Added the ability to create multiple instances per installation.
 - Added the ability to install on {{site.data.keyword.openshiftlong_notm}}.
-- Federal Information Security Management Act (FISMA) support is available for {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull_notm}} offerings purchased on or after August 30, 2019. {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull_notm}} is FISMA High Ready.
+- Federal Information Security Management Act (FISMA) support is available for {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull_notm}} offerings purchased on or after August 30, 2019. FISMA support is also available to those who purchased the June 28, 2019 version and upgrade to the August 30, 2019 version. {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull_notm}} is FISMA High Ready.
 
 **Annotation tasks are no longer required to create ground truth.**
 
