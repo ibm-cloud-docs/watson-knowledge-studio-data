@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-28"
+lastupdated: "2019-08-30"
 
 subcollection: watson-knowledge-studio-data
 
@@ -93,6 +93,9 @@ This stage refers to exporting components that enable the model to run in machin
 
 Before human annotators begin adding annotations to documents, the annotation process manager can optionally create an annotation task.
 
+Admins and project managers can annotate ground truth document sets directly. See [Annotating document sets directly](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-annotating-document-sets-directly).
+ {: note}
+
 ### About this task
 {: #wks_hatask_about}
 
@@ -114,18 +117,31 @@ The annotation task specifies which documents are to be annotated. To compare ho
 To create an annotation task:
 
 1. Log in as a {{site.data.keyword.knowledgestudioshort}} administrator, and select your workspace.
-2. Select the **Machine Learning Model** > **Annotation Tasks** page.
-3. Click **Add Task**. Specify a descriptive name for the task and select the date that the task must be completed.
-4. Click **Create**. A list of available annotation sets is displayed, along with the names of the human annotators assigned to them.
-5. Select each annotation set that you want to include in the task and click **Create Task**.
+1. Select the **Machine Learning Model** > **Annotations** page, then click the **Annotation Tasks** tab.
+1. Click **Add Task**. 
+1. Specify a descriptive task name and select the date that the task must be completed.
+1. If no annotation sets are available, click **Create Annotation Sets**.
+   
+    1. For the base set, select the document set or annotation set that you want to divide into annotation sets.
 
-    The check marks by the annotation set names make it seem like all annotation sets are selected by default, but they are not. You must explicitly select the annotation sets that you want to include.
-    {: tip}
+    2. For the overlap value, specify the percentage of documents that you want to include in each annotation set. Inter-annotator agreement scores cannot be calculated unless two or more human annotators annotate the same documents. For example, if you specify a 20% overlap value for a corpus that contains 30 documents, and you divide the corpus into 3 document sets, 6 documents (20%) will be annotated by all human annotators. The remaining 24 documents will be divided among the 3 human annotators (8 each). Thus, each annotator receives 14 documents to annotate (6+8).
+
+    > **Note:** An annotation set that you plan to use to train a machine learning model must contain at least 10 annotated documents.
+
+    1. Select a user name from the list of human annotators.
+    2. Name the annotation set.
+
+        As a good practice for evaluating a human annotator's work as the workspace progresses, you might want to create annotation set names that identify the human annotator assigned to the set. You cannot change the annotation set name after the set is created.
+    3. Click **Generate**.
+
+1. A list of available annotation sets is displayed under **Available Sets**, along with the names of the human annotators assigned to them. To add available sets to your annotation task, click **Add to task**.
+1. Make sure that all of the annotation sets that you want to include in the task appear under **Selected Sets**, then click **Save** to create the task.
+
 
 ### What to do next
 {: #wks_hatask_next}
 
-After the task is created, you can return to the **Machine Learning Model** > **Annotation Tasks** page to view the progress of each human annotator. Also, you can complete the following tasks:
+After the task is created, you can return to the **Annotation Tasks** tab on the **Machine Learning Model** > **Annotations** page to view the progress of each human annotator. Also, you can complete the following tasks:
 
 - Check approved documents that overlap between annotation sets to resolve annotation conflicts.
 - Open a task to add annotation sets to it. Ensure that the annotation sets that you add include documents that overlap with documents in the original annotation sets.

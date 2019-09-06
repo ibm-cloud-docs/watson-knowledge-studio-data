@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-28"
+lastupdated: "2019-08-30"
 
 subcollection: watson-knowledge-studio-data
 
@@ -127,53 +127,8 @@ To add documents to a workspace:
 
 Before you start any human annotation tasks, divide the corpus into multiple document sets and assign the document sets to human annotators.
 
-## Creating and assigning annotation sets
-{: #wks_projdocsets}
-
-After you add documents, divide the documents into sets so that they can be annotated by multiple human annotators. To view inter-annotator agreement scores, you must assign at least two human annotators and specify that some percentage of documents overlap between the sets.
-
-### Before you begin
-{: #wks_projdocsets_prereqs}
-
-- You must upload document sets before you can divide them into annotation sets.
-- You must create user accounts in {{site.data.keyword.knowledgestudioshort}} for all human annotators who will work on documents in this workspace.
-
-### About this task
-{: #wks_projdocsets_about}
-
-> **Attention:** If you use the Google Chrome browser, you cannot upload a large number of files (such as more than 300) by selecting them from a folder. The workaround is to either use the Firefox browser or select a smaller number of files and upload files several times.
-
-You can create a maximum of 1,000 annotation sets per workspace.
-
-### Procedure
-{: #wks_projdocsets_procedure}
-
-To create an annotation set:
-
-1. Log in as a {{site.data.keyword.knowledgestudioshort}} administrator or project manager, and select your workspace.
-1. Select the **Assets**> **Documents** > **Annotation sets** tab.
-1. Click **Create Annotation Sets**.
-
-    1. For the base set, select the collection of documents that you want to divide into annotation sets, either all documents in the corpus or documents that were previously allocated to a document set.
-
-    1. For the overlap value, specify the percentage of documents that you want to include in each annotation set. Inter-annotator agreement scores cannot be calculated unless two or more human annotators annotate the same documents. For example, if you specify a 20% overlap value for a corpus that contains 30 documents, and you divide the corpus into 3 document sets, 6 documents (20%) will be annotated by all human annotators. The remaining 24 documents will be divided among the 3 human annotators (8 each). Thus, each annotator receives 14 documents to annotate (6+8).
-
-    > **Note:** An annotation set that you plan to use to train a machine learning model must contain at least 10 annotated documents.
-
-    1. Select a user name from the list of human annotators.
-
-        > **Note:** If you have a Lite plan subscription, associate yourself with the annotation set. You cannot add other users and assign them to the human annotator role. But by adding yourself, you can fill the role of a human annotator and test out how a real human annotator would interact with the ground truth editor to annotate documents.
-
-    1. Name the annotation set.
-
-        As a good practice for evaluating a human annotator's work as the workspace progresses, you might want to create annotation set names that identify the human annotator assigned to the set. You cannot change the annotation set name after the set is created.
-
-1. After you finish assigning all the human annotators who will work on this workspace, click **Generate** to create the annotation sets. When human annotators log in to the ground truth editor, they see only the annotation sets that are assigned to them.
-
-**Related tasks**:
-{: #wks_related_tasks}
-
-[Assembling a team](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-team)
+Admins and project managers can [annotate document sets directly](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-annotating-document-sets-directly) without creating annotation tasks.
+{: note}
 
 ## Deleting documents
 {: #wks_deletedocs}
@@ -209,7 +164,7 @@ If the document you want to delete is associated with an annotation task and hum
 1. Log in as a {{site.data.keyword.knowledgestudioshort}} administrator and select your workspace.
 1. Delete the annotation task:
 
-  a. Open the **Machine Learning Model** > **Annotation Tasks** page.
+  a. Open the **Machine Learning Model** > **Annotations** page. Click the **Annotation Tasks** tab.
 
   b. Find the annotation task that the document is associated with, click the **Show menu** icon on the task, and then click **Delete**.
 

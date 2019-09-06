@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-30"
+lastupdated: "2019-06-28"
 
 subcollection: watson-knowledge-studio-data
 
@@ -20,14 +20,14 @@ subcollection: watson-knowledge-studio-data
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Backing up and restoring databases
+# Backing up and restoring databases (Version 1.0.0)
 {: #backup-restore-databases}
 
-This document describes how to backup and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}}.
+This document describes how to backup and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 1.0.0.
 To backup and restore workspace data such as type systems and groud truth, see [Backing up and restoring data](https://cloud.ibm.com/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
 
 ## Overview
-{: #overview-databases}
+{: #overview-databases-1.0.0}
 
 - Deactivate {{site.data.keyword.knowledgestudioshort}}
 - Follow backup or restore procedures for each storage system
@@ -40,7 +40,7 @@ These instructions assume that administrators replace data in the databases with
 {: note}
 
 ## Step 1: Deactivate {{site.data.keyword.knowledgestudioshort}}
-{: #deactivate-knowledge-studio}
+{: #deactivate-knowledge-studio-1.0.0}
 
 1. Deactivate the {{site.data.keyword.knowledgestudioshort}} front-end.
 
@@ -79,7 +79,7 @@ These instructions assume that administrators replace data in the databases with
 
 3. Deactivate MMA and SIRE job queue.
 
-    To avoid data corruption, stop MMA, SIRE job queue, and Service Broker, which connect the databases in {{site.data.keyword.knowledgestudioshort}}.
+    To avoid data corruption, stop the MMA and SIRE job queues which connect the databases in {{site.data.keyword.knowledgestudioshort}}.
     Before stopping the pods, memorize the number of pods to restore the same number of pods after backup.
 
     For example, you can stop the pods temporarily with the following commands.
@@ -87,27 +87,25 @@ These instructions assume that administrators replace data in the databases with
     ```bash
     kubectl -n {namespace} get deployment {release_name}-sire-training-jobq 
     kubectl -n {namespace} get deployment {release_name}-ibm-watson-mma-prod-model-management-api
-    kubectl -n {namespace} get deployment {release_name}-ibm-watson-ks-servicebroker
     ```
     {: pre}
 
-    Make sure to note the number of pods in the DESIRED column for the deployments so you can restore the same number later.
+    Make sure to note the number of pods in the DESIRED column for both deployments so you can restore the same number later.
     {: note}
 
     ```bash
     kubectl -n {namespace} scale deployment {release_name}-sire-training-jobq --replicas=0
     kubectl -n {namespace} scale deployment {release_name}-ibm-watson-mma-prod-model-management-api --replicas=0
-    kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks-servicebroker --replicas=0
     ```
     {: pre}
 
 ## Step 2: Follow the backup or restore procedure for MongoDB
-{: #backup-restore-mongodb}
+{: #backup-restore-mongod-1.0.0}
 
 In MongoDB, databases named `WKSDATA` and `ENVDATA` store data for {{site.data.keyword.knowledgestudioshort}}.
 
 ### Obtain authentication information for MongoDB
-{: #obtain-mongodb-authentication}
+{: #obtain-mongodb-authentication-1.0.0}
 
 The MongoDB username and password are base64 encoded and stored into kubernetes secret named `{release_name}-ibm-mongodb-auth-secret`. You can retrieve the username and password with the following commands.
 
@@ -123,7 +121,7 @@ kubectl -n {namespace} get secret {release_name}-ibm-mongodb-auth-secret -o json
 After you obtain the username and password, you are ready to [backup](#backup-mongodb) or [restore](#restore-mongodb) MongoDB data.
 
 ### Backing up MongoDB data
-{: #backup-mongodb}
+{: #backup-mongodb-1.0.0}
 
 If you are performing a backup, you can use `mongodump` (See <https://docs.mongodb.com/v3.4/tutorial/backup-and-restore-tools/>). You can retrieve the backup data with the following commands.
 
@@ -148,7 +146,7 @@ If you restore and overwrite the MongoDB username and password manually, the con
 {: note}
 
 ### Restoring MongoDB data
-{: #restore-mongodb}
+{: #restore-mongodb-1.0.0}
 
 If you are restoring data, you can use `mongorestore` (See <https://docs.mongodb.com/v3.4/tutorial/backup-and-restore-tools/>). For example, you can restore backed up data by executing the following commands.
 
@@ -167,12 +165,12 @@ You should not backup MongoDB user data (you should not use `--dumpDbUsersAndRol
 {: note}
 
 ## Step 3: Follow the backup or restore procedure for PostgreSQL 
-{: #backup-restore-postgresql}
+{: #backup-restore-postgresql-1.0.0}
 
-In PostgreSQL, databases named `jobq_{release_name_underscore}`,`model_management_api`, and `model_management_api_v2` store data for {{site.data.keyword.knowledgestudioshort}}.
+In PostgreSQL, databases named `jobq_{release_name}`,`model_management_api`, and `model_management_api_v2` store data for {{site.data.keyword.knowledgestudioshort}}.
 
 ### Obtain PostgreSQL authentication information
-{: #obtain-postgresql-authentication}
+{: #obtain-postgresql-authentication-1.0.0}
 
 The username of administrator is `stolon`, and the password is base64 encoded and stored into kubernetes secret named `{release_name}-ibm-postgresql-auth-secret`.
 
@@ -185,7 +183,7 @@ kubectl -n {namespace} get secret -o json {release_name}-ibm-postgresql-auth-sec
 After you obtain the username and password, you are ready to [backup](#backup-postgresql) or [restore](#restore-postgresql) PostgreSQL data.
 
 ### Backing up PostgreSQL data
-{: #backup-postgresql}
+{: #backup-postgresql-1.0.0}
 
 If you are performing a backup, You can use [pg_dump](https://www.postgresql.org/docs/9.6/app-pgdump.html) and [pg_dumpall](https://www.postgresql.org/docs/9.6/app-pg-dumpall.html). For example, you can retrieve backup data by executing the following commands.
 
@@ -198,7 +196,7 @@ kubectl -n {namespace} exec -it {release_name}-ibm-postgresql-proxy-xxxxxxxxxx-y
 mkdir /home/stolon/{output_dir}
 
 ## Each pg_dump command requires your password
-pg_dump -h localhost -p 5432 -U stolon --clean jobq_{release_name_underscore} > /home/stolon/{output_dir}/jobq_wks_{release_name_underscore}.sql
+pg_dump -h localhost -p 5432 -U stolon --clean jobq_wks_ppa01 > /home/stolon/{output_dir}/jobq_wks_ppa01.sql
 pg_dump -h localhost -p 5432 -U stolon --clean model_management_api > /home/stolon/{output_dir}/model_management_api.sql
 pg_dump -h localhost -p 5432 -U stolon --clean model_management_api_v2 > /home/stolon/{output_dir}/model_management_api_v2.sql
 
@@ -209,14 +207,12 @@ kubectl -n {namespace} cp {release_name}-ibm-postgresql-proxy-xxxxxxxxxx-yyyyy:/
 ```
 {: pre}
 
-- `{release_name_underscore}`: `{release_name}` where `-` is replaced with  `_`. For example, if `{release_name}` is `my-release`, `{release_name_underscore}` is `my_release`.
-
 You should not backup the PostgreSQL username and password because the username and password internally used in {{site.data.keyword.knowledgestudioshort}} are automatically generated during the deployment.
 If you restore and overwrite the PostgreSQL username and password manually, the connection between the components will be refused.
 {: note}
 
 ### Restoring PostgreSQL data
-{: #restore-postgresql}
+{: #restore-postgresql-1.0.0}
 
 If you are restoring data, you can use [psql](https://www.postgresql.org/docs/9.6/app-psql.html) and [pg_restore](https://www.postgresql.org/docs/9.6/app-pgrestore.html). For example, you can retrieve backup data by executing the following commands.
 
@@ -227,8 +223,8 @@ kubectl -n {namespace} get pods | grep {release_name}-ibm-postgresql-proxy # Cho
 kubectl -n {namespace} exec -it {release_name}-ibm-postgresql-proxy-xxxxxxxxxx-yyyyy bash
 
 # In pod
-## Each psql command requires your password
-psql jobq_wks_ppa01 -h localhost -p 5432 -U stolon < jobq_{release_name_underscore}.sql
+## Each psql command ask you password
+psql jobq_wks_ppa01 -h localhost -p 5432 -U stolon < jobq_{release_name}.sql
 psql model_management_api -h localhost -p 5432 -U stolon < model_management_api.sql
 psql model_management_api_v2 -h localhost -p 5432 -U stolon < model_management_api_v2.sql
 
@@ -246,7 +242,7 @@ If you restore and overwrite the PostgreSQL username and password manually, the 
 In MinIO, a bucket named `wks-icp` stores data for {{site.data.keyword.knowledgestudioshort}}.
 
 ### Obtain authentication information
-{: #obtain-minio-authentication}
+{: #obtain-minio-authentication-1.0.0}
 
 The MinIO access key and secret key, which are needed to connect the MinIO server, are base64 encoded and stored into kubernetes secret named `minio-access-secret-{release_name}`. You can retrieve the username and password with the following commands.
 
@@ -260,7 +256,7 @@ kubectl -n {namespace} get secret -o json minio-access-secret-{release_name} | j
 {: pre}
 
 ### Backing up MinIO data
-{: #backup-minio}
+{: #backup-minio-1.0.0}
 
 MinIO allows data to be copied from the server through several client applications such as [MinIO Client](https://docs.min.io/docs/minio-client-quickstart-guide.html), [S3cmd](https://docs.min.io/docs/s3cmd-with-minio.html), [AWS CLI](https://docs.min.io/docs/aws-cli-with-minio.html), and [restic](https://docs.min.io/docs/restic-with-minio.html). For example, you can retrieve backup data by executing the following commands.
     
@@ -272,7 +268,7 @@ kubectl -n {namespace} exec -it minio-client-xxxxxxxxxx-yyyyy -- /bin/bash
 
 # In pod
 mkdir /home/minio/{output_dir}
-mc config host add {alias} https://{release_name}-ibm-minio-svc:9000 {access_key} {secret_key} --insecure
+mc config host add {alias} https://{release_name}-minio:9000 {access_key} {secret_key} --insecure
 mc --insecure cp -r {alias}/wks-icp /home/minio/{output_dir}
 tar -zcvf wks-icp.tar.gz /home/minio/{output_dir}/wks-icp/
 
@@ -289,7 +285,7 @@ kubectl -n {namespace} delete deploy minio-client
 - `{alias}`: Choose a name for the alias of your minio server (for example, "wks-minio").
 
 ### Restoring MinIO data
-{: #restore-minio}
+{: #restore-minio-1.0.0}
 
 You can restore backup data by executing the following commands.
 
@@ -304,7 +300,7 @@ kubectl -n {namespace} cp {local_dir}/wkc-icp.tar.gz minio-client-xxxxxxxxxx-yyy
 kubectl -n {namespace} exec -it minio-client-xxxxxxxxxx-yyyyy -- /bin/bash
 
 # In pod
-mc config host add {alias} https://{release_name}-ibm-minio-svc:9000 {access_key} {secret_key} --insecure
+mc config host add {alias} https://{release_name}-minio:9000 {access_key} {secret_key} --insecure
 tar -zxvf /home/minio/{remote_dir}/wks-icp.tar.gz /home/minio/{untar_dir}
 
 ## Delete the existing bucket, then recreate "wks-icp" bucket
@@ -322,7 +318,7 @@ exit
 
 
 ## Step 5: Reactivate {{site.data.keyword.knowledgestudioshort}}
-{: #reactivate-the-add-on}
+{: #reactivate-the-add-on-1.0.0}
 
 To activate {{site.data.keyword.knowledgestudioshort}}, start that pods that you stopped before you began backing up or restoring data.
 If you stopped pods with the `kubectl scale` command, you can start the pods with the following commands.
@@ -331,12 +327,9 @@ If you stopped pods with the `kubectl scale` command, you can start the pods wit
 kubectl -n {namespace} scale deployment {release_name}-sire-training-jobq --replicas={num_jobq_pods}
 kubectl -n {namespace} scale deployment {release_name}-ibm-watson-mma-prod-model-management-api --replicas={num_mma_pods}
 kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks --replicas={num_frontend_pods}
-kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks-servicebroker --replicas={num_broker_pods}
 ```
 {: pre}
 
 - `{num_frontend_pods}`: The number of front-end pods that you stopped in step 1.1.
 - `{num_jobq_pods}`: The number of SIRE job queue pods that you stopped in step 1.3.
 - `{num_mma_pods}`: The number of MMA pods that you stopped in step 1.3.
-- `{num_broker_pods}`: The number of Service Broker pods that you stopped in step 1.3.
-
