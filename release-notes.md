@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-28"
+lastupdated: "2019-11-27"
 
 subcollection: watson-knowledge-studio-data
 
@@ -25,6 +25,17 @@ subcollection: watson-knowledge-studio-data
 
 The following new features and changes to {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} are available.
 {: shortdesc}
+
+## Version 1.1.0 (27 November 2019)
+{: #27-november-2019}
+
+- {{site.data.keyword.knowledgestudioshort}} for {{site.data.keyword.icp4dfull_notm}} 1.1.0 can be installed on {{site.data.keyword.icp4dfull_notm}} 2.5
+
+- **Dictionary suggestions**:
+Create dictionaries faster. With only a few terms specified, {{site.data.keyword.knowledgestudioshort}} will analyze your uploaded documents and suggest other terms possibly in the same domain. These dictionaries can be used as machine learning preannotators or within rules to create models.
+
+- **Advanced rules workspace (Beta)**:
+Create rules-based text extractors with an advanced rules workspace. Advanced rules expand well beyond the standard rules engine with a graphical interface that creates Annotation Query Language (AQL) rules, allowing users to build and manage complex rule sets.
 
 ## Version 1.0.1 (30 August 2019)
 {: #30-august-2019}
