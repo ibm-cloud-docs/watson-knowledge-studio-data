@@ -23,7 +23,7 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
     [Accessibility](/docs/overview?topic=overview-accessibility-platform#features-platform)
     glossary.md
     language-support.md
-    /watson-knowledge-studio/watson-knowledge-studio-aql-reference
+    /watson-knowledge-studio/watson-knowledge-studio-annotation-query-language-reference
     information-security.md
     {: .navgroup-end}
 
