@@ -60,6 +60,17 @@ See [Creating a machine learning model](/docs/services/watson-knowledge-studio-d
 
 See [Creating a rule-based model](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-rule-annotator) for more details.
 
+## Analyze text with advanced rules
+{: #advanced-rules}
+
+The advanced rules feature is Beta. The feature is in a trial stage of development and is not recommended for use in production environments.
+{: note}
+
+The visual advanced rules editor allows you to create text extractors with deeper customization potential than what is available in the entities and relations rules editor. A number of sample extractors are provided such as *Finance Actions* extractors and *Parts of Speech* extractors that can be edited and combined to create your own advanced rules model. You can analyze documents directly in the editor, or you can export your model to use with other services such as [{{site.data.keyword.nlushort}}](/docs/services/natural-language-understanding).
+
+To get started, see [Creating an advanced rules model](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-create-advanced-rules-model).
+
+
 ## FISMA support
 {: #fisma-support}
 
