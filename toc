@@ -70,7 +70,13 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
     managing-projects-and-extractors.md
     user-guide.md
     backup-restore.md
-    backup-restore-databases.md
+
+    {: topicgroup}
+    Backing up and restoring databases
+        backup-restore-databases.md
+        backup-restore-databases-1.0.1.md
+        backup-restore-databases-1.0.0.md
+        
     {: .navgroup-end}
 
     {: .navgroup id="help"}
@@ -78,9 +84,10 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
     troubleshooting.md
     user-guide-help.md
 
-    {: .topicgroup}
+    {: topicgroup}
     Developer community
         [StackOverflow](https://stackoverflow.com/search?q=watson-knowledge-studio)
         [IBM Developer Answers](https://developer.ibm.com/answers/topics/watson-knowledge-studio/)
         [WDC Slack channel](http://wdc-slack-inviter.mybluemix.net/)
+        
     {: .navgroup-end}
