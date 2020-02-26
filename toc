@@ -19,14 +19,6 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
     roles.md
     {: .navgroup-end}
 
-    {: .navgroup id="reference"}
-    [Accessibility](/docs/overview?topic=overview-accessibility-platform#features-platform)
-    glossary.md
-    language-support.md
-    /watson-knowledge-studio/watson-knowledge-studio-annotation-query-language-reference
-    information-security.md
-    {: .navgroup-end}
-
     {: .navgroup id="howto"}
     {: .topicgroup}
     Installing
@@ -76,7 +68,14 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
         backup-restore-databases.md
         backup-restore-databases-1.0.1.md
         backup-restore-databases-1.0.0.md
-        
+
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    [Accessibility](/overview/overview-accessibility-platform)
+    glossary.md
+    language-support.md
+    /watson-knowledge-studio/watson-knowledge-studio-annotation-query-language-reference
     {: .navgroup-end}
 
     {: .navgroup id="help"}
@@ -89,5 +88,6 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
         [StackOverflow](https://stackoverflow.com/search?q=watson-knowledge-studio)
         [IBM Developer Answers](https://developer.ibm.com/answers/topics/watson-knowledge-studio/)
         [WDC Slack channel](http://wdc-slack-inviter.mybluemix.net/)
-        
+
     {: .navgroup-end}
+
