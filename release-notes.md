@@ -26,14 +26,30 @@ subcollection: watson-knowledge-studio-data
 The following new features and changes to {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} are available.
 {: shortdesc}
 
+## Version 1.1.1 (28 February 2020)
+{: #28-february-2020}
+
+- **New advanced rules tokenizer** Advanced rules has introduced a new tokenizer which is not compatible with the previous one. The following extractor categories are affected:
+  - **Parts of Speech** extractor names are renamed automatically
+    - **Cardinal** is renamed to **Numeral**
+    - **Preposition** is renamed to **Adposition**
+  - **Machine Data Analytics** Splitter extractors have been removed and will disappear from the canvas. There is no substitute for these extractors that is provided by the new tokenizer.
+    - Generic Splitters:
+      - **Date Time Splitter**
+      - **Day First Splitter**
+      - **Month First Splitter**
+      - **Year First Splitter**
+    - Syslog Splitter:
+      - **Date Time Splitter**  
+- **Cross-sentence relations (Experimental)**: English entities and relations workspaces can now support annotating relations between entities within spans of six sentences. To get started, see [Enabling cross-sentence relations](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-enabling-cross-sentence-relations).
+
+
 ## Version 1.1.0 (27 November 2019)
 {: #27-november-2019}
 
 - {{site.data.keyword.knowledgestudioshort}} for {{site.data.keyword.icp4dfull_notm}} 1.1.0 can be installed on {{site.data.keyword.icp4dfull_notm}} 2.5
-
 - **Dictionary suggestions**:
 Create dictionaries faster. With only a few terms specified, {{site.data.keyword.knowledgestudioshort}} will analyze your uploaded documents and suggest other terms possibly in the same domain. These dictionaries can be used as machine learning preannotators or within rules to create models.
-
 - **Advanced rules workspace (Beta)**:
 Create rules-based text extractors with an advanced rules workspace. Advanced rules expand well beyond the standard rules engine with a graphical interface that creates Annotation Query Language (AQL) rules, allowing users to build and manage complex rule sets.
 

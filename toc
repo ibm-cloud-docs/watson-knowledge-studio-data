@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="watson-knowledge-studio-data" category="ai" audience="service" href="/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro" path="services/watson-knowledge-studio-data"}
+{: .toc subcollection="watson-knowledge-studio-data" category="ai" audience="service" href="/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro" path="watson-knowledge-studio-data"}
 Watson Knowledge Studio for IBM Cloud Pak for Data
 
     {: .navgroup id="learn"}
@@ -13,7 +13,6 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
         tutorials-bootstrap-annotation.md
         create-categories-model.md
         create-advanced-rules-model.md
-
     index.md
     system-requirements.md
     roles.md
@@ -23,9 +22,8 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
     {: .topicgroup}
     Installing
         install.md
-        [Helm chart README.md](https://github.com/ibm-cloud-docs/data-readmes/blob/master/watson-knowledge-studio-README.md)
+        [Helm chart README](https://github.com/ibm-cloud-docs/data-readmes/blob/master/watson-knowledge-studio-README.md)
         manage.md
-
     team.md
     create-project.md
 
@@ -35,7 +33,6 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
         exportimport.md
         typesystem.md
         dictionaries.md
-
     language-support-arabic.md
 
     {: topicgroup}
@@ -58,7 +55,7 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
         evaluate-ml.md
         improve-ml.md
         publish-ml.md
-        
+    enabling-cross-sentence-relations.md
     managing-projects-and-extractors.md
     user-guide.md
     backup-restore.md
@@ -68,7 +65,6 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
         backup-restore-databases.md
         backup-restore-databases-1.0.1.md
         backup-restore-databases-1.0.0.md
-
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -88,6 +84,4 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
         [StackOverflow](https://stackoverflow.com/search?q=watson-knowledge-studio)
         [IBM Developer Answers](https://developer.ibm.com/answers/topics/watson-knowledge-studio/)
         [WDC Slack channel](http://wdc-slack-inviter.mybluemix.net/)
-
     {: .navgroup-end}
-
