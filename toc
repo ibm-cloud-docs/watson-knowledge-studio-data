@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="watson-knowledge-studio-data" category="ai" audience="service" href="/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro" path="watson-knowledge-studio-data"}
+{: .toc subcollection="watson-knowledge-studio-data" category="cloud_pak" audience="service" href="/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro" path="watson-knowledge-studio-data"}
 Watson Knowledge Studio for IBM Cloud Pak for Data
 
     {: .navgroup id="learn"}
