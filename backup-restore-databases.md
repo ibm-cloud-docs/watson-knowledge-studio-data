@@ -1,332 +1,362 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-08-30"
+  years: 2019, 2020
+lastupdated: "2020-06-18"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
+{:important: .important}
 {:note: .note}
+{:beta: .beta}
+{:deprecated: .deprecated}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
 
 # Backing up and restoring databases
 {: #backup-restore-databases}
 
-This document describes how to backup and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}}.
-To backup and restore workspace data such as type systems and groud truth, see [Backing up and restoring data](https://cloud.ibm.com/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
+You can back up and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 1.1.2 by running scripts.
+{: shortdesc}
 
-This page describes how to back up and restore data for {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 1.1.0. To see instructions for previous versions, use the following pages: [Version 1.0.1](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.1), [Version 1.0.0](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.0)
-{: note}
+The `all-backup-command.sh` script backs up or restores all the databases and deactivates the pods to prevent access. It then reactivates the pods. However, with the individual database scripts, you must run those procedures.
 
-## Overview
-{: #overview-databases}
+For more information about backing up databases with previous versions, see [v1.1.1](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.1.1), [v1.0.1](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.1), or [v1.0.0](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.0). For more information about how to back up and restore workspace data, such as type systems and ground truth, see [Backing up and restoring data](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
+{: tip}
 
-- Deactivate {{site.data.keyword.knowledgestudioshort}}
-- Follow backup or restore procedures for each storage system
-  - MongoDB
-  - PostgreSQL
-  - MinIO
-- Reactivate {{site.data.keyword.knowledgestudioshort}}
+## Before you begin
+{: #backup-restore-prereqs}
 
-These instructions assume that administrators replace data in the databases with backup data instead of appending backup data.
-{: note}
+- Download the [scripts](#scripts-location).
+- Review information about the script's use of the MinIO client. The client is used for the for MinIO commands.
 
-## Step 1: Deactivate {{site.data.keyword.knowledgestudioshort}}
-{: #deactivate-knowledge-studio}
+  - The scripts download the client from the [MinIO website](https://dl.min.io/) if the client isn't installed.
+  - If you want the script to use your installed version, verify that you can run the client by issuing the command `mc` on the command line.
 
-1. Deactivate the {{site.data.keyword.knowledgestudioshort}} front-end.
+## all-backup-command script
+{: #all-backup-ref}
 
-    To ensure that users do not have access to {{site.data.keyword.knowledgestudioshort}} during backup, stop the {{site.data.keyword.knowledgestudioshort}} front-end pods.
-    Before stopping the pods, note the number of pods and make sure to restore the same number after backup.
+The `all-backup-command script.sh` script backs up or restores the MongoDB, PostgreSQL, Minio databases, and PVC.
 
-    You can temporarily stop pods with the following commands.
+Unless you need to back up a single database, use the `all-backup-command` script, which deactivates and reactivates {{site.data.keyword.knowledgestudioshort}}.
 
-    ```bash
-    kubectl -n {namespace} get deployment {release_name}-ibm-watson-ks 
+The script backs up or restores the data in the following order:
+
+1.  MongoDB
+1.  PostgreSQL
+1.  MinIO
+1.  PVC
+
+```sh
+all-backup-restore.sh backup | restore RELEASE_NAME BACKUP_DIR -n NAMESPACE
+```
+{: pre}
+
+Use either the `backup` or `restore` command.
+
+<dl>
+  <dt>backup</dt>
+  <dd>Backs up each database to a subdirectory of the `BACKUP_DIR` directory.</dd>
+  <dt>restore</dt>
+  <dd>Restores the data from each database in the `BACKUP_DIR` directory.</dd>
+</dl>
+
+### Arguments and options
+{: #all-backup-ref-options}
+
+<dl>
+  <dt>RELEASE_NAME</dt>
+  <dd>The release name that was specified when the {{site.data.keyword.knowledgestudioshort}} Helm chart was installed in your cluster. Required.</dd>
+  <dd>For version 1.1.2, the value is `wks`.</dd>
+  <dt>BACKUP_DIR</dt>
+  <dd>The base directory of each database where backups are stored to or restored from. Each database is stored in a subdirectory of the backup directory (`mongodb`, `postgresql`, `minio`, or `pvc`). Required.</dd>
+  <dt>-n NAMESPACE</dt>
+  <dd>Namespace for the pods.</dd>
+  <dd>The default value is `zen`.</dd>
+</dl>
+
+### Output
+{: #all-backup-ref-output}
+
+The script returns the following output:
+
+```
+[SUCCESS] MongoDB,PostgreSQL,Minio,PVC
+```
+{: screen}
+
+and indicates either the `backup` or `restore` command.
+
+If the process fails, the following message is displayed.
+
+```
+[FAIL] MongoDB,PostgreSQL,Minio,PVC
+```
+{: screen}
+
+and indicates either the `backup` or `restore` command.
+
+If the script fails, the data is corrupted. Do not use the corrupted data to restore.
+{: important}
+
+## Scripts location
+{: #scripts-location}
+
+The backup and restore scripts for version 1.1.2 are available from the `knowledge-studio/1.1.2` directory of the [`watson-developer-cloud/doc-tutorial-downloads`](https://github.com/watson-developer-cloud/doc-tutorial-downloads/tree/master/knowledge-studio/1.1.2){: external} GitHub project. Download the scripts and the contents of the `lib` directory.
+
+## Backing up and restoring all databases
+{: #all-backups}
+
+The `all-backup-restore.sh` script backs up or restores the databases. The script deactivates the pods before it backs up or restores data and then reactivates the pods when the script completes.
+
+### Backing up all databases
+{: #all-backups-backup}
+
+Run the `all-backup-restore.sh` script with the `backup` command.
+
+### Restoring all databases
+{: #all-backups-restore}
+
+Run the `all-backup-restore.sh` script with the `restore` command.
+
+## Database-specific scripts
+{: #db-specific}
+
+If you need to back up or restore a single database, use one of the database-specific scripts. However, make sure that you deactivate the pods before you run the script and reactivate the pods after the script completes successfully.
+
+### MongoDB
+{: #db-mongo}
+
+Use this script instead of `all-backup-command.sh` to back up or restore only the MongoDB database.
+
+```sh
+mongodb-backup-restore.sh backup | restore RELEASE_NAME BACKUP_DIR -n NAMESPACE
+```
+{: pre}
+
+Use either the `backup` or `restore` command. For more information about the arguments and options, see the [all-backup-command script](#all-backup-ref-options).
+
+#### Backing up MongoDB
+{: #db-mongo-backup}
+
+Back up your MongoDB data. Databases named `WKSDATA`, `ENVDATA`, and `escloud_sbsep` store data for {{site.data.keyword.knowledgestudioshort}}.
+
+1.  [Deactivate](#deactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+1.  Run the `mongodb-backup-restore.sh` script with the `backup` command. The script runs the following operations:
+    1.  Creates a remote temporary file under the mongoDB pod and extracts the following data: `WKSDATA`,`ENVDATA`, and `escloud_sbsep`.
+    1.  Copies the `WKSDATA`, `ENVDATA`, and `escloud_sbsep` data to the `BACKUP_DIR` that you specify and deletes the temporary file.
+1.  [Reactivate](#reactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+
+#### Restoring MongoDB data
+{: #db-mongo-restore}
+
+Restore the backed-up data to MongoDB.
+
+1.  [Deactivate](#deactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+1.  Run the `mongodb-backup-restore.sh` script with the `restore` command. The script runs the following operations:
+    1.  Create a remote temporary file under the mongoDB pod
+    1.  Copies the `WKSDATA` `ENVDATA` `escloud_sbsep` data from the `BACKUP_DIR` that you specify to the remote temporary file.
+    1.  Restores the data from the temporary file and deletes the temporary file.
+1.  [Reactivate](#reactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+
+### PostgreSQL
+{: #db-postgresql}
+
+Use this script instead of `all-backup-command.sh` to back up or restore only the PostgreSQL database.
+
+```sh
+postgresql-backup-restore.sh backup | restore RELEASE_NAME BACKUP_DIR -n NAMESPACE
+```
+{: pre}
+
+Use either the `backup` or `restore` command. For more information about the arguments and options, see the [all-backup-command script](#all-backup-ref-options).
+
+#### Backing up PostgreSQL
+{: #db-postgresql-backup}
+
+Back up your PostgreSQL data by getting a data dump. Databases named `awt`, `jobq_RELEASE_NAME_`,`model_management_api`, and `model_management_api_v2` store data for {{site.data.keyword.knowledgestudioshort}}.
+
+1.  [Deactivate](#deactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+1.  Run the `postgresql-backup-restore.sh` script with the `backup` command. The script runs the following operations:
+    1.  Creates and sets up a `.pgpass` file.
+    1.  Dumps the databases. The filenames are the database names with the `.custom` extension.
+    1.  Copies the dump files to the `BACKUP_DIR` that you specify.
+    1.  Deletes the `.pgpass` file.
+1.  [Reactivate](#reactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+
+#### Restoring PostgreSQL data
+{: #db-postgresql-restore}
+
+Restores the backed-up data to PostgreSQL.
+
+1.  [Deactivate](#deactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+1.  Run the `postgresql-backup-restore.sh` script with the `restore` command. The script runs the following operations:
+    1.  Creates and sets up a `.pgpass` file.
+    1.  Restores the databases by loading the `.custom` files from the `BACKUP_DIR` that you specify.
+    1.  Deletes the `.pgpass` file.
+1.  [Reactivate](#reactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+
+### MinIO
+{: #db-minio}
+
+Use this script instead of `all-backup-command.sh` to back up or restore only the MinIO database.
+
+```sh
+minio-backup-restore.sh backup | restore RELEASE_NAME BACKUP_DIR -n NAMESPACE
+```
+{: pre}
+
+Use either the `backup` or `restore` command. For more information about the arguments and options, see the [all-backup-command script](#all-backup-ref-options).
+
+#### Backing up MinIO
+{: #db-minio-backup}
+
+Back up your MinIO database by taking a snapshot of the data. A bucket named `wks-icp` stores data for {{site.data.keyword.knowledgestudioshort}}.
+
+1.  [Deactivate](#deactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+1.  Run the `minio-backup-restore.sh` script with the `backup` command. The script runs the following operations:
+    1.  Establishes a connection to the pod `RELEASE_NAME-ibm-minio` by running `kubectl -n NAMESPACE port-forward`.
+    1.  Configures a MinIO alias named `wks-minio`.
+    1.  Copies data from `wks-minio/wks-icp` to the BACKUP_DIR you specify.
+    1.  Closes the `port-forward` connection.
+1.  [Reactivate](#reactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+
+#### Restoring MinIO data
+{: #db-minio-restore}
+
+Restores the snapshot data to MinIO. Deletes the existing data in the MinIO server, and then restores the backup data.
+
+1.  [Deactivate](#deactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+1.  Run the `minio-backup-restore.sh` script with the `backup` command. The script runs the following operations:
+    1.  Establishes a connection to the pod `RELEASE_NAME-ibm-minio` by running `kubectl -n NAMESPACE port-forward`.
+    1.  Configures a MinIO alias named `wks-minio`.
+    1.  Copies data from the BACKUP_DIR you specify to `wks-minio/wks-icp`.
+    1.  Closes the `port-forward` connection.
+1.  [Reactivate](#reactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+
+### PVC
+{: #db-pvc}
+
+Use this script instead of `all-backup-command.sh` to back up or restore only the Persistent volume claim (PVC) data.
+
+```sh
+pvc-backup-restore.sh backup | restore RELEASE_NAME BACKUP_DIR DOCKERREGISTRY PVC_USER_ID -n NAMESPACE
+```
+{: pre}
+
+#### Arguments for PVC
+<dl>
+  <dt>DOCKERREGISTRY</dt>
+  <dd>The same Docker registry as the `RELEASE_NAME-ibm-watson-ks-aql-web-tooling` pod.</dd>
+  <dt>PVC_USER_ID</dt>
+  <dd>The user ID for the running containers in the `RELEASE_NAME-ibm-watson-ks-aql-web-tooling` pod.</dd>
+</dl>
+
+Use either the `backup` or `restore` command. For more information about the other arguments and options, see the [all-backup-command script](#all-backup-ref-options).
+
+#### Backing up PVC
+{: #db-pvc-backup}
+
+1.  Identify the name of Docker registry and user ID before you deactivate {{site.data.keyword.knowledgestudioshort}}.
+1.  [Deactivate](#deactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+1.  Run the `pvc-backup-restore.sh` script with the `backup` command. The script runs the following operations:
+    1.  Creates a temporary pod at `RELEASE_NAME-ibm-watson-ks-aql-web-tooling-backup`.
+    Compresses `/opt/ibm/watson/aql-web-tooling/target/sandbox` and saves it as `sandbox.tgz` to `RELEASE_NAME-ibm-watson-ks-aql-web-tooling-backup`.
+    1.  Copies `sandbox.tgz` to the BACKUP_DIR that you specify.
+    1.  Deletes the temporary pod
+1.  [Reactivate](#reactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+
+#### Restoring PVC data
+{: #db-pvc-restore}
+
+Restores data to the PVC. Deletes the existing data in the sandbox, and then restores the backup data.
+
+1.  [Deactivate](#deactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+1.  Run the `pvc-backup-restore.sh` script with the `restore` command. The script runs the following operations:
+    1.  Copies `sandbox.tgz` from the BACKUP_DIR that you specify to a temporary pod at `RELEASE_NAME-ibm-watson-ks-aql-web-tooling-backup`.
+    1.  Deletes the data in `/opt/ibm/watson/aql-web-tooling/target/sandbox`.
+    1.  Decompresses `sandbox.tgz` to `/opt/ibm/watson/aql-web-tooling/target/sandbox`.
+        1.  Deletes the temporary pod
+1.  [Reactivate](#reactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
+
+## Deactivate {{site.data.keyword.knowledgestudioshort}}
+{: #deactivate-watson-ks}
+
+You don't need to deactivate when you run the `all-backup-restore.sh` script because the script handles the process.
+{: tip}
+
+To ensure that users don't have access to {{site.data.keyword.knowledgestudioshort}} when you back up or restore a single database, stop the {{site.data.keyword.knowledgestudioshort}} front-end pods before you back up or restore data.
+
+1.  Make sure that no training and evaluation processes are running. You can check job status with the following command:
+
+    ```sh
+    kubectl -n NAMESPACE get jobs
+    ```
+    {: pre}
+
+    Training jobs of {{site.data.keyword.knowledgestudioshort}} are named in the format `wks-train-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx`, and evaluation jobs are named in the format `wks-batch-apply-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. If the `COMPLETIONS` column of a training job reads `0/1`, that job is still running. Wait until all of the training jobs finish.
+1.  List information about the deployment:
+
+    ```sh
+    kubectl -n NAMESPACE get deployment RELEASE_NAME-ibm-watson-ks
+    kubectl -n NAMESPACE get deployment RELEASE_NAME-sire-training-jobq
+    kubectl -n NAMESPACE get deployment RELEASE_NAME-ibm-watson-mma-prod-model-management-api
+    kubectl -n NAMESPACE get deployment RELEASE_NAME-ibm-watson-ks-servicebroker
+    kubectl -n NAMESPACE get deployment RELEASE_NAME-ibm-watson-ks-aql-web-tooling
+    kubectl -n NAMESPACE get deployment RELEASE_NAME-ibm-watson-ks-glimpse-builder
+    kubectl -n NAMESPACE get deployment RELEASE_NAME-ibm-watson-ks-glimpse-query
     ```
     {:pre}
 
-    Make sure to note the number of pods in the DESIRED column so you can restore the same number later.
-    {: note}
+    where `NAMESPACE` is the namespace where {{site.data.keyword.knowledgestudioshort}} is deployed and `RELEASE_NAME` is the name that was specified when the {{site.data.keyword.knowledgestudioshort}} Helm chart was installed in your cluster.
 
-    ```bash 
-    kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks --replicas=0
+    Make sure to note the number of pods in the `DESIRED` column so you can restore the same number later.
+    {: important}
+
+1.  Temporarily stop the pods by issuing the following commands. Make sure you know the number of pods from the previous step.
+
+    ```sh
+    kubectl -n NAMESPACE scale deployment RELEASE_NAME-ibm-watson-ks --replicas=0
+    kubectl -n NAMESPACE scale deployment RELEASE_NAME-sire-training-jobq --replicas=0
+    kubectl -n NAMESPACE scale deployment RELEASE_NAME-ibm-watson-mma-prod-model-management-api --replicas=0
+    kubectl -n NAMESPACE scale deployment RELEASE_NAME-ibm-watson-ks-servicebroker --replicas=0
+    kubectl -n NAMESPACE scale deployment RELEASE_NAME-ibm-watson-ks-aql-web-tooling --replicas=0
+    kubectl -n NAMESPACE scale deployment RELEASE_NAME-ibm-watson-ks-glimpse-builder --replicas=0
+    kubectl -n NAMESPACE scale deployment RELEASE_NAME-ibm-watson-ks-glimpse-query --replicas=0
     ```
     {: pre}
 
-    - `{namespace}`: The namespace where {{site.data.keyword.knowledgestudioshort}} is deployed
-    - `{release_name}`: Helm release name of {{site.data.keyword.knowledgestudioshort}} in your cluster
+## Reactivate {{site.data.keyword.knowledgestudioshort}}
+{: #reactivate-watson-ks}
 
-2. Make sure that no training and evaluation processes are running.
+You don't need to reactivate when you run the `all-backup-restore.sh` script because the script handles the process.
+{: tip}
 
-    Confirm that there are no running jobs. For example, you can check job status with the following command.
+To activate {{site.data.keyword.knowledgestudioshort}}, start that pods that you stopped before you began backing up or restoring data. If you stopped pods with the `kubectl scale` command, you can start the pods with the following commands:
 
-    ```bash
-    kubectl -n {namespace} get jobs
-    ```
-    {: pre}
-
-    Training jobs of {{site.data.keyword.knowledgestudioshort}} are named in the format `wks-train-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx`, and evaluation jobs are named in the format `wks-batch-apply-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
-    If the `COMPLETIONS` column of a training job reads `0/1`, that job is still running. Wait until all of the training jobs finish.
-
-3. Deactivate pods.
-
-    To avoid data corruption, stop MMA, SIRE job queue, and Service Broker, AQL Web Tooling, and Glimpse pods.
-    Before stopping the pods, memorize the number of pods to restore the same number of pods after backup.
-
-    For example, you can stop the pods temporarily with the following commands.
-
-    ```bash
-    kubectl -n {namespace} get deployment {release_name}-sire-training-jobq 
-    kubectl -n {namespace} get deployment {release_name}-ibm-watson-mma-prod-model-management-api
-    kubectl -n {namespace} get deployment {release_name}-ibm-watson-ks-servicebroker
-    kubectl -n {namespace} get deployment {release_name}-ibm-watson-ks-aql-web-tooling
-    kubectl -n {namespace} get deployment {release_name}-ibm-watson-ks-glimpse-builder
-    kubectl -n {namespace} get deployment {release_name}-ibm-watson-ks-glimpse-query
-    ```
-    {: pre}
-
-    Make sure to note the number of pods in the DESIRED column for the deployments so you can restore the same number later.
-    {: note}
-
-    ```bash
-    kubectl -n {namespace} scale deployment {release_name}-sire-training-jobq --replicas=0
-    kubectl -n {namespace} scale deployment {release_name}-ibm-watson-mma-prod-model-management-api --replicas=0
-    kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks-servicebroker --replicas=0
-    kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks-aql-web-tooling --replicas=0
-    kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks-glimpse-builder --replicas=0
-    kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks-glimpse-query --replicas=0
-    ```
-    {: pre}
-
-## Step 2: Follow the backup or restore procedure for MongoDB
-{: #backup-restore-mongodb}
-
-In MongoDB, databases named `WKSDATA`, `ENVDATA`, and `escloud_sbsep` store data for {{site.data.keyword.knowledgestudioshort}}.
-
-### Obtain authentication information for MongoDB
-{: #obtain-mongodb-authentication}
-
-The MongoDB username and password are base64 encoded and stored into kubernetes secret named `{release_name}-ibm-mongodb-auth-secret`. You can retrieve the username and password with the following commands.
-
-```bash
-# username
-kubectl -n {namespace} get secret {release_name}-ibm-mongodb-auth-secret -o json | jq .data.user | tr -d '"' | base64 --decode
-
-# password
-kubectl -n {namespace} get secret {release_name}-ibm-mongodb-auth-secret -o json | jq .data.password | tr -d '"' | base64 --decode
+```sh
+kubectl -n NAMESPACE scale deployment RELEASE_NAME-sire-training-jobq --replicas=JOBQ_PODS
+kubectl -n NAMESPACE scale deployment RELEASE_NAME-ibm-watson-mma-prod-model-management-api --replicas=MMA_PODS
+kubectl -n NAMESPACE scale deployment RELEASE_NAME-ibm-watson-ks --replicas=FRONTEND_PODS
+kubectl -n NAMESPACE scale deployment RELEASE_NAME-ibm-watson-ks-servicebroker --replicas=BROKER_PODS
+kubectl -n NAMESPACE scale deployment RELEASE_NAME-ibm-watson-ks-aql-web-tooling --replicas=AWT_PODS
+kubectl -n NAMESPACE scale deployment RELEASE_NAME-ibm-watson-ks-glimpse-builder --replicas=GLIMPSE_BUILDER_PODS
+kubectl -n NAMESPACE scale deployment RELEASE_NAME-ibm-watson-ks-glimpse-query --replicas=GLIMPSE_QUERY_PODS
 ```
 {: pre}
 
-After you obtain the username and password, you are ready to [backup](#backup-mongodb) or [restore](#restore-mongodb) MongoDB data.
+where the values refer to the number of pods that you [deactivated](#deactivate-watson-ks) earlier:
 
-### Backing up MongoDB data
-{: #backup-mongodb}
-
-If you are performing a backup, you can use `mongodump` (See <https://docs.mongodb.com/v3.4/tutorial/backup-and-restore-tools/>). You can retrieve the backup data with the following commands.
-
-```bash
-# In client machine
-kubectl -n {namespace} exec -it {release_name}-ibm-mongodb-server-0 -- bash
-
-# In pod
-mkdir /home/mongodb/{output_dir}
-mongodump --ssl --sslAllowInvalidCertificates -u {username} -p {password} --authenticationDatabase admin --db=WKSDATA -o /home/mongodb/{output_dir}
-mongodump --ssl --sslAllowInvalidCertificates -u {username} -p {password} --authenticationDatabase admin --db=ENVDATA -o /home/mongodb/{output_dir}
-mongodump --ssl --sslAllowInvalidCertificates -u {username} -p {password} --authenticationDatabase admin --db=escloud_sbsep -o /home/mongodb/{output_dir}
-
-exit
-
-# In client machine
-kubectl -n {namespace} cp {release_name}-ibm-mongodb-server-0:/home/mongodb/{output_dir} {local_dir}
-```
-{: pre}
-
-
-You should not backup MongoDB user data (you should not use `--dumpDbUsersAndRoles` and `--restoreDbUsersAndRoles` options of `mongodump` and `mongorestore` respectively) because the username and password internally used in {{site.data.keyword.knowledgestudioshort}} is automatically generated during the deployment.
-If you restore and overwrite the MongoDB username and password manually, the connection between the components will be refused.
-{: note}
-
-### Restoring MongoDB data
-{: #restore-mongodb}
-
-If you are restoring data, you can use `mongorestore` (See <https://docs.mongodb.com/v3.4/tutorial/backup-and-restore-tools/>). For example, you can restore backed up data by executing the following commands.
-
-```bash
-# In client machine
-kubectl -n {namespace} cp {local_dir} {release_name}-ibm-mongodb-server-0:/home/mongodb/{remote_dir}
-kubectl -n {namespace} exec -it {release_name}-ibm-mongodb-server-0 -- bash
-
-# In pod
-mongorestore --drop --ssl --sslAllowInvalidCertificates -u {username} -p {password} --authenticationDatabase admin --dir /home/mongodb/{remote_dir}
-exit
-```
-{: pre}
-
-You should not backup MongoDB user data (you should not use `--dumpDbUsersAndRoles` and `--restoreDbUsersAndRoles` option of `mongodb` and `mongorestore`) because the username and password internally used in {{site.data.keyword.knowledgestudioshort}} are automatically generated during the deployment. If you restore and overwrite the MongoDB username and password manually, the connection between the components will be refused.
-{: note}
-
-## Step 3: Follow the backup or restore procedure for PostgreSQL 
-{: #backup-restore-postgresql}
-
-In PostgreSQL, databases named `awt`, `jobq_{release_name_underscore}`,`model_management_api`, and `model_management_api_v2` store data for {{site.data.keyword.knowledgestudioshort}}.
-
-### Obtain PostgreSQL authentication information
-{: #obtain-postgresql-authentication}
-
-The username of administrator is `stolon`, and the password is base64 encoded and stored into kubernetes secret named `{release_name}-ibm-postgresql-auth-secret`.
-
-You can retrieve the password with the following command.
-```bash
-kubectl -n {namespace} get secret -o json {release_name}-ibm-postgresql-auth-secret | jq .data.pg_su_password | tr -d '"' | base64 --decode
-```
-{: pre}
-
-After you obtain the username and password, you are ready to [backup](#backup-postgresql) or [restore](#restore-postgresql) PostgreSQL data.
-
-### Backing up PostgreSQL data
-{: #backup-postgresql}
-
-If you are performing a backup, You can use [pg_dump](https://www.postgresql.org/docs/9.6/app-pgdump.html) and [pg_dumpall](https://www.postgresql.org/docs/9.6/app-pg-dumpall.html). For example, you can retrieve backup data by executing the following commands.
-
-```bash
-# In client machine
-kubectl -n {namespace} get pods | grep {release_name}-ibm-postgresql-proxy # Choose a pod
-kubectl -n {namespace} exec -it {release_name}-ibm-postgresql-proxy-xxxxxxxxxx-yyyyy bash
-
-# In pod
-mkdir /home/stolon/{output_dir}
-
-## Each pg_dump command requires your password
-pg_dump -h localhost -p 5432 -U stolon --clean jobq_{release_name_underscore} > /home/stolon/{output_dir}/jobq_wks_{release_name_underscore}.sql
-pg_dump -h localhost -p 5432 -U stolon --clean model_management_api > /home/stolon/{output_dir}/model_management_api.sql
-pg_dump -h localhost -p 5432 -U stolon --clean model_management_api_v2 > /home/stolon/{output_dir}/model_management_api_v2.sql
-pg_dump -h localhost -p 5432 -U stolon --clean awt > /home/stolon/{output_dir}/awt.sql
-
-exit
-
-# In client machine
-kubectl -n {namespace} cp {release_name}-ibm-postgresql-proxy-xxxxxxxxxx-yyyyy:/home/stolon/{output_dir}/ {local_dir}
-```
-{: pre}
-
-- `{release_name_underscore}`: `{release_name}` where `-` is replaced with  `_`. For example, if `{release_name}` is `my-release`, `{release_name_underscore}` is `my_release`.
-
-You should not backup the PostgreSQL username and password because the username and password internally used in {{site.data.keyword.knowledgestudioshort}} are automatically generated during the deployment.
-If you restore and overwrite the PostgreSQL username and password manually, the connection between the components will be refused.
-{: note}
-
-### Restoring PostgreSQL data
-{: #restore-postgresql}
-
-If you are restoring data, you can use [psql](https://www.postgresql.org/docs/9.6/app-psql.html) and [pg_restore](https://www.postgresql.org/docs/9.6/app-pgrestore.html). For example, you can retrieve backup data by executing the following commands.
-
-```bash
-# In client machine
-kubectl -n {namespace} get pods | grep {release_name}-ibm-postgresql-proxy # Choose a pod
-kubectl -n {namespace} cp {local_dir} {release_name}-ibm-postgresql-proxy-xxxxxxxxxx-yyyyy:/home/stolon/{remote_dir}
-kubectl -n {namespace} exec -it {release_name}-ibm-postgresql-proxy-xxxxxxxxxx-yyyyy bash
-
-# In pod
-## Each psql command requires your password
-psql jobq_wks_{release_name_underscore} -h localhost -p 5432 -U stolon < /home/stolon/{remote_dir}/jobq_{release_name_underscore}.sql
-psql model_management_api -h localhost -p 5432 -U stolon < /home/stolon/{remote_dir}/model_management_api.sql
-psql model_management_api_v2 -h localhost -p 5432 -U stolon < /home/stolon/{remote_dir}/model_management_api_v2.sql
-psql awt -h localhost -p 5432 -U stolon < /home/stolon/{remote_dir}/awt.sql
-
-exit
-```
-{: pre}
-
-You should not backup the PostgreSQL username and password because the username and password internally used in {{site.data.keyword.knowledgestudioshort}} are automatically generated during the deployment.
-If you restore and overwrite the PostgreSQL username and password manually, the connection between the components will be refused.
-{: note}
-
-## Step 4: Follow the backup or restore procedure for MinIO
-{: #backup-restore-minio-1.0.0}
-
-In MinIO, a bucket named `wks-icp` stores data for {{site.data.keyword.knowledgestudioshort}}.
-
-### Obtain authentication information
-{: #obtain-minio-authentication}
-
-The MinIO access key and secret key, which are needed to connect the MinIO server, are base64 encoded and stored into kubernetes secret named `minio-access-secret-{release_name}`. You can retrieve the username and password with the following commands.
-
-```bash
-# access key
-kubectl -n {namespace} get secret -o json minio-access-secret-{release_name} | jq .data.accesskey | tr -d '"' | base64 --decode
-
-# secret key
-kubectl -n {namespace} get secret -o json minio-access-secret-{release_name} | jq .data.secretkey | tr -d '"' | base64 --decode
-```
-{: pre}
-
-### Backing up MinIO data
-{: #backup-minio}
-
-MinIO allows data to be copied from the server through several client applications such as [MinIO Client](https://docs.min.io/docs/minio-client-quickstart-guide.html), [S3cmd](https://docs.min.io/docs/s3cmd-with-minio.html), [AWS CLI](https://docs.min.io/docs/aws-cli-with-minio.html), and [restic](https://docs.min.io/docs/restic-with-minio.html). For example, you can retrieve backup data by executing the following MinIO Client commands.
-    
-```bash
-# In client machine
-kubectl -n {namespace} port-forward {release_name}-ibm-minio-1 9000:9000
-mc --insecure config host add {alias} https://localhost:9000 {access_key} {secret_key}
-mc --insecure cp -r {alias}/wks-icp {local_dir}
-```
-{: pre}
-
-- `{alias}`: Choose a name for the alias of your minio server (for example, "wks-minio").
-
-### Restoring MinIO data
-{: #restore-minio}
-
-You can restore backup data by executing the following commands.
-
-The following commands delete existing data in the MinIO server, then restore backup data.
-{: note}
-
-```bash
-# In client machine
-kubectl -n {namespace} port-forward {release_name}-ibm-minio-1 9000:9000
-mc --insecure config host add {alias} https://localhost:9000 {access_key} {secret_key}
-mc --insecure cp -r {local_dir} {alias}/wks-icp
-```
-{: pre}
-
-- `{alias}`: Choose a name for the alias of your minio server (for example, "wks-minio")
-
-
-## Step 5: Reactivate {{site.data.keyword.knowledgestudioshort}}
-{: #reactivate-the-add-on}
-
-To activate {{site.data.keyword.knowledgestudioshort}}, start that pods that you stopped before you began backing up or restoring data.
-If you stopped pods with the `kubectl scale` command, you can start the pods with the following commands.
-
-``` bash
-kubectl -n {namespace} scale deployment {release_name}-sire-training-jobq --replicas={num_jobq_pods}
-kubectl -n {namespace} scale deployment {release_name}-ibm-watson-mma-prod-model-management-api --replicas={num_mma_pods}
-kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks --replicas={num_frontend_pods}
-kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks-servicebroker --replicas={num_broker_pods}
-kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks-aql-web-tooling --replicas={num_awt_pods}
-kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks-glimpse-builder --replicas={num_glimpse_builder_pods}
-kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks-glimpse-query --replicas={num_glimpse_query_pods}
-```
-{: pre}
-
-- `{num_frontend_pods}`: The number of front-end pods that you stopped in step 1.1.
-- `{num_jobq_pods}`: The number of SIRE job queue pods that you stopped in step 1.3.
-- `{num_mma_pods}`: The number of MMA pods that you stopped in step 1.3.
-- `{num_broker_pods}`: The number of Service Broker pods that you stopped in step 1.3.
-- `{num_awt_pods}`: The number of AQL Web Tooling pods that you stopped in step 1.3.
-- `{num_glimpse_builder_pods}`: The number of Glimpse builder pods that you stopped in step 1.3.
-- `{num_glimpse_query_pods}`: The number of Glimpse query pods that you stopped in step 1.3.
+- `FRONTEND_PODS`: The number of **front-end** pods that you stopped.
+- `JOBQ_PODS`: The number of **SIRE** job queue pods that you stopped.
+- `MMA_PODS`: The number of **MMA** pods that you stopped.
+- `BROKER_PODS`: The number of **Service Broker** pods that you stopped.
+- `AWT_PODS`: The number of **AQL Web Tooling** pods that you stopped.
+- `GLIMPSE_BUILDER_PODS`: The number of **Glimpse builder** pods that you stopped.
+- `GLIMPSE_QUERY_PODS`: The number of **Glimpse query** pods that you stopped.

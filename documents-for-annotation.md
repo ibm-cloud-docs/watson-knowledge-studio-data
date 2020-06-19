@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-08-30"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -29,7 +29,7 @@ To train a machine learning model, you must add documents that contain subject m
 ## About this task
 {: #annotation_about}
 
-This section describes how to add documents for annotation only. To define rules for the rule-based model, you add or upload documents from which you can draw patterns to define as rules. See [Adding documents for defining rules](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_anno_add) for more information.
+This section describes how to add documents for annotation only. To define rules for the rule-based model, you add or upload documents from which you can draw patterns to define as rules. See [Adding documents for defining rules](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_anno_add) for more information.
 
 ## Documents
 {: #wks_sampledoc}
@@ -46,7 +46,7 @@ Try to ensure that your training documents are truly representative of content t
 
 When you are ready to create and train the model, documents that you add to the workspace can be divided into sets that are used as training data, test data, and blind data. The separate data sets are important for assessing model performance.
 
-You can add documents in the following ways. For information about the supported document types, size limits, and other information, see [Creating a workspace > Summary of inputs, outputs, and limitations](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-create-project#wks_formats).
+You can add documents in the following ways. For information about the supported document types, size limits, and other information, see [Creating a workspace > Summary of inputs, outputs, and limitations](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-create-project#wks_formats).
 
 - A two-column CSV file in UTF-8 format
 - Text files in UTF-8 format
@@ -83,7 +83,7 @@ After documents are annotated, the annotated documents are stored in `JSON` form
 
 To help train a model, you can upload documents that were pre-annotated by a UIMA analysis engine. The pre-annotated files must be in XMI serialization of UIMA Common Analysis Structure (UIMA CAS XMI) format and combined into a ZIP file. For example, you can upload documents that were annotated in an {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer collection.
 
-A human annotator can revise, delete, and add annotations to these documents, or you can bypass human annotation and use these files to create training, test, and blind document sets for evaluating and improving the model performance. For details about how to create these files and requirements for uploading them, see [Uploading pre-annotated documents](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_uima).
+A human annotator can revise, delete, and add annotations to these documents, or you can bypass human annotation and use these files to create training, test, and blind document sets for evaluating and improving the model performance. For details about how to create these files and requirements for uploading them, see [Uploading pre-annotated documents](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_uima).
 
 ### Anonymizing data
 {: #wks_anonymizing}
@@ -110,15 +110,15 @@ To add documents to a workspace:
 1. Log in as a {{site.data.keyword.knowledgestudioshort}} administrator or project manager, and select your workspace.
 2. Select the **Assets**> **Documents** > **Documentation sets** tab.
 3. Click **Upload Document Sets** to add documents to the corpus.
-4. Upload documents in one of the supported formats. For information about the supported document types, size limits, and other information, see  [Creating a workspace > Summary of inputs, outputs, and limitations](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-create-project#wks_formats).
+4. Upload documents in one of the supported formats. For information about the supported document types, size limits, and other information, see  [Creating a workspace > Summary of inputs, outputs, and limitations](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-create-project#wks_formats).
 
   **Notes about `ZIP` files of documents downloaded from another workspace**
    - If you previously downloaded documents from a {{site.data.keyword.knowledgestudioshort}} workspace, drag the `ZIP` file that contains the downloaded documents or click to locate and select the file. If you want to include annotations that were added to the documents before they were downloaded, ensure that the option to include ground truth is selected before you click **Upload**. Only annotations that were promoted to ground truth before the documents were downloaded will be imported.
    - Restriction: When annotated documents are imported, they are re-tokenized. This process can change what {{site.data.keyword.knowledgestudioshort}} considers to be the sentence boundaries. Because annotations are defined by sentence, some annotations might be invalidated during this process. After uploading documents from another workspace, do a quick review of the annotations to address any discrepancies.
-   - You must upload the type system from the original workspace into the current workspace before you upload ground truth annotations. For details, see [Uploading resources from another workspace](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-exportimport).
+   - You must upload the type system from the original workspace into the current workspace before you upload ground truth annotations. For details, see [Uploading resources from another workspace](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-exportimport).
 
   **Notes about `ZIP` files of documents in UIMA CAS XMI format**
-   - If you previously downloaded annotated documents that are in UIMA CAS XMI format, you can upload the `ZIP` file that contains the analyzed content. Specify that this is the type of content you want to upload before you click **Upload**. For details about how to create these files and requirements for uploading them, see [Uploading pre-annotated documents](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_uima).</p>
+   - If you previously downloaded annotated documents that are in UIMA CAS XMI format, you can upload the `ZIP` file that contains the analyzed content. Specify that this is the type of content you want to upload before you click **Upload**. For details about how to create these files and requirements for uploading them, see [Uploading pre-annotated documents](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_uima).</p>
 
 5. After the documents have been added, click the document names to preview them and verify that the content looks OK. For example, verify that text files are in UTF-8 format and that no diacritical marks or character normalization issues are visible in the documents, and check for poor sentence breaks. If problems exist, you might need to pre-process the files before you add them to the corpus. You want the documents to be as clean and well-formatted as possible before dictionary or human annotation begins.
 
@@ -127,7 +127,7 @@ To add documents to a workspace:
 
 Before you start any human annotation tasks, divide the corpus into multiple document sets and assign the document sets to human annotators.
 
-Admins and project managers can [annotate document sets directly](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-annotating-document-sets-directly) without creating annotation tasks.
+Admins and project managers can [annotate document sets directly](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-annotating-document-sets-directly) without creating annotation tasks.
 {: note}
 
 ## Deleting documents
@@ -182,8 +182,8 @@ If the document you want to delete is associated with an annotation task and hum
 {: #deleteannop}
 
 1. Tell the human annotators to ignore the unwanted document in the set.
-1. After all annotation work is complete on the other documents, and the human annotators submit all the documents to add the set to the ground truth, [review and accept the submitted documents](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-build-groundtruth#wks_haaccuracy).
-1. [Resolve any annotation conflicts](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-build-groundtruth#wks_haadjudicate).
+1. After all annotation work is complete on the other documents, and the human annotators submit all the documents to add the set to the ground truth, [review and accept the submitted documents](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-build-groundtruth#wks_haaccuracy).
+1. [Resolve any annotation conflicts](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-build-groundtruth#wks_haadjudicate).
 1. When all the documents are part of the ground truth and the task is complete, delete the task as described in [Deleting a document that is associated with an annotation task and human annotation has not begun](#deletenoannop).
 1. Delete the document as described in [Deleting a document that has not been associated with an annotation task](#deletenotask).
 

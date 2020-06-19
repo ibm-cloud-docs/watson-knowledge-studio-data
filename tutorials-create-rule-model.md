@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -43,17 +43,17 @@ This tutorial should take approximately 30 minutes to finish. If you explore oth
 ## Before you begin
 {: #tcrm-pr}
 
-- You're using a supported browser. For information, see [Browser requirements](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-system-requirements).
-- You successfully completed [Getting started with {{site.data.keyword.knowledgestudioshort}} for {{site.data.keyword.icp4dfull_notm}}](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro), which covers creating a workspace, creating a type system, and adding a dictionary.
-- You must have at least one user ID in either the Admin or Project Manager role. For information about user roles, see [User roles in {{site.data.keyword.knowledgestudioshort}}](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-roles).
+- You're using a supported browser. For information, see [Browser requirements](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-system-requirements).
+- You successfully completed [Getting started with {{site.data.keyword.knowledgestudioshort}} for {{site.data.keyword.icp4dfull_notm}}](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro), which covers creating a workspace, creating a type system, and adding a dictionary.
+- You must have at least one user ID in either the Admin or Project Manager role. For information about user roles, see [User roles in {{site.data.keyword.knowledgestudioshort}}](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-roles).
 
 ## Results
 {: #tcrm-results}
 
 After you create the rule-based model, you can use it in one of the following ways to find text patterns in documents:
 
-- [Pre-annotate your documents](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_preannotrule) before you create a machine learning model
-- [Deploy or export the model](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_publish) to other {{site.data.keyword.watson}} services or products
+- [Pre-annotate your documents](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_preannotrule) before you create a machine learning model
+- [Deploy or export the model](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_publish) to other {{site.data.keyword.watson}} services or products
 
 ## Lesson 1: Adding a dictionary of months
 {: #wks_tutless_rule1}
@@ -63,7 +63,7 @@ In this lesson, you will learn how to add a dictionary to a workspace in {{site.
 ### About this task
 {: #wks_tutless_rule1_about}
 
-In a later lesson, you will define a class based on this dictionary. When you create that class, all terms in this dictionary that are found in documents will be automatically annotated as a mention of the associated class type. For more information about dictionaries, see [Adding dictionaries to a workspace](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-dictionaries#wks_projdictionaries).
+In a later lesson, you will define a class based on this dictionary. When you create that class, all terms in this dictionary that are found in documents will be automatically annotated as a mention of the associated class type. For more information about dictionaries, see [Adding dictionaries to a workspace](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-dictionaries#wks_projdictionaries).
 
 ### Procedure
 {: #wks_tutless_rule1_procedure}
@@ -85,7 +85,7 @@ In this lesson, you will learn how to add documents with linguistic patterns tha
 ### About this task
 {: #wks_tutless_rule2_about}
 
-For more information about adding documents, see [Adding documents for defining rules](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_anno_add).
+For more information about adding documents, see [Adding documents for defining rules](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_anno_add).
 
 ### Procedure
 {: #wks_tutless_rule2_procedure}
@@ -108,7 +108,7 @@ In this lesson, you will learn how to define classes that you will use when you 
 ### About this task
 {: #wks_tutless_rule3_about}
 
-For more information about classes, see [Rules](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-rule-annotator).
+For more information about classes, see [Rules](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-rule-annotator).
 
 ### Procedure
 {: #wks_tutless_rule3_procedure}
@@ -164,7 +164,7 @@ In this lesson, you will learn how to define a regular expression.
 
 You will define a regular expression that can find year patterns like `2009`.
 
-For more information about defining regular expressions, see [Defining a rule](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_creation).
+For more information about defining regular expressions, see [Defining a rule](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_creation).
 
 ### Procedure
 {: #wks_tutless_rule6_procedure}
@@ -205,7 +205,7 @@ In this lesson, you will learn how to define a rule.
 
 You already defined a dictionary-based class for annotating month mentions. You also defined a regular expression that finds numeric values which represent a year. Now, you will define a rule that captures the sequence of a month followed by a number, a comma, and then a year. You will define a rule for date expressions like *September 21, 2016*.
 
-For more information about defining rules, see [Defining a rule](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_creation).
+For more information about defining rules, see [Defining a rule](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_creation).
 
 ### Procedure
 {: #unique_1166829415_procedure}
@@ -271,7 +271,7 @@ In this lesson, you will learn how to create a rule-based model.
 ### About this task
 {: #wks_tutless_rule8_about}
 
-For more information about creating a rule-based model, see [Creating the rule-based model](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_train).
+For more information about creating a rule-based model, see [Creating the rule-based model](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_train).
 
 ### Procedure
 {: #wks_tutless_rule8_procedure}

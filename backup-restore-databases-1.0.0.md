@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -20,11 +20,11 @@ subcollection: watson-knowledge-studio-data
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Backing up and restoring databases (Version 1.0.0)
+# Backing up and restoring databases (version 1.0.0)
 {: #backup-restore-databases-1.0.0}
 
-This document describes how to backup and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 1.0.0.
-To backup and restore workspace data such as type systems and groud truth, see [Backing up and restoring data](https://cloud.ibm.com/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
+This document describes how to backup and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 1.0.0. To backup and restore workspace data such as type systems and ground truth, see [Backing up and restoring data](https://cloud.ibm.com/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
+{: important}
 
 ## Overview
 {: #overview-databases-1.0.0}

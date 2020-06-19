@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -62,8 +62,8 @@ To upload documents, open the **Document Sets** tab in the new workspace, click 
 
 **Related concepts**:
 
-[Types of artifacts](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-artifacts)
+[Types of artifacts](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-artifacts)
 
-[Adding documents for annotation](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-documents-for-annotation)
+[Adding documents for annotation](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-documents-for-annotation)
 
-[Adding documents for defining rules](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_anno_add)
+[Adding documents for defining rules](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_anno_add)

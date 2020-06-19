@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -51,14 +51,14 @@ A custom entities and relations model could be trained to recognize "2020 Lightn
 3. {{site.data.keyword.knowledgestudioshort}} uses the ground truth to train a model.
 4. The trained model is used to find entities, relations, and coreferences in new, never-seen-before documents.
 
-See [Creating a machine learning model](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-ml_annotator) for more details.
+See [Creating a machine learning model](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-ml_annotator) for more details.
 
 ### Build a rule-based model
 {: #ibrb}
 
 {{site.data.keyword.knowledgestudioshort}} provides a rules editor that simplifies the process of finding and capturing common patterns in your documents as rules. You can then create a model that recognizes the rule patterns, and deploy it for use in other services.
 
-See [Creating a rule-based model](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-rule-annotator) for more details.
+See [Creating a rule-based model](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-rule-annotator) for more details.
 
 ## Analyze text with advanced rules
 {: #advanced-rules}
@@ -66,9 +66,9 @@ See [Creating a rule-based model](/docs/services/watson-knowledge-studio-data?to
 The advanced rules feature is Beta. The feature is in a trial stage of development and is not recommended for use in production environments.
 {: note}
 
-The visual advanced rules editor allows you to create text extractors with deeper customization potential than what is available in the entities and relations rules editor. A number of sample extractors are provided such as *Finance Actions* extractors and *Parts of Speech* extractors that can be edited and combined to create your own advanced rules model. You can analyze documents directly in the editor, or you can export your model to use with other services such as [{{site.data.keyword.nlushort}}](/docs/services/natural-language-understanding).
+The visual advanced rules editor allows you to create text extractors with deeper customization potential than what is available in the entities and relations rules editor. A number of sample extractors are provided such as *Finance Actions* extractors and *Parts of Speech* extractors that can be edited and combined to create your own advanced rules model. You can analyze documents directly in the editor, or you can export your model to use with other services such as [{{site.data.keyword.nlushort}}](/docs/natural-language-understanding).
 
-To get started, see [Creating an advanced rules model](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-create-advanced-rules-model).
+To get started, see [Creating an advanced rules model](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-create-advanced-rules-model).
 
 
 ## FISMA support
@@ -83,8 +83,8 @@ Share domain artifacts and models between {{site.data.keyword.knowledgestudiosho
 
 Use {{site.data.keyword.knowledgestudioshort}} to perform the following tasks:
 
-- Upload analyzed documents that are in [UIMA CAS XMI format](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_uimaweximport). For example, you can upload UIMA CAS XMI files that were exported from {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer content analytics collections or [{{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer Content Analytics Studio](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_uimawexstudio).
-- Export a [machine learning](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-publish-ml#wks_madiscovery) or [rule-based](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_publish#wks_rule_discovery) model to use with {{site.data.keyword.watson}} {{site.data.keyword.discoveryshort}} for {{site.data.keyword.icp4dfull_notm}}.
-- Export a [machine learning](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-publish-ml#wks_manlu) to use with {{site.data.keyword.nlushort}} for {{site.data.keyword.icp4dfull_notm}}.
-- [Export a machine learning model](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-publish-ml#wks_maexport) to use in {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer.
-- [Export a rule-based model PEAR file](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_publish#wks_rule_export) to use in {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer.
+- Upload analyzed documents that are in [UIMA CAS XMI format](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_uimaweximport). For example, you can upload UIMA CAS XMI files that were exported from {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer content analytics collections or [{{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer Content Analytics Studio](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_uimawexstudio).
+- Export a [machine learning](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-publish-ml#wks_madiscovery) or [rule-based](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_publish#wks_rule_discovery) model to use with {{site.data.keyword.watson}} {{site.data.keyword.discoveryshort}} for {{site.data.keyword.icp4dfull_notm}}.
+- Export a [machine learning](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-publish-ml#wks_manlu) to use with {{site.data.keyword.nlushort}} for {{site.data.keyword.icp4dfull_notm}}.
+- [Export a machine learning model](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-publish-ml#wks_maexport) to use in {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer.
+- [Export a rule-based model PEAR file](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_publish#wks_rule_export) to use in {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer.

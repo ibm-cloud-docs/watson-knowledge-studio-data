@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-08-30"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -30,9 +30,9 @@ subcollection: watson-knowledge-studio-data
 
 - **{{site.data.keyword.knowledgestudioshort}} roles** control access to {{site.data.keyword.knowledgestudioshort}} functionality and are managed in the {{site.data.keyword.knowledgestudioshort}} application.
 - The first user to launch the {{site.data.keyword.knowledgestudioshort}} application is assigned the **Admin** role.
-- Once assigned, user roles can't be downgraded from higher to lower levels of permissions. Admins can't be downgraded to project managers or human annotators, and project managers can't be downgraded to human annotators. For information about adding users, upgrading roles, and deactivating user accounts, see [Assembling a team](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-team).
+- Once assigned, user roles can't be downgraded from higher to lower levels of permissions. Admins can't be downgraded to project managers or human annotators, and project managers can't be downgraded to human annotators. For information about adding users, upgrading roles, and deactivating user accounts, see [Assembling a team](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-team).
 - To manage a workspace, project managers need to be assigned to the workspace by an admin.
-- Admins and project managers can perform the role of human annotators. They can also [directly annotate document sets](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-annotating-document-sets-directly) without creating annotation tasks.
+- Admins and project managers can perform the role of human annotators. They can also [directly annotate document sets](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-annotating-document-sets-directly) without creating annotation tasks.
 
 ## {{site.data.keyword.knowledgestudioshort}} role descriptions
 {: #descriptions}

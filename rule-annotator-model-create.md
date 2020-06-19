@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -35,7 +35,7 @@ To create a rule-based model. complete the following steps:
 3. Click **Map entity types and classes**.
 4. Map the entity types from your type system to one or more classes that you used to define rules.
 
-  After the entity types are mapped, you can [deploy the rule-based model](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_publish) or use it to [pre-annotate documents](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_preannotrule) in the process of creating a machine learning model.
+  After the entity types are mapped, you can [deploy the rule-based model](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_publish) or use it to [pre-annotate documents](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_preannotrule) in the process of creating a machine learning model.
 
 ## Deleting a rule-based model
 {: #wks_rule_delete_model}

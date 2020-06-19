@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -31,8 +31,8 @@ This {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull
 ## Before you begin
 {: #prereq}
 
-- Provision the instance of the {{site.data.keyword.knowledgestudioshort}} for {{site.data.keyword.icp4dfull_notm}} add-on. For more information about provisioning, see [Installing the add-on](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-install).
-- Confirm you're using a supported browser. For information, see [Browser requirements](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-system-requirements).
+- Provision the instance of the {{site.data.keyword.knowledgestudioshort}} for {{site.data.keyword.icp4dfull_notm}} add-on. For more information about provisioning, see [Installing the add-on](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-install).
+- Confirm you're using a supported browser. For information, see [Browser requirements](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-system-requirements).
 
 ## Launching the {{site.data.keyword.knowledgestudioshort}} application
 {: #launching-the-knowledge-studio-application}
@@ -50,7 +50,7 @@ In this lesson, you will learn about the different roles that you can assign to 
 ### About this task
 {: #wks_tutless1_about}
 
-The creation of a machine learning model requires input from subject matter experts, project managers, and users who can understand and interpret statistical models. Administrators assign roles to each user, such that they have appropriate authority for their tasks. For more information about user roles, see [Assembling a team](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-team).
+The creation of a machine learning model requires input from subject matter experts, project managers, and users who can understand and interpret statistical models. Administrators assign roles to each user, such that they have appropriate authority for their tasks. For more information about user roles, see [Assembling a team](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-team).
 
 ### Procedure
 {: #wks_tutless1_procedure}
@@ -62,7 +62,7 @@ The creation of a machine learning model requires input from subject matter expe
     - Project Manager
     - Human Annotator
 
-    For information about user roles, see [User roles in {{site.data.keyword.knowledgestudioshort}}](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-roles).
+    For information about user roles, see [User roles in {{site.data.keyword.knowledgestudioshort}}](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-roles).
 
 3. Verify that there is at least one user with the Admin role. A user ID with this role can create workspaces, and act as a project manager or human annotator.
 4. If you have access to additional user IDs, verify that there are at least two users with the Human Annotator role.
@@ -83,7 +83,7 @@ In this lesson, you will learn how to create a workspace within {{site.data.keyw
 ### About this task
 {: #wks_tutless2_about}
 
-A workspace defines all the resources that are required to create a machine learning model, including training documents, the type system, dictionaries, and annotations that are added by human annotators. For more information about workspace creation, see [Creating a workspace](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-create-project).
+A workspace defines all the resources that are required to create a machine learning model, including training documents, the type system, dictionaries, and annotations that are added by human annotators. For more information about workspace creation, see [Creating a workspace](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-create-project).
 
 ### Procedure
 {: #wks_tutless2_procedure}
@@ -116,7 +116,7 @@ In this lesson, you will learn how to upload and modify a type system within {{s
 ### About this task
 {: #wks_tutless3_about}
 
-For more information about type systems, see [Type systems](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-typesystem#wks_typesystem).
+For more information about type systems, see [Type systems](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-typesystem#wks_typesystem).
 
 ### Procedure
 {: #wks_tutless3_procedure}
@@ -149,7 +149,7 @@ In this lesson, you will learn how to add a dictionary to a workspace in {{site.
 ### About this task
 {: #wks_tutless4_about}
 
-For more information about dictionaries, see [Adding dictionaries to a workspace](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-dictionaries#wks_projdictionaries).
+For more information about dictionaries, see [Adding dictionaries to a workspace](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-dictionaries#wks_projdictionaries).
 
 ### Procedure
 {: #wks_tutless4_procedure}
@@ -182,7 +182,7 @@ After you create a dictionary, you can use it to speed up human annotation tasks
 ## Next steps
 {: #wks_tutless_next}
 
-Learn how to [create a machine learning model](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro).
+Learn how to [create a machine learning model](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro).
 
 ## Tutorial summary
 {: #wks_tutsum}

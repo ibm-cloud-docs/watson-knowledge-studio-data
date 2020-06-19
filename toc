@@ -22,7 +22,6 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
     {: .topicgroup}
     Installing
         install.md
-        [Helm chart README](https://github.com/ibm-cloud-docs/data-readmes/blob/master/watson-knowledge-studio-README.md)
         manage.md
     team.md
     create-project.md
@@ -63,6 +62,7 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
     {: topicgroup}
     Backing up and restoring databases
         backup-restore-databases.md
+        backup-restore-databases-1.1.1.md
         backup-restore-databases-1.0.1.md
         backup-restore-databases-1.0.0.md
     {: .navgroup-end}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-08-30"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -98,7 +98,7 @@ To modify the type system without losing the work that was done by human annotat
 **Related concepts**:
 {: #wks_projtypesysmod_related}
 
-[Type systems](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-typesystem#wks_typesystem)
+[Type systems](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-typesystem#wks_typesystem)
 
 ## Document set management
 {: #wks_mamanagedata}
