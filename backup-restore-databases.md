@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-06-18"
 
 subcollection: watson-knowledge-studio-data
 
@@ -54,7 +54,7 @@ The script backs up or restores the data in the following order:
 1.  PVC
 
 ```sh
-all-backup-restore.sh backup|restore RELEASE_NAME BACKUP_DIR -n NAMESPACE
+all-backup-restore.sh backup | restore RELEASE_NAME BACKUP_DIR -n NAMESPACE
 ```
 {: pre}
 
@@ -136,7 +136,7 @@ If you need to back up or restore a single database, use one of the database-spe
 Use this script instead of `all-backup-command.sh` to back up or restore only the MongoDB database.
 
 ```sh
-mongodb-backup-restore.sh backup|restore RELEASE_NAME BACKUP_DIR -n NAMESPACE
+mongodb-backup-restore.sh backup | restore RELEASE_NAME BACKUP_DIR -n NAMESPACE
 ```
 {: pre}
 
@@ -171,7 +171,7 @@ Restore the backed-up data to MongoDB.
 Use this script instead of `all-backup-command.sh` to back up or restore only the PostgreSQL database.
 
 ```sh
-postgresql-backup-restore.sh backup|restore RELEASE_NAME BACKUP_DIR -n NAMESPACE
+postgresql-backup-restore.sh backup | restore RELEASE_NAME BACKUP_DIR -n NAMESPACE
 ```
 {: pre}
 
@@ -208,7 +208,7 @@ Restores the backed-up data to PostgreSQL.
 Use this script instead of `all-backup-command.sh` to back up or restore only the MinIO database.
 
 ```sh
-minio-backup-restore.sh backup|restore RELEASE_NAME BACKUP_DIR -n NAMESPACE
+minio-backup-restore.sh backup | restore RELEASE_NAME BACKUP_DIR -n NAMESPACE
 ```
 {: pre}
 
@@ -246,7 +246,7 @@ Restores the snapshot data to MinIO. Deletes the existing data in the MinIO serv
 Use this script instead of `all-backup-command.sh` to back up or restore only the Persistent volume claim (PVC) data.
 
 ```sh
-pvc-backup-restore.sh backup|restore RELEASE_NAME BACKUP_DIR DOCKERREGISTRY PVC_USER_ID -n NAMESPACE
+pvc-backup-restore.sh backup | restore RELEASE_NAME BACKUP_DIR DOCKERREGISTRY PVC_USER_ID -n NAMESPACE
 ```
 {: pre}
 
