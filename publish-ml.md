@@ -32,7 +32,7 @@ You can also pre-annotate new documents with the machine learning model. See [Pr
 ## Exporting a machine learning model
 {: #exporting-a-machine-learning-model}
 
-To export a machine learning model as a ZIP file, complete the following steps:
+To export a machine learning model as a .zip file, complete the following steps:
 
 1. Log in as a {{site.data.keyword.knowledgestudioshort}} administrator or project manager, and select your workspace.
 2. Select **Machine Learning Model** > **Versions**.
@@ -72,7 +72,7 @@ You must have a [{{site.data.keyword.nlushort}} for {{site.data.keyword.icp4dful
 {: #wks_manlu_procedure}
 
 1. [Export a machine learning model](#exporting-a-machine-learning-model).
-2. Follow the [Customizing](/docs/natural-language-understanding-data?topic=natural-language-understanding-data-customizing) instructions in the {{site.data.keyword.nlushort}} for {{site.data.keyword.icp4dfull_notm}} documentation to create an entities model with the ZIP file that you downloaded.
+2. Follow the [Customizing](/docs/natural-language-understanding-data?topic=natural-language-understanding-data-customizing) instructions in the {{site.data.keyword.nlushort}} for {{site.data.keyword.icp4dfull_notm}} documentation to create an entities model with the .zip file that you downloaded.
 
 ## Deleting a version
 {: #wks_delete_model_version}

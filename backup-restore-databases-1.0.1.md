@@ -22,7 +22,7 @@ subcollection: watson-knowledge-studio-data
 # Backing up and restoring databases (version 1.0.1)
 {: #backup-restore-databases-1.0.1}
 
-This document describes how to backup and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 1.0.1. To backup and restore workspace data such as type systems and ground truth, see [Backing up and restoring data](https://cloud.ibm.com/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
+This document describes how to backup and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 1.0.1. To backup and restore workspace data such as type systems and ground truth, see [Backing up and restoring data](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
 {: important}
 
 ## Overview

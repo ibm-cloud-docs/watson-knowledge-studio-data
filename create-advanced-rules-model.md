@@ -60,7 +60,7 @@ Advanced rules models are comprised of text extractors that you design in the ad
     1. In the **Projects** tab of your workspace, click the **New** button.
     2. Enter a name for your project and click **Create**.
 
-    For more details, see [Managing projects and extractors](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-managing-projects-and-extractors)
+    For more information, see [Managing projects and extractors](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-managing-projects-and-extractors).
 
 1. Add documents to your project
 
@@ -81,7 +81,7 @@ Advanced rules models are comprised of text extractors that you design in the ad
     2. Alternatively, select the extractor and click Run Selected from the extractor toolbar.
     3. To run multiple extractors, select them and click Run Selected in the toolbar. When the extractor has finished running, click the Results pane to view the output. The results are highlighted in the Documents pane as well.
 
-    For more details, see [Managing projects and extractors > Running an extractor](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-managing-projects-and-extractors#running-an-extractor)
+    For more information, see [Managing projects and extractors > Running an extractor](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-managing-projects-and-extractors#running-an-extractor).
 
 1. Export your model
 
