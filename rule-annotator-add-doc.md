@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -40,6 +40,6 @@ Documents that you add for defining rules are kept separate from documents that 
 
 - **Copy a document that was imported for annotation**
 
-    If a document that is part of a set that was imported for annotation purposes contains examples of patterns that you want to capture as rules, you can copy the document over to the rule editor. Any changes that you make to the document do not impact the original version of the document that is being used for annotation. See [Adding documents to a workspace](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-documents-for-annotation#wks_projadd) for information about uploading documents.
+    If a document that is part of a set that was imported for annotation purposes contains examples of patterns that you want to capture as rules, you can copy the document over to the rule editor. Any changes that you make to the document do not impact the original version of the document that is being used for annotation. See [Adding documents to a workspace](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-documents-for-annotation#wks_projadd) for information about uploading documents.
 
 For documents that you copy or upload, choose documents that contain distinct patterns that help to identify entity types in documents.

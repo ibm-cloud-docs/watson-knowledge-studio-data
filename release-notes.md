@@ -1,30 +1,36 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-27"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:beta: .beta}
+{:deprecated: .deprecated}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
-
 
 # Release notes
 {: #release-notes}
 
 The following new features and changes to {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} are available.
 {: shortdesc}
+
+## Version 1.1.2 (19 June 2020)
+{: #v112}
+
+- **Enhanced pre-annotation workflow.**
+    - Run multiple pre-annotators at once and configure the order of pre-annotators to resolve annotation conflicts between them. Existing pre-annotator results are preserved unless you remove them with the *Wipe* option.
+    - Human annotations are preserved when running pre-annotators, even when using the *Wipe* option.
 
 ## Version 1.1.1 (28 February 2020)
 {: #28-february-2020}
@@ -40,9 +46,8 @@ The following new features and changes to {{site.data.keyword.knowledgestudioful
       - **Month First Splitter**
       - **Year First Splitter**
     - Syslog Splitter:
-      - **Date Time Splitter**  
+      - **Date Time Splitter**
 - **Cross-sentence relations (Experimental)**: English entities and relations workspaces can now support annotating relations between entities within spans of six sentences. To get started, see [Enabling cross-sentence relations](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-enabling-cross-sentence-relations).
-
 
 ## Version 1.1.0 (27 November 2019)
 {: #27-november-2019}

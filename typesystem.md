@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -82,7 +82,7 @@ For some relation types, the order of entity mentions matters. For example, the 
 
 **Related concepts**:
 
-[Uploading resources from another workspace](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-exportimport)
+[Uploading resources from another workspace](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-exportimport)
 
 ## Adding a type system to the workspace
 {: #wks_projtypesys}
@@ -112,7 +112,7 @@ By convention, entity type names are specified in uppercase characters (`ORGANIZ
 
         1. On the **Entity Types** tab, click **Upload**.
 
-            If you previously downloaded a type system from a {{site.data.keyword.knowledgestudioshort}} workspace, the type system is downloaded in `JSON` format. You can upload this type system to jump-start the creation of a workspace. For details, see [Uploading resources from another workspace](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-exportimport).
+            If you previously downloaded a type system from a {{site.data.keyword.knowledgestudioshort}} workspace, the type system is downloaded in `JSON` format. You can upload this type system to jump-start the creation of a workspace. For details, see [Uploading resources from another workspace](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-exportimport).
 
             > **Note:** Regardless of the origin of the type system, the entries in it must meet the naming rules listed earlier.
 
@@ -124,7 +124,7 @@ By convention, entity type names are specified in uppercase characters (`ORGANIZ
         2. Specify a descriptive entity type name, keeping in mind that the entity type is a label for annotating important spans of text (mentions) in your domain content. Keep the name short and representative, so human annotators can remember it easily.
 
             You can also optionally define roles and subtypes for the entity type:
-            - A role helps qualify the entity type in the context in which the mention occurs. For example, the mention `Software Engineer` might be labeled with the entity type `PEOPLE` and, in this context, by the role `OCCUPATION`. See [When to define roles](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-typesystem#wks_typesystem_roles) for more information.
+            - A role helps qualify the entity type in the context in which the mention occurs. For example, the mention `Software Engineer` might be labeled with the entity type `PEOPLE` and, in this context, by the role `OCCUPATION`. See [When to define roles](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-typesystem#wks_typesystem_roles) for more information.
             - A subtype helps further classify the entity type. For example, the entity type `GOVERNMENT` might have subtypes of `MILITARY` and `CIVILIAN`.
 
             > **Note:** By defining a role or subtype for an entity, you are giving more options to the person who will associate type information to mentions at annotation time. The human annotator can apply an annotation that specifies the entity type only, or the entity type plus the role or subtype that you are defining now.
@@ -147,7 +147,7 @@ By convention, entity type names are specified in uppercase characters (`ORGANIZ
 
 **Related tasks**:
 
-[Modifying a type system without losing human annotations](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-improve-ml#wks_projtypesysmod)
+[Modifying a type system without losing human annotations](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-improve-ml#wks_projtypesysmod)
 
 ## Type system creation guidelines
 {: #wks_typesys_guidelines}

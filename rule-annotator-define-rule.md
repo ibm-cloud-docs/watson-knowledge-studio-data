@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -38,7 +38,7 @@ To define a rule, complete the following steps:
 1. Log in as a {{site.data.keyword.knowledgestudioshort}} administrator or project manager and click **Rule-based Model** > **Rules**.
 2. Click the plus sign (+) next to the Documents heading to add a document.
 
-    For more information, see [Adding documents for defining rules](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_anno_add).
+    For more information, see [Adding documents for defining rules](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_rule_anno_add).
 
     For example, you might add a document named `My Document` that contains this single line of text:
 
@@ -66,7 +66,7 @@ To define a rule, complete the following steps:
 
         Any dictionaries that you created are displayed.
 
-        If you have not added a dictionary, open the **Assets** > **Dictionaries** page from the main navigation bar to add one. See [Creating dictionaries](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-dictionaries) for more information.
+        If you have not added a dictionary, open the **Assets** > **Dictionaries** page from the main navigation bar to add one. See [Creating dictionaries](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-dictionaries) for more information.
 
     2. Click a dictionary, associate a class with the dictionary, and then click **Save**.
 

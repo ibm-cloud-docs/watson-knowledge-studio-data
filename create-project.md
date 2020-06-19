@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -42,7 +42,7 @@ Before creating a workspace, answer these questions:
 
 - **What services will use the model?**
 
-    See [{{site.data.keyword.watson}} services integration](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_overview_full#wks_watsoninteg) for information about the other {{site.data.keyword.watson}} services that custom models can be used with.
+    See [{{site.data.keyword.watson}} services integration](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_overview_full#wks_watsoninteg) for information about the other {{site.data.keyword.watson}} services that custom models can be used with.
 
 ## Procedure
 {: #cp-pr}
@@ -57,11 +57,11 @@ To create a workspace, complete the following steps:
 3. Identify the language of the documents in your workspace. The documents that you add to the workspace, and the dictionaries that you create or upload, must be in the language that you specify.
 4. Optional: If you want to change the tokenizer that is used by the application from the default machine learning-based tokenizer, then you can expand the **Advanced Options** section, and choose **Dictionary-based tokenizer**.
 
-    The default tokenizer is more advanced than the dictionary-based tokenizer; it uses machine learning to identify the tokens in the source documents based on the statistical learning it has done in the language of the source documents. It identifies tokens with more precision because it understands the more natural and nuanced patterns of language. The dictionary-based tokenizer identifies tokens based on language rules. See [Tokenizers](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-create-project#wks_tokenizer) for more details.
+    The default tokenizer is more advanced than the dictionary-based tokenizer; it uses machine learning to identify the tokens in the source documents based on the statistical learning it has done in the language of the source documents. It identifies tokens with more precision because it understands the more natural and nuanced patterns of language. The dictionary-based tokenizer identifies tokens based on language rules. See [Tokenizers](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-create-project#wks_tokenizer) for more details.
 
 5. Optional: If you want to add project managers to the workspace, then expand the **Advanced Options** section, and select the names of people you want to add as project managers from the list. The administrator can add or remove project managers later by editing the workspace.
 
-    Only the names of people that you assigned to the project manager role from the User Account Management page for the instance are displayed. See [Assembling a team](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-team) for more information about adding users.
+    Only the names of people that you assigned to the project manager role from the User Account Management page for the instance are displayed. See [Assembling a team](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-team) for more information about adding users.
 
     > **Note:** If you have a Lite plan subscription, skip this step. You cannot add other users, so you cannot assign anyone to the project manager role. You do not need a separate project manager. As an administrator, you can perform all the tasks that a project manager would typically perform.
 
@@ -76,11 +76,11 @@ To change the workspace description or workspace name, or to add or remove proje
 
 **Related concepts**:
 
-[Uploading resources from another workspace](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-exportimport)
+[Uploading resources from another workspace](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-exportimport)
 
 **Related reference**:
 
-[Language support](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-language-support)
+[Language support](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-language-support)
 
 ## Tokenizers
 {: #wks_tokenizer}

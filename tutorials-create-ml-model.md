@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-08-30"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -41,13 +41,13 @@ This tutorial takes approximately 60 minutes to finish. If you explore other con
 ## Before you begin
 {: #tcmm-pr}
 
-- You're using a supported browser. See [Browser requirements](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-system-requirements).
-- You successfully completed [Getting started with {{site.data.keyword.knowledgestudioshort}}](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro), which covers creating a workspace, creating a type system, and adding a dictionary.
+- You're using a supported browser. See [Browser requirements](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-system-requirements).
+- You successfully completed [Getting started with {{site.data.keyword.knowledgestudioshort}}](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro), which covers creating a workspace, creating a type system, and adding a dictionary.
 - You must have at least one user ID in either the Admin or Project Manager role.
 
     > **Note:** If possible, use multiple user IDs for the machine learning model tasks in this tutorial (one Admin or Project Manager user ID, and at least two Human Annotator user IDs). Using multiple user IDs provides the most realistic simulation of an actual {{site.data.keyword.knowledgestudiofull}} workspace, where a project manager must coordinate and adjudicate annotation that is performed by multiple human annotators. However, if you have access to only a single user ID, you can still simulate most parts of the process.
 
-    For information about user roles, see [User roles in {{site.data.keyword.knowledgestudioshort}}](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-roles).
+    For information about user roles, see [User roles in {{site.data.keyword.knowledgestudioshort}}](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-roles).
 
 ## Results
 {: #tcmm-results}
@@ -62,7 +62,7 @@ In this lesson, you will learn how to add documents to a workspace in {{site.dat
 ### About this task
 {: #tut_lessml1_about}
 
-For more information about adding documents, see [Adding documents to a workspace](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-documents-for-annotation#wks_projadd).
+For more information about adding documents, see [Adding documents to a workspace](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-documents-for-annotation#wks_projadd).
 
 ### Procedure
 {: #tut_lessml1_procedure}
@@ -87,21 +87,21 @@ In this lesson, you will learn how to use a dictionary-based annotator to pre-an
 
 Pre-annotating documents is an optional step. However, it is a worthwhile step because it makes the job of human annotators easier later.
 
-For more information about pre-annotation with dictionaries, see [Pre-annotating documents with a dictionary](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_preannot).
+For more information about pre-annotation with dictionaries, see [Pre-annotating documents with a dictionary](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_preannot).
 
 ### Procedure
 {: #wks_tutless_ml3_procedure}
 
 1. Within your workspace, click **Assets** > **Dictionaries**.
 
-  The `Test dictionary` dictionary opens. The [Adding a dictionary](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro#wks_tutless4) lesson of the *Getting started with {{site.data.keyword.knowledgestudioshort}}* tutorial shows how to create this dictionary.
+  The `Test dictionary` dictionary opens. The [Adding a dictionary](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro#wks_tutless4) lesson of the *Getting started with {{site.data.keyword.knowledgestudioshort}}* tutorial shows how to create this dictionary.
 
 1. From the **Entity type** list, select the `ORGANIZATION` entity type to map it to the `Test dictionary` dictionary.
 
-  The [Creating a type system](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro#wks_tutless3) lesson of the *Getting started with {{site.data.keyword.knowledgestudioshort}}* tutorial shows how to create the type system that contains the `ORGANIZATION` entity type.
+  The [Creating a type system](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro#wks_tutless3) lesson of the *Getting started with {{site.data.keyword.knowledgestudioshort}}* tutorial shows how to create the type system that contains the `ORGANIZATION` entity type.
 
 1. On the **Machine Learning Model** > **Pre-annotation** > **Dictionaries** tab, click **Apply This Pre-annotator**.
-1. Select the document set that you created in [Lesson 1](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml1).
+1. Select the document set that you created in [Lesson 1](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#tut_lessml1).
 1. Click **Run**.
 
 ### Results
@@ -122,7 +122,7 @@ An *annotation set* is a subset of documents from an uploaded document set that 
 
 > **Note:** In a realistic scenario, you would create as many annotation sets as needed, based on the number of human annotators who are working in the workspace. In this tutorial, you will create two annotation sets. If you do not have access to multiple user IDs, you can assign both annotation sets to the same user.
 
-For more information about annotation sets and annotation tasks, see [Creating an annotation task](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-annotate-documents#wks_hatask).
+For more information about annotation sets and annotation tasks, see [Creating an annotation task](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-annotate-documents#wks_hatask).
 
 ### Procedure
 {: #wks_tutless_ml2_procedure}
@@ -164,24 +164,24 @@ In this lesson, you will learn how to use the *ground truth editor* to annotate 
 ### About this task
 {: #wks_tutless_ml5_about}
 
-For more information about human annotation, see [Annotation with the ground truth editor](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-user-guide#wks_hagte).
+For more information about human annotation, see [Annotation with the ground truth editor](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-user-guide#wks_hagte).
 
 ### Procedure
 {: #wks_tutless_ml5_procedure}
 
-1. Log in to {{site.data.keyword.knowledgestudioshort}} as a user who is assigned to the annotation task that you created in [Lesson 3](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml2).
+1. Log in to {{site.data.keyword.knowledgestudioshort}} as a user who is assigned to the annotation task that you created in [Lesson 3](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml2).
 
     > **Note:** If you have access only to a single administrator ID for this tutorial, you can use that ID to perform human annotation. However, remember that in a realistic scenario, human annotation is performed by different users with the Human Annotator role.
 
 1. Open the `My workspace` workspace and click **Machine Learning Model** > **Annotations**.
-1. Click the **Annotation Tasks** tab, then open the `Test` annotation task you created in [Lesson 3](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml2).
+1. Click the **Annotation Tasks** tab, then open the `Test` annotation task you created in [Lesson 3](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml2).
 1. Click **Annotate** for one of the assigned annotation sets.
 
   Depending on how you set up the annotation tasks, you could have one or more annotation tasks assigned to the user ID you logged in with.
 
 1. From the list of documents, find the *Technology - gmanews.tv* document and open it.
 
-  Notice that the term `IBM` was already annotated with the `ORGANIZATION` entity type. This annotation was added by the dictionary pre-annotator that was applied in [Lesson 2](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml3). This pre-annotation is correct, so it does not need to be modified.
+  Notice that the term `IBM` was already annotated with the `ORGANIZATION` entity type. This annotation was added by the dictionary pre-annotator that was applied in [Lesson 2](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro#wks_tutless_ml3). This pre-annotation is correct, so it does not need to be modified.
 
   ![This screen capture shows an open document with an existing pre-annotation for "IBM".](images/wks_tut_preannotation.png "This screen capture shows an open document with an existing pre-annotation for "IBM".")
 
@@ -230,7 +230,7 @@ To determine whether different human annotators are annotating overlapping docum
 
 In this tutorial, the human annotators submitted all the document sets for approval. If the inter-annotator agreement scores are acceptable, you can approve the document sets. If you reject a document set, it is returned to the human annotator for improvement.
 
-For more information about inter-annotator agreement, see [Building the ground truth](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-build-groundtruth).
+For more information about inter-annotator agreement, see [Building the ground truth](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-build-groundtruth).
 
 ### Procedure
 {: #wks_tutless_ml6_procedure}
@@ -266,7 +266,7 @@ In this lesson, you will learn how to adjudicate conflicts in documents that ove
 
 When you approve a document set, only the documents that do not overlap with other document sets are promoted to ground truth. If a document is part of the overlap between multiple document sets, you must adjudicate any annotation conflicts before the document can be promoted to ground truth.
 
-For more information about adjudication, see [Building the ground truth](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-build-groundtruth).
+For more information about adjudication, see [Building the ground truth](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-build-groundtruth).
 
 ### Procedure
 {: #wks_tutless_ml7_procedure}
@@ -302,7 +302,7 @@ In this lesson, you will learn how to create a machine learning model in {{site.
 
 When you create a machine learning model, you select the document sets that you want to use to train it. You also specify the percentage of documents that are to be used as training data, test data, and blind data. Only documents that became ground truth through approval or adjudication can be used to train the machine learning model.
 
-For more information about the machine learning model, see [Training the machine learning model](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-train-ml) and [Analyzing machine learning model performance](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-evaluate-ml).
+For more information about the machine learning model, see [Training the machine learning model](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-train-ml) and [Analyzing machine learning model performance](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-evaluate-ml).
 
 ### Procedure
 {: #wks_tutless_ml8_procedure}

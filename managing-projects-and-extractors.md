@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-27"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio
 
@@ -32,9 +32,9 @@ In the advanced rules editor, use projects to organize your extractors and sampl
 {: #managinge-projects-and-extractors-before-you-begin}
 
 
-1. [Install {{site.data.keyword.knowledgestudioshort}}](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-install).
-1. Confirm you are using a [supported browser](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-system-requirements). 
-1. [Launch the {{site.data.keyword.knowledgestudioshort}} application](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro#launching-the-knowledge-studio-application).
+1. [Install {{site.data.keyword.knowledgestudioshort}}](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-install).
+1. Confirm you are using a [supported browser](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-system-requirements).
+1. [Launch the {{site.data.keyword.knowledgestudioshort}} application](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro#launching-the-knowledge-studio-application).
 1. Create an advanced rules workspace.
     - If you already have other workspaces, click **Create workspace**.
     - Click **Create advanced rules workspace**. Enter a name for your workspace, then click **Create**. The advanced rules workspace will load after a few seconds.
@@ -48,7 +48,7 @@ The workspace consists of the following areas:
 - Use the **Extractor Properties** and **Results** panes to set extractor properties and to view the results of running an extractor on sample text
 - Use the **Documents** pane to manage sample documents that you can use to test the extractors.
 
-![Advanced rules editor workspace](images/advanced-rules-editor-workspace.png "Shows a diagram describing the sections of the advanced rules editor") 
+![Advanced rules editor workspace](images/advanced-rules-editor-workspace.png "Shows a diagram describing the sections of the advanced rules editor")
 
 
 ## Managing projects
@@ -60,7 +60,7 @@ Use projects to develop and test extractors that support a specific solution or 
 - To delete a project, select the project and click **Delete** ![Delete icon](images/delete-project.jpg "Image of the delete project button") on the Projects tab.
 - To rename a project, double-click it and edit the project name.
 
-![New project button](images/create-advanced-rules-project.png "Shows the New project button") 
+![New project button](images/create-advanced-rules-project.png "Shows the New project button")
 
 
 ## Managing extractors
@@ -90,7 +90,7 @@ You can also add a category of extractors from the extractor library at one time
 ### Saving extractors to the extractor library
 {: #saving-extractors-to-the-extractor-library}
 
-Until an extractor is saved to the extractor library, you can access the extractor only in the project where it is defined. 
+Until an extractor is saved to the extractor library, you can access the extractor only in the project where it is defined.
 
 To make an extractor available to all projects, click **Save Extractor** on the toolbar for the canvas. Custom extractors are saved on the **Extractors** tab in the `tauser` folder by default. As a best practice, save modified versions of a provided extractor in the same folder as the provided extractor.
 
@@ -111,7 +111,7 @@ You can build an extractor by combining one or more of the following elements.
 
 Defining a new extractor using natural language processing (NLP) concepts such as tokenization and part-of-speech requires developing an extractor using the Annotation Query Language (AQL).
 
-To see the languages that are supported for tokenization and part-of-speech analysis, see [Multilingual Support for Text Analytics](http://www.ibm.com/support/knowledgecenter/SSPT3X_4.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_lang-support.html). For more information how to write AQL and available functions, see [Annotation Query Language reference](/docs/services/watson-knowledge-studio?topic=watson-knowledge-studio-annotation-query-language-reference)
+To see the languages that are supported for tokenization and part-of-speech analysis, see [Multilingual Support for Text Analytics](http://www.ibm.com/support/knowledgecenter/SSPT3X_4.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_lang-support.html). For more information how to write AQL and available functions, see [Annotation Query Language reference](/docs/watson-knowledge-studio?topic=watson-knowledge-studio-annotation-query-language-reference)
 
 
 ### Creating a dictionary
@@ -212,7 +212,7 @@ The following are examples of regular Java expressions that might be used in spe
   {: codeblock}
 
 - To select all text that includes number plates for private and commercial vehicles in India formatted as AA-99-AA-9999, AA-99-AAA-9999 and, for states where the 0 is optional, AA-9-AA-9999 with separators that may be hyphens, spaces or not present (for example, TN-86-AF-1199, WB 06 F 5971, and DL4CAF4943), specify:
- 
+
   ```
   [A-Z]{2}(-| |)\d{1,2}(-| |)[A-Z]{1,3}(-| |)\d{4} (M1 1AE, B33 8TH, DN55 1PT, W1A 0AX, CR2 6XH, SW1A 2AA)
   ```
@@ -443,7 +443,7 @@ Your Military Ranks extractor might produce a match for text Chief Warrant Offic
 6. Select your dictionary that includes `except`.
 7. Select the column and **between** `0` to `2` **tokens**.
 
-This filter excludes any matches that have the word except within 0-2 tokens before a match. 
+This filter excludes any matches that have the word except within 0-2 tokens before a match.
 
   ![](images/samplefilter.png "Sample filter")
 
@@ -505,7 +505,6 @@ or province</strong>, <strong>Town</strong></td>
 entries for the language to the appropriate dictionary. </p>
 <p><strong>Arabic,
 Japanese and similar languages</strong> </p>
-<p>See <a href="iewt_howto.html#def_new_ling_ext" title="Defining a new extractor using natural language processing (NLP) concepts such as tokenization and part-of-speech requires developing an extractor using the Annotation Query Language (AQL).">Define new extractors based on linguistic patterns</a> for more information.</p>
 </td>
 </tr>
 <tr><td headers="d981e2379 "><span class="ph uicontrol">Continent</span></td>
@@ -522,13 +521,13 @@ address, such as street, city, country and postal code.  </td>
 </tr>
 <tr><td headers="d981e2379 ">All financial extractors</td>
 <td headers="d981e2381 "><span class="ph uicontrol">Finance actions</span></td>
-<td headers="d981e2383 ">These extractors cannot be extended.  <p>See <a href="iewt_howto.html#def_new_ling_ext" title="Defining a new extractor using natural language processing (NLP) concepts such as tokenization and part-of-speech requires developing an extractor using the Annotation Query Language (AQL).">Define new extractors based on linguistic patterns</a> for more information.</p>
+<td headers="d981e2383 ">These extractors cannot be extended.
 </td>
 </tr>
 <tr><td headers="d981e2379 ">All machine-data analytics extractors</td>
 <td headers="d981e2381 "><span class="ph uicontrol">Machine Data Analytics</span></td>
 <td headers="d981e2383 ">When possible, define a regular expression or
-sequence. The remaining extractors cannot be extended.  <p>See <a href="iewt_howto.html#def_new_ling_ext" title="Defining a new extractor using natural language processing (NLP) concepts such as tokenization and part-of-speech requires developing an extractor using the Annotation Query Language (AQL).">Define new extractors based on linguistic patterns</a> for more information.</p>
+sequence. The remaining extractors cannot be extended.
 </td>
 </tr>
 <tr><td headers="d981e2379 ">All sentiment analysis extractors</td>

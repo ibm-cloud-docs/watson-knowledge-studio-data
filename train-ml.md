@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -48,7 +48,7 @@ To create a machine learning model:
 4. Click **Train and evaluate**.
 5. Optional: To specify how you want to allocate documents from your document sets to be used by the system-level training, test, or blind sets, click **Edit settings**.
 
-    See [Document set management](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-improve-ml#wks_mamanagedata) for help determining which ratios to apply.
+    See [Document set management](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-improve-ml#wks_mamanagedata) for help determining which ratios to apply.
 
 6. Click **Train** to train the model, or click **Train & Evaluate** to train the model, evaluate annotations added by the machine learning model, and analyze the performance statistics.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -110,14 +110,14 @@ Find out how to grant users access to {{site.data.keyword.knowledgestudioshort}}
 
 Each {{site.data.keyword.knowledgestudioshort}} instance has an administrator role associated with it. The person who originally signs up to use the application is given the administrator role automatically. The administrator can invite other people.
 
-For information about how to invite people to use your instance of the application, see [Assembling the team](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-team).
+For information about how to invite people to use your instance of the application, see [Assembling the team](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-team).
 
 ### Human annotator
 {: #wks_ts_access_annotator}
 
 If you have been invited to someone's instance of {{site.data.keyword.knowledgestudioshort}} to serve as a human annotator, you likely received an email invitation. First, you must register with {{site.data.keyword.IBM_notm}} if you do not have {{site.data.keyword.IBM_notm}} registration credentials already. Once you register with {{site.data.keyword.IBM_notm}} and accept the invitation, you are given access to the instance. However, after you are given access and before you can start to annotate documents, the administrator or a project manager of the instance must add you to a workspace and assign an annotation task to you. It is not until after you have been assigned a task that you can perform any actions in the {{site.data.keyword.knowledgestudioshort}} instance. To annotate documents, use the ground truth editor. Use a Google Chrome browser for the best performance.
 
-For help using the ground truth editor, see [Annotating documents](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-user-guide).
+For help using the ground truth editor, see [Annotating documents](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-user-guide).
 
 ## Experimental services and features: What does *experimental* mean?
 {: #experimental}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -54,4 +54,4 @@ To configure numeric shaping in the Firefox browser:
 ### Related reference
 {: #lsa-rr}
 
-[Language support](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-language-support)
+[Language support](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-language-support)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-06-28"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -34,7 +34,7 @@ Find out what to do if you have questions or need help. Where to go for help dep
 ## Using the ground truth editor
 {: #uh-ue}
 
-First, review the information in [Annotating documents](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-user-guide). If you still have questions about how to use the ground truth editor, check one of the developer communities, which are linked to from the bottom of the table of contents. If you can't find the answer to your question, post the question yourself.
+First, review the information in [Annotating documents](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-user-guide). If you still have questions about how to use the ground truth editor, check one of the developer communities, which are linked to from the bottom of the table of contents. If you can't find the answer to your question, post the question yourself.
 
 ## Annotation decisions
 {: #uh-ad}
@@ -47,8 +47,8 @@ Can't decide which entity type to assign to an ambiguous term?
 ## Related information
 {: #uh-ri}
 
-[Annotating documents](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-user-guide)
+[Annotating documents](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-user-guide)
 
-[Dictionaries](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-dictionaries)
+[Dictionaries](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-dictionaries)
 
-[Type systems](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-typesystem)
+[Type systems](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-typesystem)

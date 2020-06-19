@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-08-30"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -373,8 +373,8 @@ After you finish annotating all documents and mark them **Completed**, the statu
 ## Related information
 {: #ar-ri}
 
-[Creating dictionaries](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-dictionaries)
+[Creating dictionaries](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-dictionaries)
 
-[Troubleshooting the ground truth editor](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-ts_user_contactingsupport)
+[Troubleshooting the ground truth editor](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-ts_user_contactingsupport)
 
-[Establishing a type system](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-typesystem)
+[Establishing a type system](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-typesystem)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-08-30"
+  years: 2019, 2020
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -33,7 +33,7 @@ Perform the following tasks to enable human annotators to access the workspace:
 
     > **Attention:** It is not until you explicitly assign tasks to human annotators that they can see your workspace when they log in to {{site.data.keyword.knowledgestudioshort}}.
 
-Your users (the human annotators) will need to become familiar with [Annotating documents](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-user-guide), which contains detailed information about how to annotate documents.
+Your users (the human annotators) will need to become familiar with [Annotating documents](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-user-guide), which contains detailed information about how to annotate documents.
 
 ## Model life cycle
 {: #wks_lifecycle}
@@ -93,7 +93,7 @@ This stage refers to exporting components that enable the model to run in machin
 
 Before human annotators begin adding annotations to documents, the annotation process manager can optionally create an annotation task.
 
-Admins and project managers can annotate ground truth document sets directly. See [Annotating document sets directly](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-annotating-document-sets-directly).
+Admins and project managers can annotate ground truth document sets directly. See [Annotating document sets directly](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-annotating-document-sets-directly).
  {: note}
 
 ### About this task
@@ -181,7 +181,7 @@ To specify visual preferences for working with the ground truth editor :
 #### Related tasks
 {: #wks_hapref_related}
 
-[Modifying a type system without losing human annotations](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-improve-ml#wks_projtypesysmod)
+[Modifying a type system without losing human annotations](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-improve-ml#wks_projtypesysmod)
 
 ## Setting the IAA threshold
 {: #wks_haiaathresh}
