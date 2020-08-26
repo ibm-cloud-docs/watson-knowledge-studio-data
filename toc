@@ -69,6 +69,7 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
 
     {: .navgroup id="reference"}
     [Accessibility](/overview/overview-accessibility-platform)
+    model-build-deploy-path.md
     glossary.md
     language-support.md
     /watson-knowledge-studio/watson-knowledge-studio-annotation-query-language-reference
