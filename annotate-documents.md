@@ -2,22 +2,23 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-08-11"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
 
 # Annotation setup
 {: #annotate-documents}
@@ -31,7 +32,8 @@ Perform the following tasks to enable human annotators to access the workspace:
 - Associate human annotators with the annotation set or sets that you want them to annotate.
 - Create a task that assigns the human annotator to annotate the documents in the set.
 
-    > **Attention:** It is not until you explicitly assign tasks to human annotators that they can see your workspace when they log in to {{site.data.keyword.knowledgestudioshort}}.
+  It is not until you explicitly assign tasks to human annotators that they can see your workspace when they log in to {{site.data.keyword.knowledgestudioshort}}.
+  {: important}
 
 Your users (the human annotators) will need to become familiar with [Annotating documents](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-user-guide), which contains detailed information about how to annotate documents.
 
@@ -94,7 +96,7 @@ This stage refers to exporting components that enable the model to run in machin
 Before human annotators begin adding annotations to documents, the annotation process manager can optionally create an annotation task.
 
 Admins and project managers can annotate ground truth document sets directly. See [Annotating document sets directly](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-annotating-document-sets-directly).
- {: note}
+{: note}
 
 ### About this task
 {: #wks_hatask_about}
@@ -123,15 +125,19 @@ To create an annotation task:
 1. If no annotation sets are available, click **Create Annotation Sets**.
    
     1. For the base set, select the document set or annotation set that you want to divide into annotation sets.
-
     2. For the overlap value, specify the percentage of documents that you want to include in each annotation set. Inter-annotator agreement scores cannot be calculated unless two or more human annotators annotate the same documents. For example, if you specify a 20% overlap value for a corpus that contains 30 documents, and you divide the corpus into 3 document sets, 6 documents (20%) will be annotated by all human annotators. The remaining 24 documents will be divided among the 3 human annotators (8 each). Thus, each annotator receives 14 documents to annotate (6+8).
 
-    > **Note:** An annotation set that you plan to use to train a machine learning model must contain at least 10 annotated documents.
+    An annotation set that you plan to use to train a machine learning model must contain at least 10 annotated documents.
+    {: tip}
 
     1. Select a user name from the list of human annotators.
     2. Name the annotation set.
 
-        As a good practice for evaluating a human annotator's work as the workspace progresses, you might want to create annotation set names that identify the human annotator assigned to the set. You cannot change the annotation set name after the set is created.
+        As a good practice for evaluating a human annotator's work as the workspace progresses, you might want to create annotation set names that identify the human annotator assigned to the set.
+
+        You cannot change the annotation set name after the set is created.
+         {: tip}
+
     3. Click **Generate**.
 
 1. A list of available annotation sets is displayed under **Available Sets**, along with the names of the human annotators assigned to them. To add available sets to your annotation task, click **Add to task**.
