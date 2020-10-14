@@ -25,6 +25,12 @@ subcollection: watson-knowledge-studio-data
 The following new features and changes to {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} are available.
 {: shortdesc}
 
+## Version 1.1.3 (31 August 2020)
+{: #v113}
+
+- **Security and stability fixes**
+    - Several security fixes and stability enhancements have been introduced.
+
 ## Version 1.1.2 (19 June 2020)
 {: #v112}
 
