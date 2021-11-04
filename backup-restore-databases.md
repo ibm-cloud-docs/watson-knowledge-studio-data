@@ -22,12 +22,12 @@ subcollection: watson-knowledge-studio-data
 # Backing up and restoring databases
 {: #backup-restore-databases}
 
-You can back up and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 4.3.0 by running scripts.
+You can back up and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 1.2.0 by running scripts.
 {: shortdesc}
 
 The `all-backup-restore.sh` script backs up or restores all the databases and deactivates the pods to prevent access. It then reactivates the pods. However, with the individual database scripts, you must run individual procedures.
 
-For more information about backing up databases with previous versions, see [v1.2.0](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.2.0), [v1.1.2](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.1.2), [v1.1.1](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.1.1), [v1.0.1](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.1), or [v1.0.0](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.0). For more information about how to back up and restore workspace data, such as type systems and ground truth, see [Backing up and restoring data](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
+For more information about backing up databases with previous versions, see [v1.1.2](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.1.2), [v1.1.1](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.1.1), [v1.0.1](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.1), or [v1.0.0](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.0). For more information about how to back up and restore workspace data, such as type systems and ground truth, see [Backing up and restoring data](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
 {: tip}
 
 Using a backup from a different instance will cause errors. You should only restore a backup which is created from the same {{site.data.keyword.knowledgestudiofull}} instance.
@@ -77,7 +77,7 @@ Use either the `backup` or `restore` command.
 
   Required. The release name that was specified when the {{site.data.keyword.knowledgestudioshort}} Helm chart was installed in your cluster.
 
-  You can find the release name as the prefix of the pod name, for example, {release_name}-ibm-watson-ks-yyy-xxx. For version 4.3.0, the value is always `wks`.
+  You can find the release name as the prefix of the pod name, for example, {release_name}-ibm-watson-ks-yyy-xxx. For version 1.2.0, the value is always `wks`.
 
 - **BACKUP_DIR**
 
