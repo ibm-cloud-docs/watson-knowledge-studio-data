@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-11-04"
+lastupdated: "2021-11-01"
 
 subcollection: watson-knowledge-studio-data
 
@@ -19,19 +19,16 @@ subcollection: watson-knowledge-studio-data
 {:codeblock: .codeblock}
 {:screen: .screen}
 
-# Backing up and restoring databases
-{: #backup-restore-databases}
+# Backing up and restoring databases (version 1.2.0)
+{: #backup-restore-databases-1.2.0}
 
-You can back up and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 4.3.0 by running scripts.
+You can back up and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 1.2.0 by running scripts.
 {: shortdesc}
 
 The `all-backup-restore.sh` script backs up or restores all the databases and deactivates the pods to prevent access. It then reactivates the pods. However, with the individual database scripts, you must run individual procedures.
 
-For more information about backing up databases with previous versions, see [v1.2.0](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.2.0), [v1.1.2](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.1.2), [v1.1.1](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.1.1), [v1.0.1](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.1), or [v1.0.0](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.0). For more information about how to back up and restore workspace data, such as type systems and ground truth, see [Backing up and restoring data](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
+For more information about backing up databases with previous versions, see [v1.1.2](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.1.2), [v1.1.1](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.1.1), [v1.0.1](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.1), or [v1.0.0](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.0). For more information about how to back up and restore workspace data, such as type systems and ground truth, see [Backing up and restoring data](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
 {: tip}
-
-Using a backup from a different instance will cause errors. You should only restore a backup which is created from the same {{site.data.keyword.knowledgestudiofull}} instance.
-{: important}
 
 ## Before you begin
 {: #backup-restore-prereqs}
@@ -62,32 +59,27 @@ all-backup-restore.sh [backup|restore] [RELEASE_NAME] [BACKUP_DIR] [-n NAMESPACE
 
 Use either the `backup` or `restore` command.
 
-- **backup**
-
-  Backs up each database to a subdirectory of the `BACKUP_DIR` directory.
-
-- **restore**
-
-  Restores the data from each database in the `BACKUP_DIR` directory.
+<dl>
+  <dt>backup</dt>
+  <dd>Backs up each database to a subdirectory of the `BACKUP_DIR` directory.</dd>
+  <dt>restore</dt>
+  <dd>Restores the data from each database in the `BACKUP_DIR` directory.</dd>
+</dl>
 
 ### Arguments and options
 {: #all-backup-ref-options}
 
-- **RELEASE_NAME**
-
-  Required. The release name that was specified when the {{site.data.keyword.knowledgestudioshort}} Helm chart was installed in your cluster.
-
-  You can find the release name as the prefix of the pod name, for example, {release_name}-ibm-watson-ks-yyy-xxx. For version 4.3.0, the value is always `wks`.
-
-- **BACKUP_DIR**
-
-  Required. The base directory of each database where backups are stored to or restored from. Each database is stored in a subdirectory of the backup directory. A new folder with timestamp `wks-backup-yyyymmdd_hhmmss` will be created under [backupDir], for example: [backupDir]/wks-backup-yyyymmdd_hhmmss/mongodb
-
-  For restore: please set [backupDir] with `wks-backup-yyyymmdd_hhmmss`, for example: [backupDir]/mongodb
-
-- **-n NAMESPACE**
-
-  Namespace for the pods. The default value is `zen`.
+<dl>
+  <dt>RELEASE_NAME</dt>
+  <dd>Required. The release name that was specified when the {{site.data.keyword.knowledgestudioshort}} Helm chart was installed in your cluster.</dd>
+  <dd>You can find the release name as the prefix of the pod name, for example, {release_name}-ibm-watson-ks-yyy-xxx. For version 1.2.0, the value is always `wks`.</dd>
+  <dt>BACKUP_DIR</dt>
+  <dd>Required. The base directory of each database where backups are stored to or restored from. Each database is stored in a subdirectory of the backup directory. A new folder with timestamp `wks-backup-yyyymmdd_hhmmss` will be created under [backupDir], for example: [backupDir]/wks-backup-yyyymmdd_hhmmss/mongodb</dd>
+  <dd>For restore: please set [backupDir] with `wks-backup-yyyymmdd_hhmmss`, for example: [backupDir]/mongodb</dd>
+  <dt>-n NAMESPACE</dt>
+  <dd>Namespace for the pods.</dd>
+  <dd>The default value is `zen`.</dd>
+</dl>
 
 ### Output
 {: #all-backup-ref-output}
@@ -229,14 +221,12 @@ pvc-backup-restore.sh backup|restore RELEASE_NAME BACKUP_DIR DOCKERREGISTRY PVC_
 ```
 
 #### Arguments for PVC
-
-- **DOCKERREGISTRY**
-
-  The same Docker registry as the `RELEASE_NAME-ibm-watson-ks-aql-web-tooling` pod.
-
-- **PVC_USER_ID**
-
-  The user ID for the running containers in the `RELEASE_NAME-ibm-watson-ks-aql-web-tooling` pod.
+<dl>
+  <dt>DOCKERREGISTRY</dt>
+  <dd>The same Docker registry as the `RELEASE_NAME-ibm-watson-ks-aql-web-tooling` pod.</dd>
+  <dt>PVC_USER_ID</dt>
+  <dd>The user ID for the running containers in the `RELEASE_NAME-ibm-watson-ks-aql-web-tooling` pod.</dd>
+</dl>
 
 Use either the `backup` or `restore` command. For more information about the other arguments and options, see the [all-backup-restore script](#all-backup-ref-options).
 
@@ -273,7 +263,7 @@ You don't need to deactivate when you run the `all-backup-restore.sh` script bec
 
 To ensure that users don't have access to {{site.data.keyword.knowledgestudioshort}} when you back up or restore a single database, stop the {{site.data.keyword.knowledgestudioshort}} front-end pods before you back up or restore data.
 
-1. Make sure that no training and evaluation processes are running. You can check job status with the following command:
+1.  Make sure that no training and evaluation processes are running. You can check job status with the following command:
 
     ```sh
     kubectl -n NAMESPACE get jobs
@@ -281,14 +271,14 @@ To ensure that users don't have access to {{site.data.keyword.knowledgestudiosho
     {: pre}
 
     Training jobs of {{site.data.keyword.knowledgestudioshort}} are named in the format `wks-train-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx`, and evaluation jobs are named in the format `wks-batch-apply-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. If the `COMPLETIONS` column of a training job reads `0/1`, that job is still running. Wait until all of the training jobs finish.
-1. Deactivate {{site.data.keyword.knowledgestudioshort}} using the folowing commands:
+1.  Deactivate {{site.data.keyword.knowledgestudioshort}} using the folowing commands:
 
     ```sh
     kubectl -n NAMESPACE patch --type=merge wks wks -p '{"spec":{"global":{"quiesceMode":true}}}'
     kubectl -n NAMESPACE patch --type=merge wks wks -p '{"spec":{"mma":{"replicas":0}}}'
     ```
     {:pre}
-1. Ensure that no {{site.data.keyword.knowledgestudioshort}} pods exist, except datastore pods, by running the following command (this may takes few minutes):
+1.  Ensure that no {{site.data.keyword.knowledgestudioshort}} pods exist, except datastore pods, by running the following command (this may takes few minutes):
 
     ```sh
     kubectl -n NAMESPACE get pod | grep -Ev 'minio|etcd|mongo|postgresql|gw-instance|Completed' | grep wks

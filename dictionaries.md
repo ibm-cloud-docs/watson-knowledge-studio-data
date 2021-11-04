@@ -2,23 +2,23 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-08-04"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
-
 
 # Creating dictionaries
 {: #dictionaries}
@@ -35,7 +35,8 @@ A dictionary is a list of words or phrases that are equivalent for information-e
 
 Consider this example: a dictionary entry contains the seven days of the week. To annotate a document, a human annotator assigns the entity type `DAY_OF_WEEK` to mentions of *Monday* and *Friday* in the text. Because the dictionary equates the seven days of the week, it helps ensure that a machine learning model correctly annotates occurrences of *Tuesday*, *Wednesday*, and the other days of the week in unseen documents at run time. In addition, equating these words also benefits information extraction in surrounding text. What the machine learning model learns from training examples about the texts near *Monday* and *Friday* gets applied to texts that the machine learning model sees near other days of the week because the dictionary states that these terms are equivalent for information-extraction purposes.
 
-> **Note:** You do not need to create a dictionary that contains days of the week information. Several general-purpose dictionaries like this are built in to the application. Other built-in dictionaries include countries, place names, number words, animals, plants, diseases, measurement words (such as *ounce* and *meter*), and salutation title words (such as *Mr.* and *Mrs.*). You cannot disable or edit built-in dictionaries.
+You do not need to create a dictionary that contains days of the week information. Several general-purpose dictionaries like this are built in to the application. Other built-in dictionaries include countries, place names, number words, animals, plants, diseases, measurement words (such as *ounce* and *meter*), and salutation title words (such as *Mr.* and *Mrs.*). You cannot disable or edit built-in dictionaries.
+{: tip}
 
 Avoid adding entries that have multiple meanings. For example, in a domain about auto racing, it makes sense to include the term *bank*, which refers to a road feature, only if financial institutions are not frequently discussed in the text also. If both senses of the word occur often in the source documents, then it is best to leave it out of both types of dictionaries: the dictionary that is associated with road features, and the dictionary that is associated with financial institutions.
 
@@ -54,8 +55,8 @@ Dictionaries are used in a couple ways, all optional. They are used by the machi
 
     Dictionaries are important to the following pre-annotatation processes.
 
-    - Dictionary pre-annotator: You associate a dictionary with an entity type from the type system when you run the dictionary pre-annotator.
-    - Rule-based model: You can optionally associate a dictionary with a rule class. Classes are then mapped to entity types from the type system when you run the rule-based model to pre-annotate documents. As a result, dictionary terms are, although circuitously, mapped to entity types for the rule-based model also.
+  - Dictionary pre-annotator: You associate a dictionary with an entity type from the type system when you run the dictionary pre-annotator.
+  - Rule-based model: You can optionally associate a dictionary with a rule class. Classes are then mapped to entity types from the type system when you run the rule-based model to pre-annotate documents. As a result, dictionary terms are, although circuitously, mapped to entity types for the rule-based model also.
 
     In both cases, the dictionaries provide terms that the system can find and annotate as mentions. It assigns to each mention the entity type that is associated with the dictionary that contains the term. When a human annotator begins work on new documents that were pre-annotated, many mentions are already annotated based on the dictionary entries. The human annotator thus has more time to focus on assigning entity types to mentions that require deeper analysis.
 
@@ -73,7 +74,7 @@ Also referred to as the standard dictionary format, a dictionary in comma-separa
 
 To summarize the requirements, you must use a text editor to create the `CSV` file, not software like Microsoft Excel, and the file must use UTF-8 encoding that does not include the byte order mark (BOM) at the start of the text stream. The first row in the file must specify the following column headers:
 
-```
+```bash
 lemma,poscode,surface
 ```
 {: screen}
@@ -87,61 +88,63 @@ The remaining lines in the file specify the dictionary entries, where:
 - **poscode** (Arabic, Brazilian Portuguese, English, French, German, Italian, and Spanish)
 
     Specifies a code that identifies the part of speech. This part of speech information is used by the dictionary annotator to help with sentence tokenization.
-    - `0` - Unknown
+  - `0` - Unknown
 
-        > **Note:** This code supports the scenario where you want to upload a large machine-generated dictionary that does not include part of speech information in each entry. You can assign *unknown* to all entries by default. Avoid using this code, if possible.
+      This code supports the scenario where you want to upload a large machine-generated dictionary that does not include part of speech information in each entry. You can assign *unknown* to all entries by default. Avoid using this code, if possible.
+        {: important}
 
-    - `1` - Pronoun
-    - `2` - Verb
-    - `3` - Noun
-    - `4` - Adjective
-    - `5` - Adverb
-    - `6` - Adposition
-    - `7` - Interjection
-    - `8` - Conjunction
-    - `9` - Determiner
-    - `10` - Quantifier
+  - `1` - Pronoun
+  - `2` - Verb
+  - `3` - Noun
+  - `4` - Adjective
+  - `5` - Adverb
+  - `6` - Adposition
+  - `7` - Interjection
+  - `8` - Conjunction
+  - `9` - Determiner
+  - `10` - Quantifier
 
     In English, noun (`3`), verb (`2`), and adjective (`4`) are the most common parts of speech that are used for dictionary entries.
 
-    > **Note:** The part of speech does not automatically determine the type of a mention. Do not assume that all nouns equate to entity type mentions and all verbs equate to relation type mentions. For example, *American* is an adjective but might be best annotated as entity type **GPE** (geopolitical entity) or `PERSON`. *Met* is a verb, but might be best annotated as an `EVENT_MEETING`.
+    The part of speech does not automatically determine the type of a mention. Do not assume that all nouns equate to entity type mentions and all verbs equate to relation type mentions. For example, *American* is an adjective but might be best annotated as entity type **GPE** (geopolitical entity) or `PERSON`. *Met* is a verb, but might be best annotated as an `EVENT_MEETING`.
+    {: tip}
 
     In other languages, such as German, which uses compound words, the accuracy of the part of speech information is even more important to help determine word boundaries.
 
 - **poscode** (Chinese)
 
     Specifies a code that identifies the part of speech. The part of speech value is important for text tokenization and pre-annotation in languages like Chinese (simplified and traditional) that do not use white space to denote word boundaries.
-    - `32` - Noun
-    - `31` - Noun (Family name)
-    - `35` - Noun (Organization)
-    - `34` - Noun (Other)
-    - `33` - Noun (Person Name)
+  - `32` - Noun
+  - `31` - Noun (Family name)
+  - `35` - Noun (Organization)
+  - `34` - Noun (Other)
+  - `33` - Noun (Person Name)
 
 - **poscode** (Japanese)
 
     Specifies a code that identifies the part of speech. The part of speech value is important for text tokenization and pre-annotation in languages like Japanese that do not use white space to denote word boundaries.
-    - `19` - Noun
-    - `23` - Common Prefix
-    - `24` - Common Suffix
-    - `140` - Proper Noun (Last Name)
-    - `141` - Proper Noun (First Name)
-    - `146` - Proper Noun (Person Name)
-    - `142` - Proper Noun (Organization)
-    - `144` - Proper Noun (Place Name)
-    - `143` - Proper Noun (Region)
-    - `145` - Proper Noun (Other)
+  - `19` - Noun
+  - `23` - Common Prefix
+  - `24` - Common Suffix
+  - `140` - Proper Noun (Last Name)
+  - `141` - Proper Noun (First Name)
+  - `146` - Proper Noun (Person Name)
+  - `142` - Proper Noun (Organization)
+  - `144` - Proper Noun (Place Name)
+  - `143` - Proper Noun (Region)
+  - `145` - Proper Noun (Other)
 
 - **poscode** (Korean)
 
     Specifies a code that identifies the part of speech. The part of speech value is important for text tokenization and pre-annotation in languages like Korean that do not use white space to denote word boundaries.
-    - `10010` - Noun
-    - `10300` - Proper Noun (Last Name)
-    - `10310` - Proper Noun (First Name)
-    - `110360` - Proper Noun (Person Name)
-    - `10320` - Proper Noun (Organization)
-    - `10340` - Proper Noun (Place Name)
-    - `10330` - Proper Noun (Region)
-    - `10350` - Proper Noun (Other)
+  - `10010` - Noun
+  - `10300` - Proper Noun (Last Name)
+  - `10310` - Proper Noun (First Name)
+  - `110360` - Proper Noun (Person Name)
+  - `10320` - Proper Noun (Organization)
+  - `10340` - Proper Noun (Place Name)
+  - `10330` - Proper Noun (Region)
+  - `10350` - Proper Noun (Other)
 
 - **surface**
 
@@ -149,7 +152,7 @@ The remaining lines in the file specify the dictionary entries, where:
 
 For example:
 
-```
+```bash
 lemma,poscode,surface
 IBM,3,IBM Corp.,IBM,"International Business Machines, Inc."
 Department of Energy,3,DOE,Department of Energy
@@ -179,7 +182,8 @@ The following restriction apply to dictionaries:
 
 - Maximum 15,000 entries per dictionary
 
-    > **Note:** This limit does not apply to dictionaries that you upload as a dictionary `CSV` file. Read-only dictionaries can contain more entries.
+    This limit does not apply to dictionaries that you upload as a dictionary `CSV` file. Read-only dictionaries can contain more entries.
+    {: tip}
 
 - Maximum 64 dictionaries per workspace
 

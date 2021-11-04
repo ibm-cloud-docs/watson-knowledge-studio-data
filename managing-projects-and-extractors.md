@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-05"
+lastupdated: "2021-11-01"
 
 subcollection: watson-knowledge-studio-data
 
@@ -31,7 +31,6 @@ In the advanced rules editor, use projects to organize your extractors and sampl
 ## Before you begin
 {: #managinge-projects-and-extractors-before-you-begin}
 
-
 1. [Install {{site.data.keyword.knowledgestudioshort}}](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-install).
 1. Confirm you are using a [supported browser](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-system-requirements).
 1. [Launch the {{site.data.keyword.knowledgestudioshort}} application](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro#launching-the-knowledge-studio-application).
@@ -43,13 +42,13 @@ In the advanced rules editor, use projects to organize your extractors and sampl
 {: #workspace-layout}
 
 The workspace consists of the following areas:
+
 - The **Projects and Extractors pane** includes two tabs. Use the **Projects** tab to create, delete, and rename projects. The **Extractors** tab lists the provided extractors and any custom extractors that you create.
 - Use the **Canvas** to design and customize extractors.
 - Use the **Extractor Properties** and **Results** panes to set extractor properties and to view the results of running an extractor on sample text
 - Use the **Documents** pane to manage sample documents that you can use to test the extractors.
 
 ![Advanced rules editor workspace](images/advanced-rules-editor-workspace.png "Shows a diagram describing the sections of the advanced rules editor")
-
 
 ## Managing projects
 {: #managing-projects}
@@ -61,7 +60,6 @@ Use projects to develop and test extractors that support a specific solution or 
 - To rename a project, double-click it and edit the project name.
 
 ![New project button](images/create-advanced-rules-project.png "Shows the New project button")
-
 
 ## Managing extractors
 {: #managing-extractors}
@@ -94,7 +92,6 @@ Until an extractor is saved to the extractor library, you can access the extract
 
 To make an extractor available to all projects, click **Save Extractor** on the toolbar for the canvas. Custom extractors are saved on the **Extractors** tab in the `tauser` folder by default. As a best practice, save modified versions of a provided extractor in the same folder as the provided extractor.
 
-
 ## Creating an extractor
 {: #creating-an-extractor}
 
@@ -113,7 +110,6 @@ Defining a new extractor using natural language processing (NLP) concepts such a
 
 To see the languages that are supported for tokenization and part-of-speech analysis, see [Multilingual Support for Text Analytics](http://www.ibm.com/support/knowledgecenter/SSPT3X_4.0.0/com.ibm.swg.im.infosphere.biginsights.text.doc/doc/ana_txtan_lang-support.html). For more information how to write AQL and available functions, see [Annotation Query Language reference](/docs/watson-knowledge-studio?topic=watson-knowledge-studio-annotation-query-language-reference)
 
-
 ### Creating a dictionary
 {: #creating-a-dictionary}
 
@@ -130,10 +126,10 @@ Use of a dictionary can sometimes result in overlapping matches. For example, a 
 When using standardized terms such as names of departments in your organization, sales priorities, congressional committees, or military ranks to extract values, you can identify the needed terms in a list.
 
 1. Click ![New Dictionary](images/new_extractor_dictionary.png "New dictionary icon") on the canvas toolbar.
-2. Specify a name for the dictionary. You can extend the name with a description. Lengthy text might be truncated in the display but you can hover over the dictionary to read the full description.
-3. On the **Settings** tab under **Extractor Properties**, enter each term manually or load a list from a file. The maximum length for each entry is 1024 characters.
-  - To specify the terms manually, click ![Add Term](images/add_term.jpg "Add Term icon"), enter the term, and press **Enter**. Enter one term per row.
-  - To load terms from a UTF-8 text file with each term on a separate line, ![Import Terms](images/import_terms.jpg "Import Terms icon"). If an error is displayed during the import, ensure that the file does not contain unprintable characters such as Line Feed or Backspace.
+1. Specify a name for the dictionary. You can extend the name with a description. Lengthy text might be truncated in the display but you can hover over the dictionary to read the full description.
+1. On the **Settings** tab under **Extractor Properties**, enter each term manually or load a list from a file. The maximum length for each entry is 1024 characters.
+    - To specify the terms manually, click ![Add Term](images/add_term.jpg "Add Term icon"), enter the term, and press **Enter**. Enter one term per row.
+    - To load terms from a UTF-8 text file with each term on a separate line, ![Import Terms](images/import_terms.jpg "Import Terms icon"). If an error is displayed during the import, ensure that the file does not contain unprintable characters such as Line Feed or Backspace.
 
 #### Defining a mapping table
 {: #defining-a-mapping-table}
@@ -151,12 +147,12 @@ For best performance, use long or complex mapping tables in a second step, after
 {: tip}
 
 1. Click ![New Dictionary](images/new_extractor_dictionary.png "New Dictionary icon") on the canvas toolbar.
-2. Specify a name for the dictionary. You can extend the name with a description. Lengthy text is truncated but is displayed when you hover over the dictionary.
-3. On the **Settings** tab under **Extractor Properties**, click **Map Terms**.
-4. Complete the two-column table manually or by loading from a file. The first column contains the terms to search for in the text and the second column lists the values to generate in the results. The maximum length for an entry is 1024 characters. If a term is repeated in the first column, only the first mapped value is used.
-  - To specify the terms manually, click ![Add Term](images/add_term.jpg "Add Term icon"), enter the term and its mapped value, and press Enter.
-  - To load terms from an ASCII or UTF-8 text file with each term and its mapped value, separated by a single comma, on a separate line, click ![Import Terms](images/import_terms.jpg "Import Terms icon"). If an error is displayed during the import, ensure that the file does not contain unprintable characters such as Line Feed or Backspace.
+1. Specify a name for the dictionary. You can extend the name with a description. Lengthy text is truncated but is displayed when you hover over the dictionary.
+1. On the **Settings** tab under **Extractor Properties**, click **Map Terms**.
+1. Complete the two-column table manually or by loading from a file. The first column contains the terms to search for in the text and the second column lists the values to generate in the results. The maximum length for an entry is 1024 characters. If a term is repeated in the first column, only the first mapped value is used.
 
+    - To specify the terms manually, click ![Add Term](images/add_term.jpg "Add Term icon"), enter the term and its mapped value, and press Enter.
+    - To load terms from an ASCII or UTF-8 text file with each term and its mapped value, separated by a single comma, on a separate line, click ![Import Terms](images/import_terms.jpg "Import Terms icon"). If an error is displayed during the import, ensure that the file does not contain unprintable characters such as Line Feed or Backspace.
 
 ### Creating a literal
 {: #creating-a-literal}
@@ -176,7 +172,7 @@ To create an extractor that uses a regular expression:
 1. From the canvas toolbar, click ![New Regular Expression](images/new_extractor_regex.png "New Regular Expression icon").
 2. Enter a name for the regular expression. You can also add some descriptive information. Note that the information that you enter at the prompt is the name for the expression, not the expression itself.
 3. Select the regular expression on the canvas to open the **Extractor Properties** to the **Settings** tab. Specify a regular expression. See http://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html for more information about syntax.
-4. Specify options for case sensitivity, [token range](), and special character handling. If, while designing a regular expression, you see false positives, provide more context by extending the pattern in the regular expression or adding context through a sequence pattern. For example, if your postal code expression matches additional terms, incorporate rules for which letters are permitted in specific positions.
+4. Specify options for case sensitivity, **token range**, and special character handling. If, while designing a regular expression, you see false positives, provide more context by extending the pattern in the regular expression or adding context through a sequence pattern. For example, if your postal code expression matches additional terms, incorporate rules for which letters are permitted in specific positions.
 
 #### Regular expression examples
 {: #regular-expression-examples}
@@ -185,35 +181,35 @@ The following are examples of regular Java expressions that might be used in spe
 
 - To select text that includes any ordinal number of one or more digits followed by `th`, `st`, `nd`, or `rd` (`21st`, `2nd`, `3rd`, and so forth), specify:
 
-  ```
+  ```bash
   \d+(st|nd|rd|th)
   ```
   {: codeblock}
 
 - To select text that includes US Social Security numbers formatted as `999-99-9999`, specify:
 
-  ```
+  ```bash
   \d{3}\-\d{2}\-\d{4}
   ```
   {: codeblock}
 
 - To select all text that includes a Canadian postal code formatted as `A9A-9A9`, `A9A 9A9` or `A9A9A9` (for example, `K1G 3K9`, `V5g-4X3`, and `x2H3m5`), specify:
 
-  ```
+  ```bash
   [a-zA-Z][0-9][a-zA-Z](-|)[0-9][a-zA-Z][0-9]
   ```
   {: codeblock}
 
 - To select all text that includes a United Kingdom postal code formatted as `A9 9AA`, `A99 9AA`, `AA99 9AA`, `A9A 9AA`, or `a9d AA9A 9AA` (for example, `M1 1AE`, `B33 8TH`, `DN55 1PT`, `W1A 0AX`, `CR2 6XH`, and `SW1A 2AA`), specify:
 
-  ```
+  ```bash
   [A-Z]{1,2}[1-9][0-9]?[A-Z]?\s[0-9][A-Z]{2,}|GIR 0AA
   ```
   {: codeblock}
 
 - To select all text that includes number plates for private and commercial vehicles in India formatted as AA-99-AA-9999, AA-99-AAA-9999 and, for states where the 0 is optional, AA-9-AA-9999 with separators that may be hyphens, spaces or not present (for example, TN-86-AF-1199, WB 06 F 5971, and DL4CAF4943), specify:
 
-  ```
+  ```bash
   [A-Z]{2}(-| |)\d{1,2}(-| |)[A-Z]{1,3}(-| |)\d{4} (M1 1AE, B33 8TH, DN55 1PT, W1A 0AX, CR2 6XH, SW1A 2AA)
   ```
   { codeblock}
@@ -223,7 +219,7 @@ The following are examples of regular Java expressions that might be used in spe
 
 Often, you must assess the text for patterns that provide context for the terms of interest. For example, you might want to distinguish references to military or law enforcement personnel from references to civilians. When designing an extractor, several methods are available to identify and extract information on the basis of patterns in text. These methods can be used in a single extractor, or you can combine extractors.
 
-Before defining your own pattern to meet your needs, check to see if a [provided extractor]() can give you the desired results.
+Before defining your own pattern to meet your needs, check to see if a **provided extractor** can give you the desired results.
 
 To create a sequence pattern:
 
@@ -232,24 +228,22 @@ To create a sequence pattern:
 3. Optional: Select the sequence on the canvas and rename it in **Extractor Properties** under **General**.
 4. Optional: If needed, repeat steps 1 and 2 to add additional elements to the pattern.
 
-
 #### Sequence pattern example
 {: #sequence-pattern-example}
 
 To select references to military personnel:
 
 1. Create a dictionary called `Military Ranks` that includes terms such as `Warrant Officer`, `Sergeant`, and `Lieutenant`.
-2. Drag the **Person** extractor onto the canvas following the **Military Ranks** dictionary to indicate that the new sequence finds ranks then names. The dark blue line after the **Military Ranks** extractor indicates placement of the **Person** extractor in the text pattern.
+1. Drag the **Person** extractor onto the canvas following the **Military Ranks** dictionary to indicate that the new sequence finds ranks then names. The dark blue line after the **Military Ranks** extractor indicates placement of the **Person** extractor in the text pattern.
 
-  ![](images/military_ranks.png "Adding a Person extractor to the right side of Military Ranks extractor to create a sequence")
+    ![Person extractor](images/military_ranks.png "Adding a Person extractor to the right side of Military Ranks extractor to create a sequence")
 
-  When you release the mouse button, a sequence object is displayed on the canvas.
+    When you release the mouse button, a sequence object is displayed on the canvas.
 
-3. Click the sequence object on the canvas and, under **Extractor Properties**, open the **General** tab. Rename the sequence object as `Military Personnel`.
-4. The final extractor rule is displayed on the canvas.
+1. Click the sequence object on the canvas and, under **Extractor Properties**, open the **General** tab. Rename the sequence object as `Military Personnel`.
+1. The final extractor rule is displayed on the canvas.
 
-  ![](images/military_personnel.jpg "The Military Personnel sequence")
-
+    ![Military Personnel](images/military_personnel.jpg "The Military Personnel sequence")
 
 #### Adding proximity rules
 {: #adding proximity rules}
@@ -269,14 +263,13 @@ You might want to locate references to red brick houses, knowing that phrases su
 3. Right-click **Clerical title** and click **Add After > Proximity Rule**. To capture terms such as `Archbishop of Canterbury`, `Robert Runcie`, specify the minimum and maximum number of tokens between words, in this case `0-5`.
 4. Click the sequence on the canvas and then under **Extractor Properties**, open the **General** tab if it doesn't open automatically. Rename the sequence Clerics.
 
-  ![](images/clerics.jpg "Clerics extractor")
+    ![Clerics extractor](images/clerics.jpg "Clerics extractor")
 
 **Example 2:**
 
 As a second example, select tweets that refer to Twitter names of industry analysts with a big data term. To accomplish this, create two dictionaries, one of Twitter usernames of analysts and a second of big data terms and combine them on the workspace canvas with a proximity of one to 25 tokens.
 
-  ![](images/analyst.jpg "Analyst Twitter extractor")
-
+![Twitter extractor](images/analyst.jpg "Analyst Twitter extractor")
 
 ### Creating a union
 {: #creating-a-union}
@@ -284,13 +277,13 @@ As a second example, select tweets that refer to Twitter names of industry analy
 To combine extractors in a union:
 
 1. Define two or more extractors on the canvas.
-2. Click **Output** in the **Extractor Properties** pane to ensure that the number and names of output columns for each sequence or extractor are the same. In addition to having the same number of columns and identical column names, output columns in each sequence or extractor must have the same data type. In this context, data type is a span, number, string, character, date, or time. Note that you cannot edit these properties for an extractor or sequence while in a union.
-3. On the canvas, without regard to order, click and drag one extractor or sequence above or below another one until the dark blue drop zone indicator indicates you can drop the extractor.
+1. Click **Output** in the **Extractor Properties** pane to ensure that the number and names of output columns for each sequence or extractor are the same. In addition to having the same number of columns and identical column names, output columns in each sequence or extractor must have the same data type. In this context, data type is a span, number, string, character, date, or time. Note that you cannot edit these properties for an extractor or sequence while in a union.
+1. On the canvas, without regard to order, click and drag one extractor or sequence above or below another one until the dark blue drop zone indicator indicates you can drop the extractor.
 
-  ![](images/person_union.jpg "Shows an indicator for creating a union with the Person extractor")
+    ![Union indicator](images/person_union.jpg "Shows an indicator for creating a union with the Person extractor")
 
-4. Release the mouse button to drop the extractor.
-5. Drag and drop additional extractors or sequences into the union.
+1. Release the mouse button to drop the extractor.
+1. Drag and drop additional extractors or sequences into the union.
 
 #### Union example
 {: #union-example}
@@ -298,21 +291,21 @@ To combine extractors in a union:
 The term `Parties` in contracts can refer to two individuals, two organizations, or an individual and an organization. In order to extract information about the parties, you must define two extractors, `Party1` and `Party2`, to select either an individual or an organization.
 
 1. Drag both the `Person` and the `Organization` extractors from the **Extractor** pane onto the canvas.
-2. On the canvas, select each extractor in turn and on the **Output** tab of the **Extractor Properties**, rename the output columns so that the column definitions are the same for both.
+1. On the canvas, select each extractor in turn and on the **Output** tab of the **Extractor Properties**, rename the output columns so that the column definitions are the same for both.
 
-  ![](images/extractor_prop_output_def.jpg "Output tab of Extractor Properties")
+    ![Output tab](images/extractor_prop_output_def.jpg "Output tab of Extractor Properties")
 
-3. Drag the `Organization` extractor to the drop zone below the `Person` extractor.
+1. Drag the `Organization` extractor to the drop zone below the `Person` extractor.
 
-  ![](images/person_org_union.jpg "Union between Person and Organization extractors")
+    ![Union extractor](images/person_org_union.jpg "Union between Person and Organization extractors")
 
-4. Select `Union 1` on the canvas and name it `Party 1` on the **General** tab of **Extractor Properties**.
-5. Copy **Union 1** to create a second union and name it `Party 2`.
-6. To look for the parties in the contracts, combine the two unions in a sequence as shown here. Between the two unions in the sequence is the literal `and`.
+1. Select `Union 1` on the canvas and name it `Party 1` on the **General** tab of **Extractor Properties**.
+1. Copy **Union 1** to create a second union and name it `Party 2`.
+1. To look for the parties in the contracts, combine the two unions in a sequence as shown here. Between the two unions in the sequence is the literal `and`.
 
-  ![](images/person_org_union_extractor.jpg "Legal Parties extractor")
+    ![Legal parties extractor](images/person_org_union_extractor.jpg "Legal Parties extractor")
 
-7. Name the new sequence `Legal Parties`.
+1. Name the new sequence `Legal Parties`.
 
 ## Running an extractor
 {: #running-an-extractor}
@@ -321,11 +314,11 @@ To test your extractor, you can run it from the workspace and review the results
 
 To run an extractor from the workspace, right-click the extractor on the canvas and click **Run Selected** from the menu. Alternatively, select the extractor and click **Run Selected** from the canvas toolbar. To run multiple extractors, select them and click **Run Selected**. When the extractor has finished running, click the **Results** pane to view the output. The results are highlighted in the **Documents** pane as well.
 
-![](images/results_doc.png "Viewing extractor results")
+![Extractor results](images/results_doc.png "Viewing extractor results")
 
 The result in each column is linked to the document in the **Documents** pane. To view the results for a column, select the column to adjust the view of the document to show the corresponding result highlighted in blue as shown below.
 
-![](images/results_docs_linkage.png "Viewing extractor results for a specific column")
+![Results pane](images/results_docs_linkage.png "Viewing extractor results for a specific column")
 
 ### Refining extractor results
 {: #refining-extractor-results}
@@ -360,11 +353,10 @@ You can transform the extractor output, for example, converting it all to lowerc
 |**Convert to String**|Creates a column and converts the value returned by the selected column to a string value.|
 |**Convert to Lowercase String**|Creates a column and converts the value returned by the selected column to a lowercase string value.|
 |**New Column From Single Column**|Creates a column that includes the specified number of characters or words to the left/right of the value of the column selected.|
-|**New Column From Two Columns**|Creates a column from the spans that are between or overlapping the two input columns, or merges the entirety of the two columns. Span content can be one or more tokens.<br><br>Requirement: The second column for the New Column From Two Columns function must be from the extractor that is selected on the canvas.|
+|**New Column From Two Columns**|Creates a column from the spans that are between or overlapping the two input columns, or merges the entirety of the two columns. Span content can be one or more tokens. Requirement: The second column for the New Column From Two Columns function must be from the extractor that is selected on the canvas.|
 
 If you apply **Trim**, **New Column From Single Column**, or **New Column From Two Columns** to a selected column and then subsequently select **Convert to String** or **Convert to Lowercase String**, you will not get yet another new column. The string transformations will be applied instead to the new column that was generated from the previous **Trim** or **New Column** choices.
 {: note}
-
 
 #### Hiding a column from the results display
 {: #hiding-a-column-from-the-results-display}
@@ -419,11 +411,13 @@ An extractor sometimes produces unwanted results even though the pattern is a ma
 To further restrict matches, create a filter.
 
 1. On the canvas, right-click the extractor that generated the results and click **Edit Output**. The **Output** tab in **Extractor Properties** opens.
-2. Choose to **Include** or **Exclude** results. **Include** is the default setting.
-  - An include filter is a condition that must be met for a result to be included.
-  - An exclude filter is a condition that must not be met for a result to be included.
-3. From the first filter drop-down list, select the column that you want to apply the filter to.
-4. In the next drop-down list, select the type of filter. Depending on the filter, the subsequent drop-down lists reflect the appropriate options.
+1. Choose to **Include** or **Exclude** results. **Include** is the default setting.
+
+    - An include filter is a condition that must be met for a result to be included.
+    - An exclude filter is a condition that must not be met for a result to be included.
+
+1. From the first filter drop-down list, select the column that you want to apply the filter to.
+1. In the next drop-down list, select the type of filter. Depending on the filter, the subsequent drop-down lists reflect the appropriate options.
 
 |Option|Description|
 |---|---|
@@ -445,7 +439,7 @@ Your Military Ranks extractor might produce a match for text Chief Warrant Offic
 
 This filter excludes any matches that have the word except within 0-2 tokens before a match.
 
-  ![](images/samplefilter.png "Sample filter")
+![](images/samplefilter.png "Sample filter")
 
 ## Extracting in languages other than English
 {: #extracting-in-languages-other-than-English}
@@ -454,90 +448,25 @@ To extract text from non-English documents, you can sometimes use or modify the 
 
 You can use the workspace to build extractors to be used with any language, such as Spanish and French, that is based on tokens defined by white space and punctuation. For example, the results of using the Person extractor with Spanish text might extract names as shown here.
 
-  ![](images/Spanish.png "Results of applying the Person extractor to Spanish text")
+![](images/Spanish.png "Results of applying the Person extractor to Spanish text")
 
 ### Extending the provided extractors for use in a different language
 {: #extending-the-provided-extractors-for-use-in-a-different-language}
 
 If your target language is based on tokens defined by white space and punctuation, you can extend a provided extractor that has customization points or dictionaries by adding terms to the appropriate dictionaries in the target language.
 
-<table id="ext_ling_supp__table_x23_dj3_3r"><thead><tr><th id="d981e2379">Provided extractor</th>
-<th id="d981e2381">Included in folder:</th>
-<th id="d981e2383">How to extend</th>
-</tr>
-</thead>
-<tbody><tr><td headers="d981e2379 ">All generic extractors</td>
-<td headers="d981e2381 "><span class="ph uicontrol">Generic extractors</span> </td>
-<td headers="d981e2383 ">Define a regular expression for the target text
-pattern. If the provided extractor produces results, create a union
-with the provided extractor and the regular expression.</td>
-</tr>
-<tr><td headers="d981e2379 "><strong>Email address</strong>, <strong>Phone number</strong>, <strong>Zip
-code</strong></td>
-<td headers="d981e2381 "><strong>Named Entity Recognition </strong></td>
-<td headers="d981e2383 ">Define a regular expression for the target text
-pattern. If the provided extractor produces results, create a union
-with the provided extractor and the regular expression.</td>
-</tr>
-<tr><td headers="d981e2379 "><strong>Currency</strong></td>
-<td headers="d981e2381 "><strong>Named Entity Recognition </strong></td>
-<td headers="d981e2383 ">Combine a decimal number extractor with a literal
-to represent the local currency symbol in a sequence or define a regular
-expression. If more than one currency symbol is required, use a dictionary
-rather than a literal.</td>
-</tr>
-<tr><td headers="d981e2379 "><strong>Date and time</strong></td>
-<td headers="d981e2381 "><strong>Named Entity Recognition </strong></td>
-<td headers="d981e2383 "><p>For numeric formats, define a regular expression
-for the target text pattern. </p>
-<p>For alphabetic formats, define
-a sequence using integers for the days and years and a mapping table
-to represent the months. Use the full names and abbreviations for
-each month in the mapping table. For example, map the French months <samp class="ph codeph">juillet</samp> and <samp class="ph codeph">juil</samp> to <samp class="ph codeph">juillet</samp> or <samp class="ph codeph">July</samp>,
-if translating to English.</p>
-</td>
-</tr>
-<tr><td headers="d981e2379 "><strong>City</strong>, <strong>County</strong>, <strong>Country</strong>, <strong>Person</strong>, <strong>Location</strong>, <strong>Organization</strong>, <strong>State
-or province</strong>, <strong>Town</strong></td>
-<td headers="d981e2381 "><strong>Named Entity Recognition </strong></td>
-<td headers="d981e2383 "><p><strong>European and similar languages</strong> </p>
-<p>Add
-entries for the language to the appropriate dictionary. </p>
-<p><strong>Arabic,
-Japanese and similar languages</strong> </p>
-</td>
-</tr>
-<tr><td headers="d981e2379 "><span class="ph uicontrol">Continent</span></td>
-<td headers="d981e2381 "><span class="ph uicontrol">Named Entity Recognition </span></td>
-<td headers="d981e2383 ">Define a dictionary and specify entries to contain
-the names of the continents in the target language.  If English results
-are also to be included, form a union between the provided continent
-extractor with your custom one.</td>
-</tr>
-<tr><td headers="d981e2379 "><span class="ph uicontrol">Address</span></td>
-<td headers="d981e2381 "><span class="ph uicontrol">Named Entity Recognition </span></td>
-<td headers="d981e2383 ">Define a sequence composed of the parts of the
-address, such as street, city, country and postal code.  </td>
-</tr>
-<tr><td headers="d981e2379 ">All financial extractors</td>
-<td headers="d981e2381 "><span class="ph uicontrol">Finance actions</span></td>
-<td headers="d981e2383 ">These extractors cannot be extended.
-</td>
-</tr>
-<tr><td headers="d981e2379 ">All machine-data analytics extractors</td>
-<td headers="d981e2381 "><span class="ph uicontrol">Machine Data Analytics</span></td>
-<td headers="d981e2383 ">When possible, define a regular expression or
-sequence. The remaining extractors cannot be extended.
-</td>
-</tr>
-<tr><td headers="d981e2379 ">All sentiment analysis extractors</td>
-<td headers="d981e2381 "><span class="ph uicontrol">Sentiment Analysis - General</span><span class="ph uicontrol">Sentiment
-Analysis - Surveys</span></td>
-<td headers="d981e2383 ">Add entries in the target language to the <span class="ph uicontrol">Customize
-Terms</span> tab on the <span class="ph uicontrol">Extractor Properties</span> pane.</td>
-</tr>
-</tbody>
-</table>
+| **Provided extractor** | **Included in folder:** | **How to extend** |
+| --- | --- | --- |
+| All generic extractors | Generic extractors | Define a regular expression for the target text pattern. If the provided extractor produces results, create a union with the provided extractor and the regular expression. |
+| **Email address, Phone number, Zip code** | **Named Entity Recognition** | Define a regular expression for the target text pattern. If the provided extractor produces results, create a union with the provided extractor and the regular expression. |
+| **Currency** | **Named Entity Recognition** | Combine a decimal number extractor with a literal to represent the local currency symbol in a sequence or define a regular expression. If more than one currency symbol is required, use a dictionary rather than a literal. |
+| **Date and time** | **Named Entity Recognition** | For numeric formats, define a regular expression for the target text pattern. <br></br>For alphabetic formats, define a sequence using integers for the days and years and a mapping table to represent the months. Use the full names and abbreviations for each month in the mapping table. For example, map the French months juillet and juil to juillet or July, if translating to English. |
+| **City, County, Country, Person, Location, Organization, State or province, Town** | **Named Entity Recognition** | **European and similar languages**<br></br>Add entries for the language to the appropriate dictionary.<br></br>Arabic, Japanese and similar languages |
+| Continent | Named Entity Recognition | Define a dictionary and specify entries to contain the names of the continents in the target language. If English results are also to be included, form a union between the provided continent extractor with your custom one. |
+| Address | Named Entity Recognition | Define a sequence composed of the parts of the address, such as street, city, country and postal code. |
+| All financial extractors | Finance actions | These extractors cannot be extended. |
+| All machine-data analytics extractors | Machine Data Analytics | When possible, define a regular expression or sequence. The remaining extractors cannot be extended. |
+| All sentiment analysis extractors | Sentiment Analysis - GeneralSentiment Analysis - Surveys | Add entries in the target language to the Customize Terms tab on the Extractor Properties pane. |
 
 ## Deploy advanced rules model to {{site.data.keyword.nlushort}}
 {: #deploy-adv-rule-model-to-nlu-cloud}

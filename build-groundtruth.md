@@ -1,24 +1,24 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-08-30"
+  years: 2019, 2021
+lastupdated: "2021-11-01"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
-
 
 # Building the ground truth
 {: #build-groundtruth}
@@ -53,37 +53,15 @@ To help you identify areas that require investigation, scores that fall below th
 
 The score in the **All** column is a *Fleiss Kappa score*. It represents how consistently the same annotation was applied by multiple human annotators across all overlapping documents in the task. The value, which can range up to 1 and even be negative, can help you identify weaknesses in the annotation guidelines or particular human annotators. The following guidelines (*Landis and Koch, 1977*) provide a starting point for assessing overall performance.
 
-<table style="width:60%" summary="This table provides general inter-annotator guidelines for assessing overall performance.">
-  <caption>Table 1. Inter-annotator guidelines</caption>
-  <tr>
-    <th style="vertical-align:bottom; text-align:center" id="d12741e148">Score</th>
-    <th style="vertical-align:bottom; text-align:center" id="d12741e150">Agreement level</th>
-  </tr>
-  <tr>
-    <td style="vertical-align:top; text-align:center" headers="d12741e148">&lt; 0</td>
-    <td style="vertical-align:top; text-align:center" headers="d12741e150">Poor</td>
-  </tr>
-  <tr>
-    <td style="vertical-align:top; text-align:center" headers="d12741e148">.01 - .20</td>
-    <td style="vertical-align:top; text-align:center" headers="d12741e150">Slight</td>
-  </tr>
-  <tr>
-    <td style="vertical-align:top; text-align:center" headers="d12741e148">.21 - .40</td>
-    <td style="vertical-align:top; text-align:center" headers="d12741e150">Fair</td>
-  </tr>
-  <tr>
-    <td style="vertical-align:top; text-align:center" headers="d12741e148">.41 - .60</td>
-    <td style="vertical-align:top; text-align:center" headers="d12741e150">Moderate</td>
-  </tr>
-  <tr>
-    <td style="vertical-align:top; text-align:center" headers="d12741e148">.61 - .80</td>
-    <td style="vertical-align:top; text-align:center" headers="d12741e150">Substantial</td>
-  </tr>
-  <tr>
-    <td style="vertical-align:top; text-align:center" headers="d12741e148">.81 - 1.0</td>
-    <td style="vertical-align:top; text-align:center" headers="d12741e150">Perfect</td>
-  </tr>
-</table>
+Table 1: Inter-annotator Guidelines
+| **Score** | **Agreement level** |
+| :---: | :---: |
+| <0 | Poor |
+| .01 - .20 | Slight |
+| .21 - .40 | Fair |
+| .41 - .60 | Moderate |
+| .61 - .80 | Substantial |
+| .81 - 1.0 | Perfect |
 
 The score in the other columns is an *F1 measure*. It represents the level of annotation consistency between a pair of human annotators. The value can range from 0 to 1, where perfect agreement is indicated by the score 1. What constitutes an acceptable level of agreement depends on your domain data and type system. But to provide an example, here are the F1 thresholds that project managers expect to be met or exceeded in projects that are based on the KLUE type system:
 
@@ -140,19 +118,19 @@ Here are a few examples of various ways that human annotators disagree:
 
 - **Mentions**
 
-    - Annotator_1 places a mention on a span of text; Annotator_2 does not.
-    - Annotator_1's index begins or ends before or after Annotator_2's (there is a partial overlap or subrange of text).
-    - Annotator_1 assigns an entity type that is different from the entity type that Annotator_2 assigned.
+  - Annotator_1 places a mention on a span of text; Annotator_2 does not.
+  - Annotator_1's index begins or ends before or after Annotator_2's (there is a partial overlap or subrange of text).
+  - Annotator_1 assigns an entity type that is different from the entity type that Annotator_2 assigned.
 
 - **Relations**
 
-    - Annotator_1 creates a relation between two mentions; Annotator_2 does not.
-    - Annotator_1 and Annotator_2 create a relation between the same mentions, but with a different relation type.
-    - Annotator_1 and Annotator_2 create a relation between the same mentions, but in the reverse order (rare, because the relation between the first mention and second mention is constrained by the type system).
+  - Annotator_1 creates a relation between two mentions; Annotator_2 does not.
+  - Annotator_1 and Annotator_2 create a relation between the same mentions, but with a different relation type.
+  - Annotator_1 and Annotator_2 create a relation between the same mentions, but in the reverse order (rare, because the relation between the first mention and second mention is constrained by the type system).
 
 - **Coreference chains**
 
-    - Annotator_1's version of a coreference chain includes (or excludes) mentions that Annotator_2's coreference chain excludes (or includes). The alignment of entities between Annotator_1 and Annotator_2 becomes a matter of scoring.
+  - Annotator_1's version of a coreference chain includes (or excludes) mentions that Annotator_2's coreference chain excludes (or includes). The alignment of entities between Annotator_1 and Annotator_2 becomes a matter of scoring.
 
 ## Resolving annotation conflicts
 {: #wks_haadjudicate}
@@ -162,9 +140,9 @@ Adjudication is a step that allows you to review annotation conflicts in overlap
 ### Before you begin
 {: #wks_haadjudicate_prereq}
 
-Click [this link ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=EbexfsuXxoQ&amp;feature=youtu.be){: new_window} to watch a 3-minute video that illustrates how to adjudicate documents.
+[Watch](https://www.youtube.com/watch?v=EbexfsuXxoQ&amp;feature=youtu.be){: external} 3-minute video that illustrates how to adjudicate documents.
 
-### About this task
+### About this adjudication task
 {: #wks_haadjudicate_about}
 
 After human annotators complete their annotation tasks, they must submit their completed annotation sets for review. When you evaluate the inter-annotator agreement scores, you can see how different pairs of annotators annotated the same document. If the inter-annotator agreement score is acceptable, you approve the annotation set. If a document does not overlap across annotation sets in the task, the annotations in the approved document are promoted to ground truth. If a document overlaps across annotation sets, you should adjudicate the document and resolve any annotation conflicts that exist before promoting the annotations to ground truth.
@@ -173,7 +151,7 @@ For example, when you adjudicate a document, you might see that one annotator an
 
 {{site.data.keyword.knowledgestudioshort}} supports the ability to adjudicate between two annotation sets at a time, or between an annotation set and the current ground truth. If a document overlaps across more than two annotation sets, adjudicate the two annotation sets that you have the greatest confidence in (perhaps because you have greater confidence in the human annotators) to determine ground truth for the document. And then adjudicate the rest of the annotation sets based on the results of the initial adjudication.
 
-### Procedure
+### Procedures
 {: #wks_haadjudicate_procedure}
 
 To view overlapping documents and resolve conflicts:
