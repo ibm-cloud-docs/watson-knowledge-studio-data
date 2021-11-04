@@ -1,23 +1,24 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-06-19"
+  years: 2019, 2021
+lastupdated: "2021-11-02"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
 
 # Training the machine learning model
 {: #train-ml}
@@ -35,7 +36,8 @@ When you create a machine learning model, you select the document sets that you 
 
 By exploring the performance metrics, you can identify ways to improve the model's accuracy.
 
-> **Restriction:** Only three machine learning models can be trained at a time per {{site.data.keyword.knowledgestudioshort}} instance. If your instance contains multiple workspaces and the number of machine learning models that are being trained in other workspaces totals 3 already, then your request to train the machine learning model in your workspace will be queued until the other training processes are done.
+Only three machine learning models can be trained at a time per {{site.data.keyword.knowledgestudioshort}} instance. If your instance contains multiple workspaces and the number of machine learning models that are being trained in other workspaces totals 3 already, then your request to train the machine learning model in your workspace will be queued until the other training processes are done.
+{: tip}
 
 ### Procedure
 {: #wks_madocsets_procedure}
@@ -48,56 +50,33 @@ To create a machine learning model:
 4. Click **Train and evaluate**.
 5. Optional: To specify how you want to allocate documents from your document sets to be used by the system-level training, test, or blind sets, click **Edit settings**.
 
-    See [Document set management](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-improve-ml#wks_mamanagedata) for help determining which ratios to apply.
+    For more information about which ratios to apply, see [Document set management](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-improve-ml#wks_mamanagedata).
 
 6. Click **Train** to train the model, or click **Train & Evaluate** to train the model, evaluate annotations added by the machine learning model, and analyze the performance statistics.
 
-    > **Important:** Training a machine learning model can take several minutes or several hours, depending on the number of human annotations that exist and the total number of words across all documents.
+    Training a machine learning model can take several minutes or several hours, depending on the number of human annotations that exist and the total number of words across all documents.
+    {: tip}
 
 7. Select the document sets that you want to use for training the model.
 
-    > **Note:** The document sets must contain at least 10 annotated documents.
+    The document sets must contain at least 10 annotated documents.
+    {: tip}
 
 8. After the model is created, select one of the following actions:
 
-    <table summary="Each row in this table describes one option for a choice.">
-      <caption>Table 1. Document options</caption>
-      <tr>
-        <th style="vertical-align:bottom; text-align"left" id="d33883e137-option">Option</th>
-        <th style="vertical-align:bottom; text-align"left" id="d33883e137-desc">Description</th>
-      </tr>
-      <tr>
-        <td style="vertical-align:top; text-align"left" headers="d33883e137-option" id="d33883e139">
-          <p><strong>Log</strong></p>
-        </td>
-        <td style="vertical-align:top; text-align"left" headers="d33883e137-desc d33883e139">
-          <p>View the log file to see whether any problems occurred.</p>
-        </td>
-      </tr>
-      <tr>
-        <td style="vertical-align:top; text-align"left" headers="d33883e137-option" id="d33883e144">
-          <p><strong>Details</strong></p>
-        </td>
-        <td style="vertical-align:top; text-align"left" headers="d33883e137-desc d33883e144">
-          <p>View the annotation performance statistics, change the document sets that you want to use for training and testing the model, and create snapshot versions of the model artifacts.</p>
-        </td>
-      </tr>
-      <tr>
-        <td style="vertical-align:top; text-align"left" headers="d33883e137-option" id="d33883e149">
-          <p><strong>Export</strong></p>
-        </td>
-        <td style="vertical-align:top; text-align"left" headers="d33883e137-desc d33883e149">
-          <p>If you have a Standard plan or a Premium plan, you can export a <code>ZIP</code> file to your local system that contains the components that are required for the model to run in a machine learning runtime environment, such as {{site.data.keyword.watson}} Explorer.</p>
-        </td>
-      </tr>
-    </table>
+    Table 1. Document options
+    | **Option** | **Description** |
+    | --- | --- |
+    | **Log** | View the log file to see whether any problems occurred. |
+    | **Details** | View the annotation performance statistics, change the document sets that you want to use for training and testing the model, and create snapshot versions of the model artifacts. |
+    | **Export** | If you have a Standard plan or a Premium plan, you can export a `ZIP` file to your local system that contains the components that are required for the model to run in a machine learning runtime environment, such as Watson Explorer. |
 
 ## Evaluating annotations added by the model
 {: #wks_matest}
 
 You can compare the ground truth view for annotations added by human annotators to the annotations added by the model.
 
-### Procedure
+### Procedures
 {: #wks_matest_procedure}
 
 To evaluate the annotations added by the model:
