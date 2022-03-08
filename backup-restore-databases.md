@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-11-04"
+lastupdated: "2022-03-08"
 
 subcollection: watson-knowledge-studio-data
 
@@ -22,12 +22,12 @@ subcollection: watson-knowledge-studio-data
 # Backing up and restoring databases
 {: #backup-restore-databases}
 
-You can back up and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 1.2.0 by running scripts.
+You can back up and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 4.0.x by running scripts.
 {: shortdesc}
 
 The `all-backup-restore.sh` script backs up or restores all the databases and deactivates the pods to prevent access. It then reactivates the pods. However, with the individual database scripts, you must run individual procedures.
 
-For more information about backing up databases with previous versions, see [v1.1.2](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.1.2), [v1.1.1](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.1.1), [v1.0.1](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.1), or [v1.0.0](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.0.0). For more information about how to back up and restore workspace data, such as type systems and ground truth, see [Backing up and restoring data](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
+For more information about backing up databases with previous versions, see [v1.1.2](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.1.2) or [v1.2.0](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore-databases-1.2.0). For more information about how to back up and restore workspace data, such as type systems and ground truth, see [Backing up and restoring data](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
 {: tip}
 
 Using a backup from a different instance will cause errors. You should only restore a backup which is created from the same {{site.data.keyword.knowledgestudiofull}} instance.
@@ -159,26 +159,25 @@ Use either the `backup` or `restore` command. For more information about the arg
 
 #### Backing up PostgreSQL
 {: #db-postgresql-backup}
-
-Back up your PostgreSQL data by getting a data dump. Databases named `awt`, `jobq_RELEASE_NAME_`,`model_management_api`, and `model_management_api_v2` store data for {{site.data.keyword.knowledgestudioshort}}.
+Back up your PostgreSQL data by getting a data dump.
 
 1. [Deactivate](#deactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
 1. Run the `postgresql-backup-restore.sh` script with the `backup` command. The script runs the following operations:
-    - Creates and sets up a `.pgpass` file.
-    - Dumps the databases. The filenames are the database names with the `.custom` extension.
-    - Copies the dump files to the `BACKUP_DIR` that you specify.
+    - Creates a job for the `postgresql` backup.
+    - Dumps the databases. The filenames are the database names, such as `jobq_{release_name_underscore}`, `model_management_api` , `model_management_api_v2` and `awt`, with the `.custom` extension appended.
+    - Copies the dump files to the local `[backupDir]` that you specify.
     - Deletes the `.pgpass` file.
 1. [Reactivate](#reactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
 
 #### Restoring PostgreSQL data
 {: #db-postgresql-restore}
-
 Restores the backed-up data to PostgreSQL.
 
 1. [Deactivate](#deactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
 1. Run the `postgresql-backup-restore.sh` script with the `restore` command. The script runs the following operations:
-    - Creates and sets up a `.pgpass` file.
-    - Restores the databases by loading the `.custom` files from the `BACKUP_DIR` that you specify.
+    - Creates a job for `postgresql` restore.
+    - Restores the databases (`jobq_{release_name_underscore}`, `model_management_api` , `model_management_api_v2` and `awt`) by loading the `.custom` files from the `[backupDir[` that you specify. 
+    - Restores the databases (`jobq_{release_name_underscore}`, `model_management_api` , `model_management_api_v2` and `awt`) by loading the `.custom` files from the `[backupDir]` that you specify. 
     - Deletes the `.pgpass` file.
 1. [Reactivate](#reactivate-watson-ks) {{site.data.keyword.knowledgestudioshort}}.
 
