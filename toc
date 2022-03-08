@@ -62,10 +62,8 @@ Watson Knowledge Studio for IBM Cloud Pak for Data
     {: topicgroup}
     Backing up and restoring databases
         backup-restore-databases.md
+        backup-restore-databases-1.2.0.md
         backup-restore-databases-1.1.2.md
-        backup-restore-databases-1.1.1.md
-        backup-restore-databases-1.0.1.md
-        backup-restore-databases-1.0.0.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
