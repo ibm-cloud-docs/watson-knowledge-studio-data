@@ -1,23 +1,14 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-06-19"
+  years: 2019, 2022
+lastupdated: "2022-04-06"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:tip: .tip}
-{:pre: .pre}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
+{{{site.data.keyword.attribute-definition-list}}
 
 # Using the machine learning model
 {: #publish-ml}
@@ -56,7 +47,7 @@ You must have administrative access to a [{{site.data.keyword.discoveryshort}} f
 {: #wks_madiscovery_procedure}
 
 1. [Export a machine learning model](#exporting-a-machine-learning-model).
-2. To use the deployed model, you must upload it when it is requested during the {{site.data.keyword.discoveryshort}} service enrichment configuration process. For more details, see the [{{site.data.keyword.discoveryshort}} service documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/discovery-data?topic=discovery-data-machinelearning-enrichment#machinelearning-enrichment){: new_window}.
+2. From the {{site.data.keyword.discoveryshort}} service, follow the steps to create a Machine Learning enrichment, which include uploading the ZIP file. For more details, see [Machine Learning models](/docs/discovery-data?topic=discovery-data-domain#machinelearning){: external} in the {{site.data.keyword.discoveryshort}} v2 documentation.
 
 ## Deploying a machine learning model to IBM Watson Natural Language Understanding for IBM Cloud Pak for Data
 {: #wks_manlu}

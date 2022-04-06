@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-01-05"
+  years: 2019, 2022
+lastupdated: "2022-04-06"
 
 subcollection: watson-knowledge-studio-data
 
@@ -98,4 +98,4 @@ Advanced rules models are comprised of text extractors that you design in the ad
 After you export an advanced rules model, you can upload it to {{site.data.keyword.nlushort}}. See the following page for more details.
 
 - {{site.data.keyword.nlushort}}: [Customizing > Analyzing text with advanced rules (Beta)](/docs/natural-language-understanding?topic=natural-language-understanding-customizing#advanced-rules)
-- {{site.data.keyword.discovery-data_short}}: [Creating enrichments > Advanced rules models enrichment (Beta)](/docs/discovery-data?topic=discovery-data-create-enrichments#advanced-rules)
+- {{site.data.keyword.discovery-data_short}}: [Creating enrichments > Advanced rules models enrichment (Beta)](/docs/discovery-data?topic=discovery-data-domain#advanced-rules)
