@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-17"
+  years: 2019, 2022
+lastupdated: "2022-10-21"
 
 subcollection: watson-knowledge-studio-data
 
@@ -24,6 +24,10 @@ subcollection: watson-knowledge-studio-data
 
 The following new features and changes to {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} are available.
 {: shortdesc}
+
+For details about what's new, see the {{site.data.keyword.icp4dfull_notm}} documentation.
+
+-  [4.5.x](https://www.ibm.com/docs/SSQNUZ_4.5.x/fixlist/wks-fixlist.html){: external}
 
 ## Version 1.2.0 (9 December 2020)
 {: #v120}
