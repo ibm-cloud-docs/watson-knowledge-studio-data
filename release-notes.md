@@ -27,7 +27,7 @@ The following new features and changes to {{site.data.keyword.knowledgestudioful
 
 For details about what's new, see the {{site.data.keyword.icp4dfull_notm}} documentation.
 
--  [4.5.x](https://www.ibm.com/docs/en/cloud-paks/cp-data/4.5.x/fixlist/wks-fixlist.html){: external}
+-  [4.5.x](https://www.ibm.com/docs/SSQNUZ_4.5.x/fixlist/wks-fixlist.html){: external}
 
 ## Version 1.2.0 (9 December 2020)
 {: #v120}

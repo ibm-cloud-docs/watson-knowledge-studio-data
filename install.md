@@ -26,12 +26,12 @@ subcollection: watson-knowledge-studio-data
 # Installing {{site.data.keyword.knowledgestudioshort}}
 {: #install}
 
-To install {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}}, see the [installation procedure](https://www.ibm.com/docs/en/cloud-paks/cp-data/4.5.x/svc-wks/knowledge-studio-install-overview.html){: external} in the {{site.data.keyword.icp4dfull_notm}} documentation.
+To install {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}}, see the [installation procedure](https://www.ibm.com/docs/SSQNUZ_4.5.x/svc-wks/knowledge-studio-install-overview.html){: external} in the {{site.data.keyword.icp4dfull_notm}} documentation.
 
 ## Upgrading to the latest version
 {: #upgrading}
 
-You can do in-place upgrades starting with the 4.0.x releases. For more information, see [Upgrading](https://www.ibm.com/docs/en/cloud-paks/cp-data/4.5.x/svc-wks/knowledge-studio-upgrade.html){: external}.
+You can do in-place upgrades starting with the {{site.data.keyword.icp4dfull_notm}} 4.x releases. For more information, see [Upgrading](https://www.ibm.com/docs/SSQNUZ_4.5.x/svc-wks/knowledge-studio-upgrade.html){: external}.
 
 For releases earlier than 4.0.x, you must backup data, uninstall, install the new version, and then restore the data.
 
