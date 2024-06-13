@@ -2,24 +2,23 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-08-04"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
-
-
 
 # Making machine learning model improvements
 {: #improve-ml}
@@ -93,7 +92,8 @@ To modify the type system without losing the work that was done by human annotat
 1. Provide details to the human annotators about what changed in the type system.
 1. Ask human annotators to update their documents to reflect the changes in the type system. For example, if you added new entity types or relation types, they must review their documents and annotate them appropriately.
 
-    > **Note:** If the task contains completed documents, human annotators cannot alter those documents to assess type system changes until they are back in an editable state. To become editable, ask human annotators to submit the document sets so that you can reject them.
+    If the task contains completed documents, human annotators cannot alter those documents to assess type system changes until they are back in an editable state. To become editable, ask human annotators to submit the document sets so that you can reject them.
+    {: tip}
 
 **Related concepts**:
 {: #wks_projtypesysmod_related}

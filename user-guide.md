@@ -2,22 +2,23 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-08-04"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
 
 # Annotating documents
 {: #user-guide}
@@ -171,7 +172,8 @@ When you open a document to annotate it, you might want to use the concordance t
 - Keep in mind that shorter entity mentions are better for training because it is easier for the machine learning model to recognize the shorter patterns and add the correct annotation tokens.
 - If you chose to use a dictionary-based tokenizer with the workspace, and want to handle compound terms and punctuation in your training data, you can add the terms to a dictionary and create a dictionary annotator to pre-annotate the occurrences. For example, to avoid sentence boundary breaks for terms that include punctuation, add terms like Yahoo! and Dr. to a dictionary. Likewise, if your training data includes hyphenated words or alphanumeric acronyms, like `Hi-C` or `MS-60-70`, add those terms to the dictionary. To annotate occurrences regardless of case, add the terms in lowercase (such as `hi-c`). To annotate variations, add the variations as surface forms (`MS-60-70` and `MS 60 70`).
 
-   **Important**: Do not use this approach if you are using the default tokenizer.
+   Do not use this approach if you are using the default tokenizer.
+   {: important}
 
 ### Procedure
 {: #wks_haentity_procedure}

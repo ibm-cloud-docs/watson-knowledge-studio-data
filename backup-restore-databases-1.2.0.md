@@ -277,7 +277,8 @@ To ensure that users don't have access to {{site.data.keyword.knowledgestudiosho
     kubectl -n NAMESPACE patch --type=merge wks wks -p '{"spec":{"global":{"quiesceMode":true}}}'
     kubectl -n NAMESPACE patch --type=merge wks wks -p '{"spec":{"mma":{"replicas":0}}}'
     ```
-    {:pre}
+    {: pre}
+    
 1.  Ensure that no {{site.data.keyword.knowledgestudioshort}} pods exist, except datastore pods, by running the following command (this may takes few minutes):
 
     ```sh

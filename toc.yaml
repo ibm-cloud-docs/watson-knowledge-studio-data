@@ -9,7 +9,6 @@ toc:
     product-page: https://www.ibm.com/cloud/watson-knowledge-studio
     path: watson-knowledge-studio-data
     label: Watson Knowledge Studio for IBM Cloud Pak for Data
-
   entries:
   - navgroup:
       id: learn
@@ -26,7 +25,6 @@ toc:
       - index.md
       - system-requirements.md
       - roles.md
-
   - navgroup:
       id: howto
       topics:
@@ -37,7 +35,6 @@ toc:
           - manage.md
       - team.md
       - create-project.md
-
       - topicgroup:
           label: Adding artifacts
           topics:
@@ -46,7 +43,6 @@ toc:
           - typesystem.md
           - dictionaries.md
       - language-support-arabic.md
-
       - topicgroup:
           label: Creating a rule-based model
           topics:
@@ -55,7 +51,6 @@ toc:
           - rule-annotator-define-rule.md
           - rule-annotator-model-create.md
           - rule-annotator-model-use.md
-
       - topicgroup:
           label: Creating a machine learning model
           topics:
@@ -73,14 +68,13 @@ toc:
       - managing-projects-and-extractors.md
       - user-guide.md
       - backup-restore.md
-
       - topicgroup:
           label: Backing up and restoring databases
           topics:
           - backup-restore-databases.md
+          - backup-restore-databases-4.0.x.md
           - backup-restore-databases-1.2.0.md
           - backup-restore-databases-1.1.2.md
-
   - navgroup:
       id: reference
       topics:
@@ -93,7 +87,6 @@ toc:
       - link:
           label: Annotation Query Language reference
           href: /watson-knowledge-studio/watson-knowledge-studio-annotation-query-language-reference
-
   - navgroup:
       id: help
       topics:
@@ -109,4 +102,3 @@ toc:
               label: WDC Slack channel
               href: http://wdc-slack-inviter.mybluemix.net/
       - release-notes.md
-      

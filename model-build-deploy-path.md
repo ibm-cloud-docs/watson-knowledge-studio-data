@@ -33,6 +33,6 @@ The table below shows supported model deployment paths **From** {{site.data.keyw
 | Machine learning | Upload via {{site.data.keyword.discoveryshort}} UI | N/A | N/A |
 | Rule-based | Upload via {{site.data.keyword.discoveryshort}} UI | N/A | N/A |
 | Advanced rules | Upload via {{site.data.keyword.discoveryshort}} UI | N/A | Deploy via {{site.data.keyword.knowledgestudioshort}} <sup>1</sup> |
-{:caption="Table 1. Model deployment paths" caption-side="top"}
+{: caption="Table 1. Model deployment paths" caption-side="top"}
 
 <sup>1</sup> See [Deploy advanced rules model to Natural Language Understanding](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-managing-projects-and-extractors#deploy-adv-rule-model-to-nlu-cloud)

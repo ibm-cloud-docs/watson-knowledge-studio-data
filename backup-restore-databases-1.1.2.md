@@ -312,7 +312,7 @@ To ensure that users don't have access to {{site.data.keyword.knowledgestudiosho
     kubectl -n NAMESPACE get deployment RELEASE_NAME-ibm-watson-ks-glimpse-builder
     kubectl -n NAMESPACE get deployment RELEASE_NAME-ibm-watson-ks-glimpse-query
     ```
-    {:pre}
+    {: pre}
 
     where `NAMESPACE` is the namespace where {{site.data.keyword.knowledgestudioshort}} is deployed and `RELEASE_NAME` is the name that was specified when the {{site.data.keyword.knowledgestudioshort}} Helm chart was installed in your cluster.
 

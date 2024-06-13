@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-12"
+lastupdated: "2020-06-19"
 
 subcollection: watson-knowledge-studio-data
 
@@ -22,7 +22,7 @@ subcollection: watson-knowledge-studio-data
 # Backing up and restoring databases  (version 1.1.1)
 {: #backup-restore-databases-1.1.1}
 
-This document describes how to backup and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 1.1.1. To backup and restore workspace data such as type systems and ground truth, see [Backing up and restoring data](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
+This document describes how to backup and restore databases in {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} version 1.1.1. To backup and restore workspace data such as type systems and ground truth, see [Backing up and restoring data](https://cloud.ibm.com/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-backup-restore).
 {: important}
 
 ## Overview
@@ -30,9 +30,9 @@ This document describes how to backup and restore databases in {{site.data.keywo
 
 - Deactivate {{site.data.keyword.knowledgestudioshort}}
 - Follow backup or restore procedures for each storage system
-    - MongoDB
-    - PostgreSQL
-    - MinIO
+  - MongoDB
+  - PostgreSQL
+  - MinIO
 - Reactivate {{site.data.keyword.knowledgestudioshort}}
 
 These instructions assume that administrators replace data in the databases with backup data instead of appending backup data.
@@ -49,14 +49,14 @@ These instructions assume that administrators replace data in the databases with
     You can temporarily stop pods with the following commands.
 
     ```bash
-    kubectl -n {namespace} get deployment {release_name}-ibm-watson-ks
+    kubectl -n {namespace} get deployment {release_name}-ibm-watson-ks 
     ```
-    {:pre}
+    {: pre}
 
     Make sure to note the number of pods in the DESIRED column so you can restore the same number later.
     {: note}
 
-    ```bash
+    ```bash 
     kubectl -n {namespace} scale deployment {release_name}-ibm-watson-ks --replicas=0
     ```
     {: pre}
@@ -84,7 +84,7 @@ These instructions assume that administrators replace data in the databases with
     For example, you can stop the pods temporarily with the following commands.
 
     ```bash
-    kubectl -n {namespace} get deployment {release_name}-sire-training-jobq
+    kubectl -n {namespace} get deployment {release_name}-sire-training-jobq 
     kubectl -n {namespace} get deployment {release_name}-ibm-watson-mma-prod-model-management-api
     kubectl -n {namespace} get deployment {release_name}-ibm-watson-ks-servicebroker
     kubectl -n {namespace} get deployment {release_name}-ibm-watson-ks-aql-web-tooling
@@ -173,7 +173,7 @@ exit
 You should not backup MongoDB user data (you should not use `--dumpDbUsersAndRoles` and `--restoreDbUsersAndRoles` option of `mongodb` and `mongorestore`) because the username and password internally used in {{site.data.keyword.knowledgestudioshort}} are automatically generated during the deployment. If you restore and overwrite the MongoDB username and password manually, the connection between the components will be refused.
 {: note}
 
-## Step 3: Follow the backup or restore procedure for PostgreSQL
+## Step 3: Follow the backup or restore procedure for PostgreSQL 
 {: #backup-restore-postgresql}
 
 In PostgreSQL, databases named `awt`, `jobq_{release_name_underscore}`,`model_management_api`, and `model_management_api_v2` store data for {{site.data.keyword.knowledgestudioshort}}.
@@ -272,7 +272,7 @@ kubectl -n {namespace} get secret -o json minio-access-secret-{release_name} | j
 {: #backup-minio}
 
 MinIO allows data to be copied from the server through several client applications such as [MinIO Client](https://docs.min.io/docs/minio-client-quickstart-guide.html), [S3cmd](https://docs.min.io/docs/s3cmd-with-minio.html), [AWS CLI](https://docs.min.io/docs/aws-cli-with-minio.html), and [restic](https://docs.min.io/docs/restic-with-minio.html). For example, you can retrieve backup data by executing the following MinIO Client commands.
-
+    
 ```bash
 # In client machine
 kubectl -n {namespace} port-forward {release_name}-ibm-minio-1 9000:9000

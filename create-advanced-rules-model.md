@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-04-06"
+  years: 2019, 2021
+lastupdated: "2021-01-05"
 
 subcollection: watson-knowledge-studio-data
 
@@ -89,7 +89,7 @@ Advanced rules models are comprised of text extractors that you design in the ad
     1. In the **Extractors** pane, right-click an extractor category, or right-click a single view under an extractor category. Click **Export**.
     1. If you want the model to be able to analyze HTML content and output spans over the HTML tags in {{site.data.keyword.nlushort}}, select **Enable Detagging**.
     1. Enter the **Name of file**, then click **OK**.
-    
+
     Exporting a model from a Category, if multiple concepts internally use the same names for one or more output views, is expected to fail when deploying to {{site.data.keyword.discoveryshort}} or {{site.data.keyword.nlushort}}.
 
 ### Uploading an advanced rules model to other services
@@ -98,4 +98,4 @@ Advanced rules models are comprised of text extractors that you design in the ad
 After you export an advanced rules model, you can upload it to {{site.data.keyword.nlushort}}. See the following page for more details.
 
 - {{site.data.keyword.nlushort}}: [Customizing > Analyzing text with advanced rules (Beta)](/docs/natural-language-understanding?topic=natural-language-understanding-customizing#advanced-rules)
-- {{site.data.keyword.discovery-data_short}}: [Creating enrichments > Advanced rules models enrichment (Beta)](/docs/discovery-data?topic=discovery-data-domain#advanced-rules)
+- {{site.data.keyword.discovery-data_short}}: [Creating enrichments > Advanced rules models enrichment (Beta)](/docs/discovery-data?topic=discovery-data-create-enrichments#advanced-rules)

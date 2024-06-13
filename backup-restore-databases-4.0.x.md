@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-07-28"
+lastupdated: "2022-03-02"
 
 subcollection: watson-knowledge-studio-data
 

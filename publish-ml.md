@@ -1,14 +1,24 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-04-06"
+  years: 2019, 2020
+lastupdated: "2020-08-04"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
-{{{site.data.keyword.attribute-definition-list}}
+{:shortdesc: .shortdesc}
+{:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
+{:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
+{:pre: .pre}
+{:codeblock: .codeblock}
+{:screen: .screen}
 
 # Using the machine learning model
 {: #publish-ml}
@@ -47,7 +57,7 @@ You must have administrative access to a [{{site.data.keyword.discoveryshort}} f
 {: #wks_madiscovery_procedure}
 
 1. [Export a machine learning model](#exporting-a-machine-learning-model).
-2. From the {{site.data.keyword.discoveryshort}} service, follow the steps to create a Machine Learning enrichment, which include uploading the ZIP file. For more details, see [Machine Learning models](/docs/discovery-data?topic=discovery-data-domain#machinelearning){: external} in the {{site.data.keyword.discoveryshort}} v2 documentation.
+2. To use the deployed model, you must upload it when it is requested during the {{site.data.keyword.discoveryshort}} service enrichment configuration process. For more information, see the [{{site.data.keyword.discoveryshort}} documentation](/docs/discovery-data?topic=discovery-data-create-enrichments#machinelearning-enrichment).
 
 ## Deploying a machine learning model to IBM Watson Natural Language Understanding for IBM Cloud Pak for Data
 {: #wks_manlu}
@@ -86,7 +96,7 @@ If you choose to identify relation types and annotate them, then you must define
 
 Now that the machine learning model is trained to recognize entities and relationships for a specific domain, you can leverage it in {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer.
 
-Click [this link ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=1VoS-xczBow&amp;feature=youtu.be){: new_window} to watch a less than 2 minute video that illustrates how to export a model and use it in {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer.
+[Watch](https://www.youtube.com/watch?v=1VoS-xczBow&amp;feature=youtu.be){: external} a less than 2-minute video that illustrates how to export a model and use it in {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer.
 
 ### Procedure
 {: #wks_maexport_procedure}
@@ -94,7 +104,7 @@ Click [this link ![External link icon](../../icons/launch-glyph.svg "External li
 1. [Export a machine learning model](#exporting-a-machine-learning-model).
 1. From the {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer application, import the model.
 
-    You can then map the model to a machine learning model in {{site.data.keyword.watson}} Explorer Content Analytics. After you perform the mapping step, when you crawl documents, the model finds instances of the entities and relations that your model understands. To learn how to import and configure the model in {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer, see the technical document that describes the integration: [http://www.ibm.com/support/docview.wss?uid=swg27048147 ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/support/docview.wss?uid=swg27048147){: new_window}.
+    You can then map the model to a machine learning model in {{site.data.keyword.watson}} Explorer Content Analytics. After you perform the mapping step, when you crawl documents, the model finds instances of the entities and relations that your model understands. To learn how to import and configure the model in {{site.data.keyword.IBM_notm}} {{site.data.keyword.watson}} Explorer, see the technical document that describes the integration: [http://www.ibm.com/support/docview.wss?uid=swg27048147](http://www.ibm.com/support/docview.wss?uid=swg27048147){: external}.
 
 #### Related tasks
 {: #wks_maexport_related}
