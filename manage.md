@@ -42,6 +42,7 @@ Ensure that you have the following prerequisites installed and working correctly
     helm init --client-only
     ```
     {: pre}
+    
 1.  Verify that the tools are installed correctly by running the following test commands.
 
     - Test the IBM Cloud Private CLI (`cloudctl`):

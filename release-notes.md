@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-10-21"
+  years: 2019, 2020
+lastupdated: "2020-12-17"
 
 subcollection: watson-knowledge-studio-data
 
@@ -25,10 +25,6 @@ subcollection: watson-knowledge-studio-data
 The following new features and changes to {{site.data.keyword.knowledgestudiofull}} for {{site.data.keyword.icp4dfull}} are available.
 {: shortdesc}
 
-For details about what's new, see the {{site.data.keyword.icp4dfull_notm}} documentation.
-
--  [4.5.x](https://www.ibm.com/docs/SSQNUZ_4.5.x/fixlist/wks-fixlist.html){: external}
-
 ## Version 1.2.0 (9 December 2020)
 {: #v120}
 
@@ -44,7 +40,7 @@ For details about what's new, see the {{site.data.keyword.icp4dfull_notm}} docum
 ## Version 1.1.2 (19 June 2020)
 {: #v112}
 
-- **Enhanced pre-annotation workflow.**
+- **Enhanced pre-annotation workflow**
     - Run multiple pre-annotators at once and configure the order of pre-annotators to resolve annotation conflicts between them. Existing pre-annotator results are preserved unless you remove them with the *Wipe* option.
     - Human annotations are preserved when running pre-annotators, even when using the *Wipe* option.
 

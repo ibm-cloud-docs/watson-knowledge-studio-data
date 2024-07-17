@@ -86,15 +86,15 @@ A workspace defines all the resources that are required to create a machine lear
 ### Procedure
 {: #wks_tutless2_procedure}
 
-1. {: hide-dashboard} As a {{site.data.keyword.knowledgestudioshort}} administrator, from your {{site.data.keyword.cloud_notm}} [resources](https://{DomainName}/resources){: external} page, click the {{site.data.keyword.knowledgestudioshort}} service instance under **Services**.
-2. Click **Launch tool** from the Manage page.
-3. Click **Create Workspace**.
-4. Specify the details for the new workspace:
+{: hide-dashboard} As a {{site.data.keyword.knowledgestudioshort}} administrator, from your {{site.data.keyword.cloud_notm}} [resources](https://{DomainName}/resources){: external} page, click the {{site.data.keyword.knowledgestudioshort}} service instance under **Services**.
+1. Click **Launch tool** from the Manage page.
+1. Click **Create Workspace**.
+1. Specify the details for the new workspace:
 
     - In the **Workspace name** field, type `My workspace`.
     - In the **Workspace description** field, type `Watson Knowledge Studio tutorial workspace`.
     - In the **Language of documents** field, use the default value, **English**. The sample files you will be using for this tutorial are in English.
-5. Click **Create**.
+1. Click **Create**.
 
 ### Results
 {: #wks_tutless2_results}

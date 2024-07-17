@@ -51,7 +51,7 @@ These instructions assume that administrators replace data in the databases with
     ```bash
     kubectl -n {namespace} get deployment {release_name}-ibm-watson-ks 
     ```
-    {:pre}
+    {: pre}
 
     Make sure to note the number of pods in the DESIRED column so you can restore the same number later.
     {: note}

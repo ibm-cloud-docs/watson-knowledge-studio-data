@@ -2,22 +2,23 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-08-04"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
 
 # Pre-annotating documents
 {: #wks_tutboot_intro}
@@ -35,10 +36,10 @@ This tutorial should take approximately 5 minutes to finish. If you explore othe
 ## Before you begin
 {: #tba-pr}
 
-- You're using a supported browser. For information, see [Browser requirements](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-system-requirements).
+- You're using a supported browser. For more information, see [Browser requirements](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-system-requirements).
 - You successfully completed [Getting started with {{site.data.keyword.knowledgestudioshort}}](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro), which covers creating a workspace, creating a type system, and adding a dictionary.
 - You successfully completed [Creating a machine learning model](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutml_intro).
-- You must have at least one user ID in either the Admin or Project Manager role. For information about user roles, see [User roles in {{site.data.keyword.knowledgestudioshort}}](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-roles).
+- You have at least one user ID in either the Admin or Project Manager role. For information about user roles, see [User roles in {{site.data.keyword.knowledgestudioshort}}](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-roles).
 
 ## Results
 {: #results}
@@ -55,7 +56,8 @@ In this lesson, you will learn how to use a machine learning model to pre-annota
 
 After you train a machine learning model, you can use it to pre-annotate new documents that you add to the corpus.
 
-> **Attention:** Do not run a pre-annotator on documents that have been annotated by humans, but not been added to the ground truth yet. If you do, all current annotations will be stripped from the documents.
+Do not run a pre-annotator on documents that have been annotated by humans, but not been added to the ground truth yet. If you do, all current annotations will be stripped from the documents.
+{: important}
 
 In this tutorial, you can add a second set of documents by using the `documents-ml.csv` file. Do not re-add the `documents-new.csv` file, since this addition would result in duplicate documents in the ground truth. Duplication causes the following problems:
 
@@ -68,7 +70,7 @@ For more information about pre-annotating documents, see [Bootstrapping annotati
 {: #wks_tutboot_ml_procedure}
 
 1. Log in to {{site.data.keyword.knowledgestudioshort}} as the administrator.
-2. Upload more documents to the workspace. You can use the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/knowledge-studio/documents-ml.csv" download>`documents-ml.csv` <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> file.
+2. Upload more documents to the workspace. You can use the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/knowledge-studio/documents-ml.csv" download>`documents-ml.csv` <img src="../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a> file.
 
     For more information about adding documents to a workspace, see [Adding documents for annotation](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-documents-for-annotation).
 

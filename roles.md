@@ -2,22 +2,23 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-08-04"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
 
 # User roles in {{site.data.keyword.knowledgestudioshort}} for {{site.data.keyword.icp4dfull_notm}}
 {: #roles}
@@ -43,7 +44,7 @@ subcollection: watson-knowledge-studio-data
 | Admin | Responsible for administrative tasks, which include managing users, resource consumption, and monthly charges. In large team settings, admins rarely participate in the model development process.
 | Project manager | Responsible for the overall organization of the workspace that she or he is assigned to. Tasks include creating the type system, managing assets, managing annotation work, evaluating the machine learning model, and deploying models. Users in this role need industry subject-matter expertise because they create the type system, teach the human annotators how to correctly apply the type system, and evaluate the model quality. |
 | Human annotator | Performs the labeling of the entity mentions and relationship mentions in the training documents that he or she is assigned to. The work is assigned to human annotators and monitored by the project manager. Human annotators may not have industry subject-matter expertise, as long as they are taught by the project manager how to correctly apply the type system. |
-{:caption="Table 1. Role descriptions" caption-side="top"}
+{: caption="Table 1. Role descriptions" caption-side="top"}
 
 ## {{site.data.keyword.knowledgestudioshort}} role permissions
 {: #permissions}
@@ -64,4 +65,4 @@ To compare the permissions of each role, see the following table. One permission
 | Export models | &checkmark; | &checkmark; |  |
 | Annotate document sets directly | &checkmark; | &checkmark; | |
 | Perform document annotation in annotation tasks | &checkmark; | &checkmark; | &checkmark; |
-{:caption="Table 2. Role permissions" caption-side="top"}
+{: caption="Table 2. Role permissions" caption-side="top"}

@@ -2,22 +2,23 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-08-04"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
 {:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:swift: .ph data-hd-programlang='swift'}
 
 # Creating a rule-based model
 {: #wks_tutrule_intro}
@@ -43,9 +44,9 @@ This tutorial should take approximately 30 minutes to finish. If you explore oth
 ## Before you begin
 {: #tcrm-pr}
 
-- You're using a supported browser. For information, see [Browser requirements](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-system-requirements).
+- You're using a supported browser. For more information, see [Browser requirements](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-system-requirements).
 - You successfully completed [Getting started with {{site.data.keyword.knowledgestudioshort}} for {{site.data.keyword.icp4dfull_notm}}](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-wks_tutintro), which covers creating a workspace, creating a type system, and adding a dictionary.
-- You must have at least one user ID in either the Admin or Project Manager role. For information about user roles, see [User roles in {{site.data.keyword.knowledgestudioshort}}](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-roles).
+- You have at least one user ID in either the Admin or Project Manager role. For more information about user roles, see [User roles in {{site.data.keyword.knowledgestudioshort}}](/docs/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-roles).
 
 ## Results
 {: #tcrm-results}
@@ -68,7 +69,7 @@ In a later lesson, you will define a class based on this dictionary. When you cr
 ### Procedure
 {: #wks_tutless_rule1_procedure}
 
-1. Download the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/knowledge-studio/dictionary-items-month.csv" download>`dictionary-items-month.csv` <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> file to your computer. This file contains dictionary terms in CSV format, suitable for uploading into a {{site.data.keyword.knowledgestudioshort}} dictionary.
+1. Download the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/knowledge-studio/dictionary-items-month.csv" download>`dictionary-items-month.csv` <img src="../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a> file to your computer. This file contains dictionary terms in CSV format, suitable for uploading into a {{site.data.keyword.knowledgestudioshort}} dictionary.
 2. Click **Assets** > **Dictionaries**.
 3. Click the **Create Dictionary** button to add a dictionary.
 4. In the **Name** field, type `Month dictionary` and click **Save** to create the dictionary. The new dictionary is created and automatically opened for editing.
@@ -90,7 +91,7 @@ For more information about adding documents, see [Adding documents for defining 
 ### Procedure
 {: #wks_tutless_rule2_procedure}
 
-1. Download the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/knowledge-studio/documents-new.csv" download>`documents-new.csv` <img src="../../icons/launch-glyph.svg" alt="External link icon" title="External link icon" class="style-scope doc-content"></a> file to your computer. This file contains example documents suitable for uploading.
+1. Download the <a target="_blank" href="https://watson-developer-cloud.github.io/doc-tutorial-downloads/knowledge-studio/documents-new.csv" download>`documents-new.csv` <img src="../icons/launch-glyph.svg" alt="External link icon" title="External link icon"></a> file to your computer. This file contains example documents suitable for uploading.
 1. Click **Rule-based Model** > **Rules**.
 1. Click the **Add a document** icon, which is next to the **Documents** page heading.
 1. Click the **Upload CSV file** tab.
@@ -255,7 +256,7 @@ For more information about defining rules, see [Defining a rule](/docs/watson-kn
 
 7. In the **Rule name** field, enter `MyDateRule` and click **Save**.
 
-    After you save the rule, it is automatically applied to the sample documents. If the `Technology - computerworld.com` document is still open in the rule editor, you will see that the `February 3, 2009` text in the document is now annotated as a mention of the RuleDate class.
+    After you save the rule, it is automatically applied to the sample documents. If the `Technology - computerworld.com` document is still open in the rule editor, the `February 3, 2009` text in the document is now annotated as a mention of the RuleDate class.
 
     ![Shows text from the "Technology - computerworld.com" document with only the text "February 3, 2009" annotated as a mention of the "RuleDate" class.](images/rule-add10.png "Shows text from the "Technology - computerworld.com" document with only the text "February 3, 2009" annotated as a mention of the "RuleDate" class.")
 
@@ -266,7 +267,7 @@ For more information about defining rules, see [Defining a rule](/docs/watson-kn
 ## Lesson 8: Creating a rule-based model
 {: #wks_tutless_rule8}
 
-In this lesson, you will learn how to create a rule-based model.
+In this lesson, you learn how to create a rule-based model.
 
 ### About this task
 {: #wks_tutless_rule8_about}
@@ -290,7 +291,8 @@ For more information about creating a rule-based model, see [Creating the rule-b
 
 1. To pre-annotate document sets or annotation sets with the rule-based model, select the **Rule-based Model** tab and click **Run this model**.
 
-   **Attention**: Run the rule-based model as a pre-annotator only on documents that were not already annotated by humans.
+   Run the rule-based model as a pre-annotator only on documents that were not already annotated by humans.
+   {: important}
 
 ## Tutorial summary
 {: #wks_tutrule_sum}

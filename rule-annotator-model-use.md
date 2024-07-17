@@ -1,14 +1,24 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-04-06"
+  years: 2019, 2020
+lastupdated: "2020-08-04"
 
 subcollection: watson-knowledge-studio-data
 
 ---
 
-{{site.data.keyword.attribute-definition-list}}
+{:shortdesc: .shortdesc}
+{:external: target="_blank" .external}
+{:deprecated: .deprecated}
+{:important: .important}
+{:note: .note}
+{:tip: .tip}
+{:preview: .preview}
+{:beta: .beta}
+{:pre: .pre}
+{:codeblock: .codeblock}
+{:screen: .screen}
 
 # Using the rule-based model
 {: #wks_rule_publish}
@@ -16,16 +26,18 @@ subcollection: watson-knowledge-studio-data
 Leverage a rule-based model that you created with {{site.data.keyword.knowledgestudioshort}} for {{site.data.keyword.icp4dfull_notm}} by making it available to other {{site.data.keyword.watson}} applications.
 {: shortdesc}
 
-**Attention**: You can deploy a rule-based model to make it available for use in these services as an [experimental](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-troubleshooting#experimental) feature.
+You can deploy a rule-based model to make it available for use in these services as an [experimental](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-troubleshooting#experimental) feature.
+{: note}
 
-You can also pre-annotate new documents with the rule-based model. See [Pre-annotating documents with the rule-based model](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_preannotrule) for details.
+You can also pre-annotate new documents with the rule-based model. For more information, see [Pre-annotating documents with the rule-based model](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-preannotation#wks_preannotrule).
 
 ## Deploying a rule-based model to IBM Watson Discovery
 {: #wks_rule_discovery}
 
 Deploy the model to enable an application that uses the {{site.data.keyword.discoveryshort}} service to use the rule-based model to find and extract entities during document enrichment.
 
-**Attention**: This is currently an [experimental](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-troubleshooting#experimental) feature of the service.
+This is currently an [experimental](/docs/services/watson-knowledge-studio-data?topic=watson-knowledge-studio-data-troubleshooting#experimental) feature of the service.
+{: note}
 
 ### Before you begin
 {: #wks_rule_discovery_prereqs}
@@ -50,7 +62,7 @@ To deploy a rule-based model to {{site.data.keyword.watson}} {{site.data.keyword
 ### What to do next
 {: #wks_rule_discovery_next}
 
-From the {{site.data.keyword.discoveryshort}} service, follow the steps to create a Machine Learning enrichment, which include uploading the PEAR file. For more details, see [Machine Learning models](/docs/discovery-data?topic=discovery-data-domain#machinelearning){: external} in the {{site.data.keyword.discoveryshort}} v2 documentation.
+To use the deployed model, you must provide the model ID when it is requested during the {{site.data.keyword.discoveryshort}} service enrichment configuration process. For more details, see the [{{site.data.keyword.discoveryshort}} service documentation](/docs/discovery-data?topic=discovery-data-machinelearning-enrichment#machinelearning-enrichment).
 
 ## Leveraging a rule-based model in IBM Watson Explorer
 {: #wks_rule_export}
