@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-04"
+lastupdated: "2024-08-16"
 
 subcollection: watson-knowledge-studio-data
 
@@ -46,7 +46,7 @@ The following cross-references are used in this glossary:
 
 - **adjudication**
 
-    An iterative process for resolving annotation conflicts by comparing the annotations added to the same document by different human annotators.
+    An iterative process for resolving annotation conflicts by comparing the annotations that are added to the same document by different human annotators.
 
 - **analysis engine**
 
